@@ -1,6 +1,7 @@
 body {
     margin: 0 auto;
     font-family: 'Montserrat', sans-serif;
+    /* height: 800px; */
 }
 *, *:before, *:after {
     box-sizing: border-box;
@@ -50,7 +51,27 @@ nav {
     height: 100%;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+}
+section {
+    padding: 0% 30% 0% 30%;
+}
+#home {
+    height: 45vh;
+    display: flex;
+    align-items: center;
+}
+#about {
+    background-color: #efefef;
+}
 .title-name {
-    /* font-weight : 500; */
+    font-weight : 500;
     font-size: 5em;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
 }
