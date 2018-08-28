@@ -2,17 +2,17 @@ body {
     margin: 0 auto;
     font-family: 'Montserrat', sans-serif;
 }
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 *, *:before, *:after {
     box-sizing: border-box;
 }
 a:link, a:visited {
     text-decoration: none;
     color: #000000;
-}
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
 }
 
 header {
@@ -50,6 +50,9 @@ nav {
     flex: 1 1;
     height: 100%;
 }
+.link:hover {
+    background-color: #00c7ca;
+  }
 
 main {
     display: flex;
@@ -72,6 +75,6 @@ section {
 }
 
 footer {
-    display: flex;
-    justify-content: center;
+    width: 100%;
+    text-align: center;
 }
