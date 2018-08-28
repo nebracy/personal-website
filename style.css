@@ -27,6 +27,9 @@ header {
 .logo {
     display: flex;
 }
+.logo img {
+    width: 45px;
+}
 nav {
     display: flex;
     flex: 1;
@@ -51,7 +54,7 @@ nav {
     height: 100%;
 }
 .link:hover {
-    background-color: #00c7ca;
+    background-color: #37c8ab;
   }
 
 main {
