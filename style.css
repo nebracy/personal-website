@@ -44,6 +44,10 @@ nav button {
     background-color: #ffffff;
     border: none;
 }
+nav button:hover {
+    color: #ffffff;
+    background-color: #37c8ab;
+}
 #nav-links {
     padding: 0;
     margin: 0;
