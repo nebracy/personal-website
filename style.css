@@ -52,6 +52,7 @@ nav {
     justify-content: center;
     align-items: center;
     flex: 1 1;
+    font-size: 1.2em;
 }
 .link a:hover {
     color: #ffffff;
