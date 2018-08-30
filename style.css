@@ -38,12 +38,16 @@ nav {
     justify-content: flex-end;
 }
 nav button {
-    display: none;
+    flex: 0 1 65px;
+    font-size: 1.5em;
+    color: #000000;
+    background-color: #ffffff;
+    border: none;
 }
 #nav-links {
     padding: 0;
     margin: 0;
-    display: flex;
+    display: none;
     list-style-type: none;
     flex: 0 1 25em;
 }
@@ -57,6 +61,29 @@ nav button {
     align-items: center;
     flex: 1 1;
     font-size: 1.2em;
+}
+@media screen and (min-width: 650px) {
+    nav button {
+        display: none;
+    }
+    #nav-links {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        list-style-type: none;
+        flex: 0 1 25em;
+    }
+    .link {
+        display: flex;
+        flex: 1 1;
+    }
+    .link a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1 1;
+        font-size: 1.2em;
+    }
 }
 .link a:hover {
     color: #ffffff;
