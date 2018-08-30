@@ -32,13 +32,17 @@ header {
 .logo img {
     width: 45px;
 }
-nav {
+.header-nav {
     display: flex;
     flex: 1;
     justify-content: flex-end;
 }
-nav button {
+nav {
+    display: flex;
     flex: 0 1 65px;
+}
+nav button {
+    flex: 0 1 70px;
     font-size: 1.5em;
     color: #000000;
     background-color: #ffffff;
@@ -48,16 +52,25 @@ nav button:hover {
     color: #ffffff;
     background-color: #37c8ab;
 }
+nav:hover #nav-links {
+    display: flex;
+    flex-direction: column;
+}
 #nav-links {
     padding: 0;
     margin: 0;
     display: none;
     list-style-type: none;
-    flex: 0 1 25em;
+    position: absolute;
+    z-index: 1;
+    right: 0px;
+    bottom: -152px;
+    width: 150px;
+    border: 1px solid #000000;
 }
 .link {
     display: flex;
-    flex: 1 1;
+    flex: 1 1 50px;
 }
 .link a {
     display: flex;
@@ -66,33 +79,28 @@ nav button:hover {
     flex: 1 1;
     font-size: 1.2em;
 }
-@media screen and (min-width: 650px) {
-    nav button {
-        display: none;
-    }
-    #nav-links {
-        padding: 0;
-        margin: 0;
-        display: flex;
-        list-style-type: none;
-        flex: 0 1 25em;
-    }
-    .link {
-        display: flex;
-        flex: 1 1;
-    }
-    .link a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex: 1 1;
-        font-size: 1.2em;
-    }
-}
 .link a:hover {
     color: #ffffff;
     background-color: #37c8ab;
   }
+
+@media screen and (min-width: 650px) {
+    nav {
+        flex: 0 1 25em;
+    }
+    nav:hover #nav-links {
+        flex-direction: row;
+    }
+    nav button {
+        display: none;
+    }
+    #nav-links {
+        display: flex;
+        flex: 0 1 25em;
+        position: static;
+        border: none;
+    }
+}
 
 /* MAIN */
 main {
