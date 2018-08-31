@@ -111,6 +111,7 @@ main {
 section {
     padding: 0% 30% 0% 30%;
 }
+
 #home {
     height: 45vh;
     display: flex;
@@ -123,6 +124,49 @@ section {
 }
 #about {
     background-color: #efefef;
+}
+
+#contact {
+    display: flex;
+    background-color: #efefef;
+}
+.c-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 475px;
+}
+.emailform {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px;
+}
+label {
+    display: none;
+}
+.field {
+    padding: 6px 10px;
+    margin: 4px 0px 17px;
+    font-size: 16px;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid #D1D1D1;
+    font-family: 'Montserrat', sans-serif;
+}
+.field:focus {
+    border: 1px solid #37c8ab;
+}
+.submit {
+    border: none;
+    background-color: #333333;
+    color: #ffffff;
+    padding: 9px 15px;
+    margin: 5px;
+    align-self: flex-end;
+    border-radius: 3px;
+    font-family: 'Montserrat', sans-serif;
+}
+.submit:hover {
+    background-color: #37c8ab;
 }
 
 /* FOOTER */
