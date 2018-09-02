@@ -146,7 +146,6 @@ section {
 .emailform {
     display: flex;
     flex-direction: column;
-    padding: 0px 10px;
 }
 label {
     display: none;
