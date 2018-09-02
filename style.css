@@ -118,7 +118,12 @@ main {
     flex: 1;
 }
 section {
-    padding: 0% 30% 0% 30%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+.section-wrap {
+    flex: 0 1 550px;
 }
 
 #home {
@@ -137,11 +142,7 @@ section {
     display: flex;
     background-color: #efefef;
 }
-.c-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex: 0 1 475px;
-}
+
 .emailform {
     display: flex;
     flex-direction: column;
