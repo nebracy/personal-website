@@ -21,6 +21,7 @@ h1 {
 h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.7em;
+    margin-bottom: 35px;
 }
 
 /* HEADER */
@@ -129,6 +130,7 @@ section {
 
 #about {
     background-color: #efefef;
+    flex: 1 1 250px;
 }
 
 #contact {
