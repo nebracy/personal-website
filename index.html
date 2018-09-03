@@ -13,10 +13,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
 <body>
-<div class="wrapper">
     <header>
-        <div class="logo"><img src="img/logo.svg" alt="website logo"></div>
         <div class="header-nav">
+            <div class="logo"><img src="img/logo.svg" alt="website logo"></div>
             <nav>
                 <button class="nav-button"><i class="fas fa-bars"></i></button>
                 <ul id="nav-links">
@@ -46,7 +45,7 @@
         <section id="contact">
             <div id="c-wrap" class="section-wrap">
               <h2>Contact Me</h2>
-              <form action="mailto:" method="post" class="emailform">  <!-- add email -->
+              <form action="mailto:?subject=Website Contact" enctype="text/plain" method="post" class="emailform">  <!-- add email -->
                 <label for="name">Name</label>
                 <input type="text" name="name" id="name" class="field" placeholder="Name" required>
                 <label for="email">Email</label>
@@ -64,6 +63,5 @@
     <footer>
         <small>&copy 2018</small>
     </footer>
-</div>
 </body>
 </html>
