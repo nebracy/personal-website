@@ -49,14 +49,14 @@ nav {
     display: flex;
     flex: 0 1 65px;
 }
-nav button {
+nav .dropdown {
     flex: 0 1 70px;
     font-size: 1.5em;
     color: #000000;
     background-color: #ffffff;
     border: none;
 }
-nav button:hover {
+nav .dropdown:hover {
     color: #ffffff;
     background-color: #37c8ab;
 }
@@ -106,7 +106,7 @@ nav:hover #nav-links {
     nav:hover #nav-links {
         flex-direction: row;
     }
-    nav button {
+    nav .dropdown {
         display: none;
     }
     #nav-links {
@@ -150,7 +150,7 @@ section {
     background-color: #efefef;
 }
 
-.emailform {
+.contact-form {
     display: flex;
     flex-direction: column;
 }
