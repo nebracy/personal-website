@@ -75,6 +75,7 @@ nav:hover #nav-links {
     bottom: -152px;
     width: 150px;
     border: 1px solid #ebebeb;
+    border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.02) 1px 1px 2px 2px;
 }
 .link {
@@ -177,12 +178,16 @@ label {
     align-self: flex-end;
     border-radius: 3px;
     font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
 }
 .submit:hover {
     background-color: #37c8ab;
 }
 .submit:active {
     background-color: #333333;
+}
+#fieldhoney {
+    display: none;
 }
 
 /* FOOTER */
