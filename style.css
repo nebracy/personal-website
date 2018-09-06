@@ -245,8 +245,34 @@ label {
 /* FOOTER */
 footer {
     width: 100%;
-    text-align: center;
+    flex: 0 1 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     color: #ffffff;
-    background-color: #37c8ab;
-    padding: 5px 0;
+    background-color: #289784;
+}
+.foot-text {
+    align-self: center;
+    font-size: 90%;
+    font-weight: 600;
+}
+.foot-text a {
+    color: #ffffff;
+}
+.foot-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.link-icons a {
+    color: #ffffff;
+    font-size: 1.25em;
+    padding: 0 5px;
+}
+.link-icons a:hover, .foot-text a:hover {
+    color: #333333;
+}
+.copyright {
+    padding-left: 10px
 }
