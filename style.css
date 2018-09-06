@@ -15,21 +15,40 @@ a:link, a:visited {
 }
 h1 {
     font-size: 5em;
-    letter-spacing: 6px;
+    letter-spacing: 4px;
     color: #ffffff;
     text-shadow: 2px 2px 4px #000000;
     font-weight: 600;
-    margin: 5px 0;
+    margin: 0px 0;
 }
 h2 {
+    font-size: 1.5em;
+    margin: 0;
+    padding:4px 0px;
+    height:45px;
+    margin-bottom:45px;
+    /* display:inline-block; */
+}
+#alt-headers {
+    height:50px;
+    overflow:hidden;
+}
+#alt-headers div:first-child {
+    animation: flip 8s linear 1.5s 1;
+    animation-fill-mode: backwards;
+}
+@keyframes flip {
+    0% {margin-top:-180px;}
+    8% {margin-top:-90px;}
+    50% {margin-top:-90px;}
+    58% {margin-top:0px;}
+    100% {margin-top:0px;}
+}
+h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.7em;
     color: #289784;
     margin-top: 12px;
-}
-h3 {
-    font-size: 1.5em;
-    margin: 0;
 }
 .fa-sm {
     font-size: 1.7em !important;
@@ -49,7 +68,6 @@ header {
     width: 100%;
     height: 4em;
     background-color: #ffffff;
-    border-bottom: 1px solid #ebebeb;
     box-shadow: rgba(0, 0, 0, 0.02) 1px 1px 2px 2px;
     z-index: 99;
 }
@@ -165,7 +183,7 @@ section {
     padding: 64px 0 0 0;
 }
 .welcome-text {
-    margin-bottom: 50px;
+    margin-bottom: 45px;
 }
 
 #about {
