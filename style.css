@@ -21,7 +21,8 @@ h1 {
 h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.7em;
-    margin-bottom: 35px;
+    color: #289784;
+    margin-top: 10px;
 }
 
 /* HEADER */
@@ -129,7 +130,7 @@ main {
 section {
     display: flex;
     justify-content: center;
-    padding: 0;
+    padding: 50px 0px;
 }
 .section-wrap {
     flex: 0 1 550px;
@@ -139,22 +140,29 @@ section {
     height: 45vh;
     display: flex;
     align-items: flex-end;
-    background-color: #ffffff;
+    background-color: #efefef;
+    padding: 64px 0 0 0;
 }
 
 #about {
-    background-color: #efefef;
-    flex: 1 1 250px;
+    background-color: #ffffff;
+    flex: 1 1;
 }
 
 #contact {
     display: flex;
     background-color: #efefef;
 }
-
+#c-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
 .contact-form {
     display: flex;
     flex-direction: column;
+    padding-top: 30px;
+    width: 80%;
 }
 label {
     display: none;
@@ -202,5 +210,7 @@ label {
 footer {
     width: 100%;
     text-align: center;
-    background-color: #ffffff;
+    color: #ffffff;
+    background-color: #37c8ab;
+    padding: 5px 0;
 }
