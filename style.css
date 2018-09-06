@@ -24,9 +24,10 @@ h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.7em;
     color: #289784;
-    margin-top: 10px;
+    margin-top: 12px;
 }
-.fa-circle {
+.fa-sm {
+    font-size: 1.7em !important;
     color: #37c8ab;
 }
 hr {
@@ -205,7 +206,7 @@ section {
 .contact-form {
     display: flex;
     flex-direction: column;
-    padding-top: 30px;
+    padding-top: 25px;
     width: 85%;
 }
 label {
