@@ -200,7 +200,7 @@ section {
     display: flex;
     flex-direction: column;
     padding-top: 30px;
-    width: 80%;
+    width: 85%;
 }
 label {
     display: none;
