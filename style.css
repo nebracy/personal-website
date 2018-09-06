@@ -246,7 +246,7 @@ label {
 /* FOOTER */
 footer {
     width: 100%;
-    flex: 0 1 65px;
+    flex: 0 1 60px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -258,7 +258,7 @@ footer {
     font-size: 90%;
     font-weight: 600;
 }
-.foot-text a {
+.site-github a {
     color: #ffffff;
 }
 .foot-info {
@@ -271,9 +271,9 @@ footer {
     font-size: 1.25em;
     padding: 0 5px;
 }
-.link-icons a:hover, .foot-text a:hover {
+.link-icons a:hover, .site-github a:hover {
     color: #333333;
 }
 .copyright {
-    padding-left: 10px
+    padding-left: 15px
 }
