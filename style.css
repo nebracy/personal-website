@@ -49,7 +49,7 @@ header {
     display: flex;
 }
 .logo img {
-    width: 45px;
+    width: 42px;
 }
 .header-nav {
     display: flex;
@@ -152,7 +152,8 @@ section {
     height: 45vh;
     display: flex;
     align-items: flex-end;
-    background-color: #efefef;
+    /* background-color: #37c8ab; */
+    background-image: linear-gradient(-90deg, #35cece, #37c8ab);
     padding: 64px 0 0 0;
 }
 
