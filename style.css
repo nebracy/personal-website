@@ -23,10 +23,12 @@ h1 {
 }
 h2 {
     font-size: 1.5em;
+    font-weight: 500;
     margin: 0;
-    padding:4px 0px;
+    padding:4px 6px;
     height:45px;
     margin-bottom:45px;
+    text-shadow: 2px 2px 4px #289784;
 }
 #alt-headers {
     height:50px;
