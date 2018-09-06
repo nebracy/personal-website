@@ -19,12 +19,17 @@ h1 {
     color: #ffffff;
     text-shadow: 2px 2px 4px #000000;
     font-weight: 600;
+    margin: 5px 0;
 }
 h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.7em;
     color: #289784;
     margin-top: 12px;
+}
+h3 {
+    font-size: 1.5em;
+    margin: 0;
 }
 .fa-sm {
     font-size: 1.7em !important;
@@ -160,7 +165,7 @@ section {
     padding: 64px 0 0 0;
 }
 .welcome-text {
-    
+    margin-bottom: 50px;
 }
 
 #about {
