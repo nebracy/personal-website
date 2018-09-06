@@ -27,14 +27,13 @@ h2 {
     padding:4px 0px;
     height:45px;
     margin-bottom:45px;
-    /* display:inline-block; */
 }
 #alt-headers {
     height:50px;
     overflow:hidden;
 }
 #alt-headers div:first-child {
-    animation: flip 8s linear 1.5s 1;
+    animation: flip 8s ease-out 2s 1;
     animation-fill-mode: backwards;
 }
 @keyframes flip {
