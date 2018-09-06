@@ -91,11 +91,11 @@ nav:hover #nav-links {
 }
 .link a {
     display: flex;
-    justify-content: center;
     align-items: center;
     flex: 1 1;
     font-size: 1.1em;
     background-color: #ffffff;
+    padding-left: 20px;
 }
 .link a:hover {
     color: #ffffff;
@@ -122,6 +122,10 @@ nav:hover #nav-links {
         position: static;
         border: none;
         box-shadow: none;
+    }
+    .link a {
+        justify-content: center;
+        padding-left: 0;
     }
 }
 
@@ -219,6 +223,7 @@ label {
     border-radius: 3px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
+    text-transform: uppercase;
 }
 .submit:hover {
     background-color: #37c8ab;
