@@ -26,7 +26,10 @@ h2 {
 }
 .fa-circle {
     color: #37c8ab;
-    /* box-shadow: 1px 1px 4px #000000; */
+}
+hr {
+    border: 0;
+    border-top: 1px solid #eee;
 }
 
 /* HEADER */
@@ -139,7 +142,7 @@ main {
 section {
     display: flex;
     justify-content: center;
-    padding: 50px 0px;
+    padding: 40px 0px;
 }
 .section-wrap {
     flex: 0 1 550px;
@@ -230,6 +233,7 @@ label {
     border-radius: 2px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
+    font-size: 80%;
     text-transform: uppercase;
     box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
 }
