@@ -178,7 +178,6 @@ section {
     height: 45vh;
     display: flex;
     align-items: flex-end;
-    /* background-color: #37c8ab; */
     background-image: linear-gradient(-90deg, #35cece, #37c8ab);
     padding: 64px 0 0 0;
 }
