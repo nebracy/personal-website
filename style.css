@@ -19,7 +19,7 @@ h1 {
     color: #ffffff;
     text-shadow: 2px 2px 4px #000000;
     font-weight: 600;
-    margin: 0px 0;
+    margin: 0 0;
 }
 h2 {
     font-size: 1.5em;
@@ -35,13 +35,15 @@ h2 {
     overflow:hidden;
 }
 #alt-headers div:first-child {
-    animation: flip 8s ease-out 2s 1;
-    animation-fill-mode: backwards;
+    -webkit-animation: flip 8s ease-out 2s 1;
+            animation: flip 8s ease-out 2s 1;
+    -webkit-animation-fill-mode: backwards;
+            animation-fill-mode: backwards;
 }
 @keyframes flip {
     0% {margin-top:-180px;}
     8%, 50% {margin-top:-90px;}
-    58%, 100% {margin-top:0px;}
+    58%, 100% {margin-top:0;}
 }
 h3 {
     font-family: 'Montserrat', sans-serif;
@@ -74,7 +76,7 @@ header {
     display: flex;
 }
 .logo img {
-    width: 42px;
+    width: 44px;
 }
 .header-nav {
     display: flex;
@@ -107,7 +109,7 @@ nav:hover #nav-links {
     list-style-type: none;
     position: absolute;
     z-index: 1;
-    right: 0px;
+    right: 0;
     bottom: -152px;
     width: 150px;
     border: 1px solid #ebebeb;
@@ -167,7 +169,7 @@ main {
 section {
     display: flex;
     justify-content: center;
-    padding: 40px 0px;
+    padding: 40px 0;
 }
 .section-wrap {
     flex: 0 1 600px;
@@ -194,7 +196,6 @@ section {
     flex-direction: column;
 }
 .mytools {
-    /* background-color: #289784; */
     color: #289784;
     flex: 1 1;
     display: flex;
@@ -239,9 +240,8 @@ label {
 }
 .field {
     padding: 10px 10px;
-    margin: 4px 0px 17px;
+    margin: 4px 0 17px;
     font-size: 16px;
-    outline: none;
     border-radius: 3px;
     border: 1px solid #D1D1D1;
     font-family: 'Montserrat', sans-serif;
@@ -249,8 +249,18 @@ label {
 }
 .field:focus {
     border: 1px solid #37c8ab;
+    outline: none;
 }
 
+::-webkit-input-placeholder {
+    color: #289784;
+}
+:-ms-input-placeholder {
+    color: #289784;
+}
+::-ms-input-placeholder {
+    color: #289784;
+}
 ::placeholder {
     color: #289784;
 }
