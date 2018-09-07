@@ -170,7 +170,7 @@ section {
     padding: 40px 0px;
 }
 .section-wrap {
-    flex: 0 1 550px;
+    flex: 0 1 600px;
     text-align: center;
 }
 
@@ -210,7 +210,7 @@ section {
     text-align: center;
     font-size: 80%;
 }
-@media screen and (min-width: 450px) {
+@media screen and (min-width: 550px) {
     .section-wrap {
         text-align: left;
     }
@@ -232,7 +232,7 @@ section {
     display: flex;
     flex-direction: column;
     padding-top: 25px;
-    width: 85%;
+    width: 80%;
 }
 label {
     display: none;
@@ -259,7 +259,7 @@ label {
     border: none;
     background-color: #333333;
     color: #ffffff;
-    padding: 10px 30px;
+    padding: 10px 25px;
     margin: 5px;
     align-self: flex-end;
     border-radius: 2px;
