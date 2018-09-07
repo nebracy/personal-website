@@ -171,6 +171,7 @@ section {
 }
 .section-wrap {
     flex: 0 1 550px;
+    text-align: center;
 }
 
 #home {
@@ -211,6 +212,9 @@ section {
     font-size: 80%;
 }
 @media screen and (min-width: 450px) {
+    .section-wrap {
+        text-align: left;
+    }
     .content {
         flex-direction: row;
     }
