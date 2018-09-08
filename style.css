@@ -163,8 +163,6 @@ nav ul {
 
 /* MAIN */
 main {
-    display: flex;
-    flex-direction: column;
     flex: 1;
 }
 section {
@@ -190,10 +188,7 @@ section {
 .about {
     flex: 1 1;
 }
-.content {
-    display: flex;
-    flex-direction: column;
-}
+
 .mytools {
     color: #289784;
     flex: 1 1;
