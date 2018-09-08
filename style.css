@@ -5,6 +5,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     color: #333333;
+    background-color: #ffffff;
 }
 *, *:before, *:after {
     box-sizing: border-box;
@@ -176,9 +177,8 @@ section {
     text-align: center;
 }
 
-#home {
+.home {
     height: 45vh;
-    display: flex;
     align-items: flex-end;
     background-image: linear-gradient(-90deg, #35cece, #37c8ab);
     padding: 64px 0 0 0;
@@ -187,8 +187,7 @@ section {
     margin-bottom: 45px;
 }
 
-#about {
-    background-color: #ffffff;
+.about {
     flex: 1 1;
 }
 .content {
@@ -220,8 +219,7 @@ section {
     }
 }
 
-#contact {
-    display: flex;
+.contact {
     background-color: #efefef;
 }
 .col-center {
