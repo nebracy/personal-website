@@ -285,7 +285,7 @@ label {
 .submit:active {
     background-color: #333333;
 }
-[name=_gotcha] {
+.hide {
     display: none;
 }
 
