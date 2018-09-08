@@ -30,11 +30,11 @@ h2 {
     margin-bottom:45px;
     text-shadow: 2px 2px 4px #289784;
 }
-#alt-headers {
+h1 + div {
     height:50px;
     overflow:hidden;
 }
-#alt-headers div:first-child {
+h1 + div div:first-child {
     -webkit-animation: flip 8s ease-out 2s 1;
             animation: flip 8s ease-out 2s 1;
     -webkit-animation-fill-mode: backwards;
@@ -98,11 +98,11 @@ nav .dropdown:hover {
     color: #ffffff;
     background-color: #37c8ab;
 }
-nav:hover #nav-links {
+nav:hover ul {
     display: flex;
     flex-direction: column;
 }
-#nav-links {
+nav ul {
     padding: 0;
     margin: 0;
     display: none;
@@ -141,13 +141,13 @@ nav:hover #nav-links {
     nav {
         flex: 0 1 25em;
     }
-    nav:hover #nav-links {
+    nav:hover ul {
         flex-direction: row;
     }
     nav .dropdown {
         display: none;
     }
-    #nav-links {
+    nav ul {
         display: flex;
         flex: 0 1 25em;
         position: static;
@@ -285,7 +285,7 @@ label {
 .submit:active {
     background-color: #333333;
 }
-#fieldhoney {
+[name=_gotcha] {
     display: none;
 }
 
