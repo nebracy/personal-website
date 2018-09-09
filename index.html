@@ -28,10 +28,10 @@
     </header>
     <main>
         <section id="home" class="home">
-            <div class="section-wrap">
-                <div class="welcome-text">
-                    <h1 class="title-name">Hello</h1>
-                    <div id=alt-headers>
+            <div class="section__wrap">
+                <div class="home__text">
+                    <h1>Hello</h1>
+                    <div class="home__subheaders">
                         <div><h2>I'm Nicole</h2></div>
                         <div><h2>Welcome to my website</h2></div>
                     </div>
@@ -39,44 +39,44 @@
             </div>
         </section>
         <section id="about" class="about">
-            <div class="section-wrap">
+            <div class="section__wrap">
                 <span class="fa-stack fa-sm">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="far fa-stack-1x fa-inverse fa-user"></i>
                 </span>
-                <h3 class="section-title">About Me</h3>
+                <h3>About Me</h3>
                 <hr>
-                <div class="content">
-                    <div class="about-me">
+                <div class="about__content">
+                    <div>
                         <p>Welcome! I built this site using HTML and CSS to showcase finished Python projects, practice my web development skills, and show off what I’m currently working on. Strengthening my skills in Python, and venturing into JavaScript is actually one of my primary goals for the near future. I also have some familiarity with tools such as Git for version control and Ansible.</p>
                         <p>I'm always eager to gain hands-on experience and try new tools so I can apply them to later personal projects. This website is currently static, but I’m dedicated to learning Python frameworks such as Django or Flask in the very near future, so please check back soon!</p>
                     </div>
-                    <div class="mytools">
-                        <span><i class="fab fa-html5 tool-icon"></i><div class="tool-text">HTML5</div></span>
-                        <span><i class="fab fa-css3-alt tool-icon"></i><div class="tool-text">CSS3</div></span>
-                        <span><i class="fab fa-python tool-icon"></i><div class="tool-text">Python</div></span>
+                    <div class="about__tools">
+                        <span><i class="fab fa-html5 about__icon"></i><div class="about__icon-text">HTML5</div></span>
+                        <span><i class="fab fa-css3-alt about__icon"></i><div class="about__icon-text">CSS3</div></span>
+                        <span><i class="fab fa-python about__icon"></i><div class="about__icon-text">Python</div></span>
                     </div>
                 </div>
             </div>
         </section>
         <section id="contact" class="contact">
-            <div class="section-wrap col-center">
+            <div class="section__wrap section__wrap--col">
                 <span class="fa-stack fa-sm">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="far fa-envelope-open fa-stack-1x fa-inverse"></i>
                 </span>
                 <h3>Contact Me</h3>
-                <form action="https://formspree.io/contact@nebracy.com" method="post" class="contact-form">
+                <form action="https://formspree.io/contact@nebracy.com" method="post" class="contact__form form">
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="name" class="field" placeholder="Name" required>
+                    <input type="text" name="name" id="name" class="form__field" placeholder="Name" required>
                     <label for="email">Email</label>
-                    <input type="email" name="email" id="email" class="field" placeholder="Email" required>
+                    <input type="email" name="email" id="email" class="form__field" placeholder="Email" required>
                     <label for="subj">Subject</label>
-                    <input type="text" name="subject" id="subj" class="field" placeholder="Subject" required>
+                    <input type="text" name="subject" id="subj" class="form__field" placeholder="Subject" required>
                     <label for="msg">Message</label>
-                    <textarea name="message" id="msg" class="field" placeholder="Message" rows="13"></textarea>
-                    <input type="text" name="_gotcha" class="hide">
-                    <input type="submit" value="Send  &#xf054;" class="submit">
+                    <textarea name="message" id="msg" class="form__field" placeholder="Message" rows="13"></textarea>
+                    <input type="text" name="_gotcha" class="form__field form__field--hide">
+                    <input type="submit" value="Send  &#xf054;" class="form__submit">
                 </form>
             </div>
          </section>
