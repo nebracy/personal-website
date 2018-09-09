@@ -287,33 +287,24 @@ footer {
     width: 100%;
     flex: 0 1 60px;
     display: flex;
-    flex-direction: column;
     justify-content: space-evenly;
     color: #ffffff;
     background-color: #289784;
 }
-.site-github {
-    align-self: center;
-    font-size: 90%;
-    font-weight: 600;
-}
-.site-github a {
-    color: #ffffff;
-}
-.foot-info {
+.foot__wrap {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
 }
-.link-icons a {
+.foot__links {
+    align-self: center;
+}
+.foot__links a {
     color: #ffffff;
     font-size: 1.25em;
     padding: 0 5px;
 }
-.link-icons a:hover, .site-github a:hover {
+.foot__links a:hover, .foot__site-github a:hover {
     color: #333333;
-}
-.copyright {
-    padding-left: 15px
 }
