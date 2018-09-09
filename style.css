@@ -31,21 +31,6 @@ h2 {
     margin-bottom:45px;
     text-shadow: 2px 2px 4px #289784;
 }
-h1 + div {
-    height:50px;
-    overflow:hidden;
-}
-h1 + div div:first-child {
-    -webkit-animation: flip 8s ease-out 2s 1;
-            animation: flip 8s ease-out 2s 1;
-    -webkit-animation-fill-mode: backwards;
-            animation-fill-mode: backwards;
-}
-@keyframes flip {
-    0% {margin-top:-180px;}
-    8%, 50% {margin-top:-90px;}
-    58%, 100% {margin-top:0;}
-}
 h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.7em;
@@ -183,6 +168,21 @@ section {
 }
 .welcome-text {
     margin-bottom: 45px;
+}
+h1 + div {
+    height:50px;
+    overflow:hidden;
+}
+h1 + div div:first-child {
+    -webkit-animation: flip 8s ease-out 2s 1;
+            animation: flip 8s ease-out 2s 1;
+    -webkit-animation-fill-mode: backwards;
+            animation-fill-mode: backwards;
+}
+@keyframes flip {
+    0% {margin-top:-180px;}
+    8%, 50% {margin-top:-90px;}
+    58%, 100% {margin-top:0;}
 }
 
 .about {
