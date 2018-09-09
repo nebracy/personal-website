@@ -40,6 +40,7 @@ h3 {
 .fa-sm {
     font-size: 1.7em !important;
     color: #37c8ab;
+    text-shadow: 0px 0.5px 0.5px #289784;
 }
 hr {
     border: 0;
