@@ -73,37 +73,37 @@ header {
     box-shadow: rgba(0, 0, 0, 0.02) 1px 1px 2px 2px;
     z-index: 99;
 }
-.logo {
-    display: flex;
-}
-.logo img {
-    width: 44px;
-}
-.header-nav {
+.header__wrap {
     display: flex;
     flex: 0 1 95%;
     justify-content: space-between;
 }
-nav {
+.logo {
+    display: flex;
+}
+.logo__img {
+    width: 44px;
+}
+.nav {
     display: flex;
     flex: 0 1 65px;
 }
-nav .dropdown {
+.nav__btn {
     flex: 0 1 70px;
     font-size: 1.5em;
     color: #000000;
     background-color: #ffffff;
     border: none;
 }
-nav .dropdown:hover {
+.nav__btn:hover {
     color: #ffffff;
     background-color: #37c8ab;
 }
-nav:hover ul {
+.nav:hover .nav__menu {
     display: flex;
     flex-direction: column;
 }
-nav ul {
+.nav__menu {
     padding: 0;
     margin: 0;
     display: none;
@@ -117,11 +117,11 @@ nav ul {
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.02) 1px 1px 2px 2px;
 }
-.link {
+.nav__menu-item {
     display: flex;
     flex: 1 1 50px;
 }
-.link a {
+.nav__link {
     display: flex;
     align-items: center;
     flex: 1 1;
@@ -129,33 +129,33 @@ nav ul {
     background-color: #ffffff;
     padding-left: 20px;
 }
-.link a:hover {
+.nav__link:hover {
     color: #ffffff;
     background-color: #37c8ab;
   }
-.link a:active {
+.nav__link:active {
     color: #000000;
     background-color: #ebebeb;
 }
 
 @media screen and (min-width: 650px) {
-    nav {
+    .nav {
         flex: 0 1 25em;
     }
-    nav:hover ul {
+    .nav:hover .nav__menu {
         flex-direction: row;
     }
-    nav .dropdown {
+    .nav__btn {
         display: none;
     }
-    nav ul {
+    .nav__menu {
         display: flex;
         flex: 0 1 25em;
         position: static;
         border: none;
         box-shadow: none;
     }
-    .link a {
+    .nav__link {
         justify-content: center;
         padding-left: 0;
     }
