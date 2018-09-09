@@ -8,7 +8,9 @@ function toggleDropdown() {
     }
 }
 
-function screenSize(width) {
+function screenSize() {
+    var width = window.matchMedia("(min-width: 650px)");
+    width.addListener(screenSize);
     if (width.matches) {     // Greater than 650px
         var element = document.getElementById("dropdown");
         if (element.classList.contains("nav__menu--show")) {
@@ -17,5 +19,4 @@ function screenSize(width) {
     }
 }
 
-var width = window.matchMedia("(min-width: 650px)");
-width.addListener(screenSize);
+screenSize()
