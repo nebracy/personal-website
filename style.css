@@ -144,9 +144,6 @@ header {
         border: none;
         box-shadow: none;
     }
-    .nav__menu--show {
-        flex-direction: row;
-    }
     .nav__link {
         justify-content: center;
         padding-left: 0;
