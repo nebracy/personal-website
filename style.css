@@ -35,7 +35,7 @@ h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.7em;
     color: #289784;
-    margin-top: 12px;
+    margin-top: 13px;
 }
 .fa-sm {
     font-size: 1.7em !important;
@@ -191,6 +191,9 @@ section {
     58%, 100% {margin-top:0;}
 }
 
+.about__text {
+    line-height: 1.3em;
+}
 .about__tools {
     color: #289784;
     flex: 1 1;
@@ -223,9 +226,20 @@ section {
 
 .contact {
     background-color: #efefef;
+    line-height: 1.3em;
+}
+b.green {
+    color: #289784;
+}
+.contact__text {
+    text-align: center;
+    width: 80%;
+}
+.contact__text p {
+    margin-top: 0;
 }
 .contact__form {
-    padding-top: 25px;
+    padding-top: 30px;
     width: 80%;
 }
 form {
