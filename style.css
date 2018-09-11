@@ -199,6 +199,10 @@ section {
     align-items: center;
     flex-wrap: wrap;
 }
+.about__icon-set {
+    display: flex;
+    flex-direction: column;
+}
 .about__icon {
     font-size: 3em;
     padding: 20px 20px 10px 20px;
