@@ -1,6 +1,6 @@
 body {
     margin: 0 auto;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito', sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -13,6 +13,9 @@ body {
 a:link, a:visited {
     text-decoration: none;
     color: #333333;
+}
+h1, h2, h3, nav, b.green {
+    font-family: 'Montserrat', sans-serif;
 }
 h1 {
     font-size: 5em;
@@ -32,7 +35,6 @@ h2 {
     text-shadow: 2px 2px 4px #289784;
 }
 h3 {
-    font-family: 'Montserrat', sans-serif;
     font-size: 1.7em;
     color: #289784;
     margin-top: 13px;
@@ -192,7 +194,7 @@ section {
 }
 
 .about__text {
-    line-height: 1.3em;
+    line-height: 1.4em;
 }
 .about__tools {
     color: #289784;
@@ -226,10 +228,11 @@ section {
 
 .contact {
     background-color: #efefef;
-    line-height: 1.3em;
+    line-height: 1.4em;
 }
 b.green {
     color: #289784;
+    font-size: 0.95em;
 }
 .contact__text {
     text-align: center;
@@ -255,8 +258,7 @@ label {
     font-size: 16px;
     border-radius: 3px;
     border: 1px solid #D1D1D1;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 14px;
+    font-family: 'Nunito', sans-serif;
 }
 .form__field--hide {
     display: none;
