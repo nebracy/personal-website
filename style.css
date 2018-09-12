@@ -48,6 +48,11 @@ hr {
     border: 0;
     border-top: 1px solid #eee;
 }
+b.green {
+    color: #289784;
+    font-size: 1em;
+}
+
 
 /* HEADER */
 header {
@@ -129,28 +134,6 @@ header {
     background-color: #ebebeb;
 }
 
-@media screen and (min-width: 650px) {
-    .nav {
-        flex: 0 1 25em;
-    }
-    .nav:hover .nav__menu {
-        flex-direction: row;
-    }
-    .nav__btn {
-        display: none;
-    }
-    .nav__menu {
-        display: flex;
-        flex: 0 1 25em;
-        position: static;
-        border: none;
-        box-shadow: none;
-    }
-    .nav__link {
-        justify-content: center;
-        padding-left: 0;
-    }
-}
 
 /* MAIN */
 section {
@@ -159,13 +142,17 @@ section {
     padding: 40px 0;
 }
 .section__wrap {
-    flex: 0 1 600px;
+    flex: 0 1 650px;
     text-align: center;
 }
 .section__wrap--col {
     display: flex;
     flex-direction: column;
     align-items: center; 
+}
+.text {
+    line-height: 1.4em;
+    font-size: 16.5px;
 }
 
 .home {
@@ -193,9 +180,6 @@ section {
     58%, 100% {margin-top:0;}
 }
 
-.about__text {
-    line-height: 1.4em;
-}
 .about__tools {
     color: #289784;
     flex: 1 1;
@@ -216,23 +200,9 @@ section {
     text-align: center;
     font-size: 80%;
 }
-@media screen and (min-width: 550px) {
-    .section__wrap {
-        text-align: left;
-    }
-    .about__content {
-        display: flex;
-        flex-direction: row;
-    }
-}
 
 .contact {
     background-color: #efefef;
-    line-height: 1.4em;
-}
-b.green {
-    color: #289784;
-    font-size: 0.95em;
 }
 .contact__text {
     text-align: center;
@@ -267,7 +237,6 @@ label {
     border: 1px solid #37c8ab;
     outline: none;
 }
-
 ::-webkit-input-placeholder {
     color: #289784;
 }
@@ -280,7 +249,6 @@ label {
 ::placeholder {
     color: #289784;
 }
-
 .form__submit {
     border: none;
     background-color: #333333;
@@ -301,6 +269,7 @@ label {
 .form__submit:active {
     background-color: #333333;
 }
+
 
 /* FOOTER */
 footer {
@@ -327,4 +296,34 @@ footer {
 }
 .foot__links a:hover, .foot__site-github a:hover {
     color: #333333;
+}
+
+@media screen and (min-width: 650px) {
+    .nav {
+        flex: 0 1 25em;
+    }
+    .nav:hover .nav__menu {
+        flex-direction: row;
+    }
+    .nav__btn {
+        display: none;
+    }
+    .nav__menu {
+        display: flex;
+        flex: 0 1 25em;
+        position: static;
+        border: none;
+        box-shadow: none;
+    }
+    .nav__link {
+        justify-content: center;
+        padding-left: 0;
+    }
+    .section__wrap {
+        text-align: left;
+    }
+    .about__content {
+        display: flex;
+        flex-direction: row;
+    }
 }
