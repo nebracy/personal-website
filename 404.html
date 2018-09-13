@@ -77,6 +77,36 @@
             color: #ffffff;
             background-color: #333333;
         }
+        @media screen and (max-width: 450px) {
+            h1 {
+                font-size: 42vw;
+            }
+            h2 {
+                font-size: 5.5vw;
+            }
+            .content__button {
+                flex: 0 1;
+            }
+            .content {
+                justify-content: space-evenly;
+            }
+            .button {
+                font-size: 14px;
+                font-weight: 600;
+                height: inherit;
+                width: inherit;
+                box-shadow: none;
+            }
+            .button, .button:hover, .button:active {
+                background-color: initial;
+                border: none;
+            }
+        }
+        @media screen and (max-width: 275px) {
+            h2 {
+                font-size: 15.5px;
+            }
+        }
     </style>
 </head>
 <body>
