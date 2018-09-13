@@ -156,7 +156,7 @@ section {
 }
 
 .home {
-    height: 45vh;
+    min-height: 45vh;
     align-items: flex-end;
     background-image: linear-gradient(-90deg, #35cece, #37c8ab);
     padding: 64px 0 0 0;
