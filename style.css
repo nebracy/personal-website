@@ -180,6 +180,12 @@ section {
     58%, 100% {margin-top:0;}
 }
 
+.about__header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 210px;
+}
 .about__tools {
     color: #289784;
     flex: 1 1;
