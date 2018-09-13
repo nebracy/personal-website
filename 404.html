@@ -6,7 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet">
-    <style></style>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 auto;
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            color: #333333;
+            background-image: linear-gradient(0deg, #35cece, #37c8ab);
+        }
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+        main {
+            max-height: 500px;
+            flex: 1 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            max-height: 360px;
+            flex: 1 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 12em;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        h2 {
+            margin: 0;
+            font-size: 1.6em;
+            text-shadow: 2px 2px 4px #289784;
+            text-transform: uppercase;
+        }
+        .content__button {
+            flex: 1 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        .button {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 42px;
+            width: 193px;
+            color: #ffffff;
+            font-size: 90%;
+            text-decoration: none;
+            background-color: #333333;
+            border: 1px solid #333333;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+        }
+        .button:hover {
+            font-weight: 600;
+            color: #333333;
+            background-color: transparent;
+            border: 2px solid #333333;
+        }
+        .button:active {
+            color: #ffffff;
+            background-color: #333333;
+        }
+    </style>
 </head>
 <body>
     <main>
