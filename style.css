@@ -182,9 +182,9 @@ section {
 
 .about__header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
-    max-width: 210px;
+    max-width: 225px;
 }
 .about__tools {
     color: #289784;
