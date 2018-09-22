@@ -293,7 +293,7 @@ label {
 /* FOOTER */
 footer {
     width: 100%;
-    flex: 0 1 60px;
+    min-height: 65px;
     display: flex;
     justify-content: space-evenly;
     color: #ffffff;
@@ -303,18 +303,20 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-wrap: wrap;
 }
 .foot__links {
     align-self: center;
 }
 .foot__links a {
     color: #ffffff;
-    font-size: 1.25em;
-    padding: 0 5px;
+    font-size: 1.4em;
+    padding: 5px 12px;
 }
 .foot__links a:hover, .foot__site-github a:hover {
     color: #333333;
+}
+.foot__copyright {
+    align-self: center;
 }
 
 @media screen and (min-width: 650px) {
