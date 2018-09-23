@@ -295,7 +295,7 @@ footer {
     width: 100%;
     min-height: 65px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     color: #ffffff;
     background-color: #289784;
 }
