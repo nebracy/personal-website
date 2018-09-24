@@ -48,6 +48,7 @@ hr {
     border: 0;
     border-top: 1px solid #eee;
     margin: 8px 0 0 0;
+    width: 100%;
 }
 b.green {
     color: #289784;
@@ -148,11 +149,9 @@ section {
 .section__wrap {
     display: flex;
     flex-direction: column;
+    align-items: center;
     flex: 0 1 650px;
     text-align: center;
-}
-.section__wrap--center {
-    align-items: center; 
 }
 .text {
     line-height: 1.4em;
@@ -198,6 +197,7 @@ section {
     justify-content: space-between;
     flex-wrap: wrap;
     max-width: 210px;
+    width: 100%;
 }
 .about__content {
     display: flex;
@@ -347,6 +347,10 @@ footer {
     }
     .section__wrap {
         text-align: left;
+        align-items: stretch;
+    }
+    .section__wrap--center {
+        align-items: center; 
     }
     .about__content {
         flex-direction: row;
