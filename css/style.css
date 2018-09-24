@@ -110,7 +110,6 @@ header {
     bottom: -152px;
     width: 150px;
     border: 1px solid #ebebeb;
-    border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.02) 1px 1px 2px 2px;
 }
 .nav__menu--show {
