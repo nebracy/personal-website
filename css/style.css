@@ -198,6 +198,10 @@ section {
     flex-wrap: wrap;
     max-width: 210px;
 }
+.about__content {
+    display: flex;
+    flex-direction: column;
+}
 .about__tools {
     color: #289784;
     flex: 1 1;
@@ -344,7 +348,6 @@ footer {
         text-align: left;
     }
     .about__content {
-        display: flex;
         flex-direction: row;
     }
 }
