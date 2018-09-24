@@ -47,6 +47,7 @@ h3 {
 hr {
     border: 0;
     border-top: 1px solid #eee;
+    margin: 8px 0 0 0;
 }
 b.green {
     color: #289784;
@@ -145,12 +146,12 @@ section {
     padding: 40px 0;
 }
 .section__wrap {
+    display: flex;
+    flex-direction: column;
     flex: 0 1 650px;
     text-align: center;
 }
-.section__wrap--col {
-    display: flex;
-    flex-direction: column;
+.section__wrap--center {
     align-items: center; 
 }
 .text {
