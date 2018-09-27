@@ -275,13 +275,22 @@ label {
     color: #289784;
 }
 .form__submit {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.form__alert {
+    color: #09c738;
+    font-weight: 600;
+    margin-right: 30px;
+}
+.form__submit-btn {
     border: none;
     background-color: #333333;
     transition-duration: 0.2s;
     color: #ffffff;
     padding: 10px 25px;
     margin: 5px;
-    align-self: flex-end;
     border-radius: 2px;
     font-family: 'Montserrat', "Font Awesome 5 Free", sans-serif;
     font-weight: 600;
@@ -289,10 +298,10 @@ label {
     text-transform: uppercase;
     box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
 }
-.form__submit:hover {
+.form__submit-btn:hover {
     background-color: #37c8ab;
 }
-.form__submit:active {
+.form__submit-btn:active {
     background-color: #333333;
 }
 
