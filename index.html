@@ -75,14 +75,22 @@
                     <p>Thanks for visiting my website!<br>You can reach me directly at <b class="green">contact@nebracy.com</b> or by filling out the form below.</p>
                 </div>
                 <form action="https://formspree.io/contact@nebracy.com" method="post" class="contact__form form">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" id="name" class="form__field" placeholder="Name" required>
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email" class="form__field" placeholder="Email" required>
-                    <label for="subj">Subject</label>
-                    <input type="text" name="subject" id="subj" class="form__field" placeholder="Subject" required>
-                    <label for="msg">Message</label>
-                    <textarea name="message" id="msg" class="form__field" placeholder="Message" rows="13"></textarea>
+                    <div class="form__set">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" class="form__field" placeholder="Name" required>
+                    </div> 
+                    <div class="form__set">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" class="form__field" placeholder="Email" required>
+                    </div>
+                    <div class="form__set">
+                        <label for="subj">Subject</label>
+                        <input type="text" name="subject" id="subj" class="form__field" placeholder="Subject" required>
+                    </div>
+                    <div class="form__set">
+                        <label for="msg">Message</label>
+                        <textarea name="message" id="msg" class="form__field" placeholder="Message" rows="13"></textarea>
+                    </div>
                     <input type="text" name="_gotcha" class="form__field form__field--hide">
                     <div class="form__submit">
                         <input type="submit" value="Send  &#xf054;" class="form__submit-btn">

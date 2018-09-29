@@ -247,9 +247,12 @@ form {
 label {
     display: none;
 }
-.form__field {
-    padding: 10px 10px;
+.form__set {
     margin: 4px 0 17px;
+}
+.form__field {
+    width: 100%;
+    padding: 10px 10px;
     font-size: 16px;
     border-radius: 3px;
     border: 1px solid #D1D1D1;
