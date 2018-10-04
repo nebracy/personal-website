@@ -3,22 +3,22 @@
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125584979-1"></script>
-    <script src="static/js/google-analytics.js"></script>
+    <script src="{{ url_for('static', filename='js/google-analytics.js') }}"></script>
     <meta charset="UTF-8">
     <title>Nicole Bracy | Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"> 
     <meta name="description" content="Nicole Bracy's personal website and sandbox showcasing a portfolio of mostly Python web apps and other projects.">
     <meta name="author" content="Nicole Bracy">
     <meta name="keywords" content="Nicole Bracy, resume, personal website, portfolio, python, html, css, javascript, ansible, linux">
-    <link rel="shortcut icon" href="static/favicon.ico">
-    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600|Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
 <body>
     <header>
         <div class="header__wrap">
-            <div class="logo"><img src="static/img/logo.svg" alt="Nicole Bracy's website logo" class="logo__img"></div>
+            <div class="logo"><img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Nicole Bracy's website logo" class="logo__img"></div>
             <nav class="header__nav nav">
                 <button id="dropbtn" class="nav__btn"><i class="fas fa-bars"></i></button>
                 <ul id="dropdown" class="nav__menu">
@@ -111,6 +111,6 @@
             </div>
         </div>
     </footer>
-    <script src="static/js/script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
