@@ -1,18 +1,6 @@
 {% extends "layout.html" %}
 {% block body %}
-    <header>
-        <div class="header__wrap">
-            <div class="logo"><img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Nicole Bracy's website logo" class="logo__img"></div>
-            <nav class="header__nav nav">
-                <button id="dropbtn" class="nav__btn"><i class="fas fa-bars"></i></button>
-                <ul id="dropdown" class="nav__menu">
-                    <li class="nav__menu-item"><a href="#home" class="nav__link">Home</a></li>
-                    <li class="nav__menu-item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__menu-item"><a href="#contact" class="nav__link">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    {% include 'header.html' %}
     <main>
         <section id="home" class="home">
             <div class="section__wrap">
@@ -83,17 +71,6 @@
             </div>
          </section>
     </main>
-    <footer>
-        <div class="foot__wrap">
-            <div class="foot__links">
-                <a href="https://twitter.com/bracyne" class="fab fa-twitter" title="My Twitter" target="_blank"></a>
-                <a href="https://github.com/nebracy" class="fab fa-github" title="My Github" target="_blank"></a>
-                <a href="https://www.linkedin.com/in/nicole-bracy-41b2b816a" class="fab fa-linkedin-in" title="My Linkedin Profile" target="_blank"></a>
-            </div>
-            <div class="foot__copyright">
-                <small>&copy; 2018 Nicole Bracy</small>
-            </div>
-        </div>
-    </footer>
+    {% include 'footer.html' %}
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 {% endblock body %}
