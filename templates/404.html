@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Nicole Bracy | {{ title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+{% extends "layout.html" %}
+{% block styles %}
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet">
+{% endblock styles %}
+{% block head %}
+{{ super() }}
     <style>
         body {
             display: flex;
@@ -109,18 +107,17 @@
             }
         }
     </style>
-</head>
-<body>
-    <main>
-        <div class="content">
-            <div class="content__headers">
-                <h1>404</h1>
-                <h2>Page Not Found</h2>
-            </div>
-            <div class="content__button">
-                <a class="button" href="{{ url_for('index') }}">Back To Homepage</a>
-            </div>
+{% endblock head %}
+{% block body %}
+<main>
+    <div class="content">
+        <div class="content__headers">
+            <h1>404</h1>
+            <h2>Page Not Found</h2>
         </div>
-    </main>
-</body>
-</html>
+        <div class="content__button">
+            <a class="button" href="{{ url_for('index') }}">Back To Homepage</a>
+        </div>
+    </div>
+</main>
+{% endblock body %}
