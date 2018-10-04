@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125584979-1"></script>
-    <script src="{{ url_for('static', filename='js/google-analytics.js') }}"></script>
-    <meta charset="UTF-8">
-    <title>Nicole Bracy | {{ title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <meta name="description" content="Nicole Bracy's personal website and sandbox showcasing a portfolio of mostly Python web apps and other projects.">
-    <meta name="author" content="Nicole Bracy">
-    <meta name="keywords" content="Nicole Bracy, resume, personal website, portfolio, python, html, css, javascript, ansible, linux">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600|Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-</head>
-<body>
+{% extends "layout.html" %}
+{% block body %}
     <header>
         <div class="header__wrap">
             <div class="logo"><img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Nicole Bracy's website logo" class="logo__img"></div>
@@ -112,5 +96,4 @@
         </div>
     </footer>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
-</body>
-</html>
+{% endblock body %}
