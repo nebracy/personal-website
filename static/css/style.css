@@ -258,7 +258,7 @@ label {
     border: 1px solid #D1D1D1;
     font-family: 'Nunito', sans-serif;
 }
-.form__field--hide {
+.form__field--mask {
     display: none;
 }
 .form__field:focus {
