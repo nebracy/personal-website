@@ -48,24 +48,24 @@
                 </div>
                 <form action="https://formspree.io/contact@nebracy.com" method="post" class="contact__form form">
                     <div class="form__set">
-                        <label for="name">Name</label>
-                        <input type="text" name="name" id="name" class="form__field" placeholder="Name" maxlength="50" required>
+                        {{ form.name.label }}
+                        {{ form.name(class="form__field", placeholder="Name", maxlength="50") }}
                     </div> 
                     <div class="form__set">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" class="form__field" placeholder="Email" required>
+                        {{ form.email.label }}
+                        {{ form.email(class="form__field", placeholder="Email", type="email") }}
                     </div>
                     <div class="form__set">
-                        <label for="subj">Subject</label>
-                        <input type="text" name="subject" id="subj" class="form__field" placeholder="Subject" maxlength="70" required>
+                        {{ form.subj.label }}
+                        {{ form.subj(class="form__field", placeholder="Subject", maxlength="70") }}
                     </div>
                     <div class="form__set">
-                        <label for="msg">Message</label>
-                        <textarea name="message" id="msg" class="form__field" placeholder="Message" rows="13"></textarea>
+                        {{ form.msg.label }}
+                        {{ form.msg(class="form__field", placeholder="Message", rows="13") }}
                     </div>
                     <input type="text" name="_gotcha" class="form__field form__field--hide">
                     <div class="form__submit">
-                        <input type="submit" value="Send  &#xf054;" class="form__submit-btn">
+                        {{ form.submit(class="form__submit-btn") }}
                     </div>
                 </form>
             </div>
