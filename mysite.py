@@ -1,11 +1,13 @@
 from flask import Flask, render_template
+from forms import ContactForm
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def index():
-    return render_template('index.html', title="Home")
+    form = ContactForm()
+    return render_template('index.html', form=form, title="Home")
 
 
 @app.errorhandler(404)
