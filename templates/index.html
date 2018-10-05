@@ -47,7 +47,8 @@
                 <div class="contact__text text">
                     <p>Thanks for visiting my website!<br>You can reach me directly at <b class="green">contact@nebracy.com</b> or by filling out the form below.</p>
                 </div>
-                <form action="https://formspree.io/contact@nebracy.com" method="post" class="contact__form form">
+                <form action="" method="post" class="contact__form form">
+                    {{ form.hidden_tag() }}
                     {{ render_field(form.name, class="form__field", placeholder="Name", maxlength="50") }}
                     {{ render_field(form.email, class="form__field", placeholder="Email", type="email") }}
                     {{ render_field(form.subj, class="form__field", placeholder="Subject", maxlength="70") }}
