@@ -13,11 +13,12 @@ mail = Mail(app)
 def index():
     form = ContactForm()
     if form.validate_on_submit():
-        msg = Message(form.subj.data, sender=(form.name.data, form.email.data), recipients=['contact@nebracy.com'],
-                      reply_to=form.email.data)
-        msg.body = form.msg.data
-        mail.send(msg)
-        return redirect(url_for('index'))
+        if form.honey.data == '':
+            msg = Message(form.subj.data, sender=(form.name.data, form.email.data), recipients=['contact@nebracy.com'],
+                          reply_to=form.email.data)
+            msg.body = form.msg.data
+            mail.send(msg)
+            return redirect(url_for('index'))
     return render_template('index.html', form=form, title="Home")
 
 
