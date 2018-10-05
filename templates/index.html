@@ -52,7 +52,7 @@
                     {{ render_field(form.email, class="form__field", placeholder="Email", type="email") }}
                     {{ render_field(form.subj, class="form__field", placeholder="Subject", maxlength="70") }}
                     {{ render_field(form.msg, class="form__field", placeholder="Message", rows="13") }}
-                    <input type="text" name="_gotcha" class="form__field form__field--hide">
+                    {{ render_field(form.honey, class="form__field form__field--hide", placeholder="Website", autocomplete="off", tabindex="-1") }}
                     <div class="form__submit">
                         {{ form.submit(class="form__submit-btn") }}
                     </div>
