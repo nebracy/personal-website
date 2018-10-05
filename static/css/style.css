@@ -247,6 +247,9 @@ form {
 .form__set {
     margin: 4px 0 17px;
 }
+.form__set:nth-child(6) {
+    margin: 0;
+}
 label {
     display: none;
 }
