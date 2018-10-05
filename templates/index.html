@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% from "macros.html" import render_field %}
+{% from "macros.html" import render_field, render_submit %}
 {% block body %}
     {% include 'header.html' %}
     <main>
@@ -54,9 +54,7 @@
                     {{ render_field(form.subj, class="form__field", placeholder="Subject", maxlength="70") }}
                     {{ render_field(form.msg, class="form__field", placeholder="Message", rows="13") }}
                     {{ render_field(form.website, class="form__field", placeholder="This website field isn't real, don't complete", autocomplete="off", tabindex="-1") }}
-                    <div class="form__submit">
-                        {{ form.submit(class="form__submit-btn") }}
-                    </div>
+                    {{ render_submit(form.submit, class="form__submit-btn") }}
                 </form>
             </div>
          </section>

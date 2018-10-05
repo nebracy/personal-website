@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, flash
 from forms import ContactForm
 from flask_mail import Mail, Message
 
@@ -18,6 +18,7 @@ def index():
                           reply_to=form.email.data)
             msg.body = form.msg.data
             mail.send(msg)
+            flash(f'Email sent, thank you!')
             return redirect(url_for('index'))
     return render_template('index.html', form=form, title="Home")
 
