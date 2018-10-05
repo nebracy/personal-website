@@ -261,6 +261,9 @@ label {
 .form__field--mask {
     display: none;
 }
+.form__field--flash {
+    color: #ff0000;
+}
 .form__field:focus {
     border: 1px solid #37c8ab;
     outline: none;

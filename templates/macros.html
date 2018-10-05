@@ -2,6 +2,13 @@
     <div class="form__set">
         {{ field.label }}
         {{ field(**kwargs)|safe }}
+        {% if field.errors %}
+            <div class="form__field--flash">
+                {% for error in field.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 {%- endmacro -%}
 
