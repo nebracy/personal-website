@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% from "macros.html" import render_field, render_submit %}
+{% from "macros.html" import render_field, render_submit, recent_commits %}
 {% block body %}
     {% include 'header.html' %}
     <main>
@@ -34,6 +34,12 @@
                         <span class="about__icon-set"><i class="fab fa-css3-alt about__icon"></i><span class="about__icon-text">CSS3</span></span>
                         <span class="about__icon-set"><i class="fab fa-python about__icon"></i><span class="about__icon-text">Python</span></span>
                     </div>
+                </div>
+                <div>
+                    <h4>Recent Commits</h4>
+                    <ul class="">
+                        {{ recent_commits(commits) }}
+                    </ul>
                 </div>
             </div>
         </section>

@@ -12,6 +12,7 @@
     </div>
 {%- endmacro -%}
 
+
 {% macro render_submit(field) %}
     <div class="form__submit">
         {% with messages = get_flashed_messages() %}
@@ -25,4 +26,15 @@
         {% endwith %}
         {{ field(**kwargs)|safe }}
     </div>
+{% endmacro %}
+
+
+{% macro recent_commits(commits) %}
+    {% for commit in commits %}
+    <li class="">
+        <div class="">
+            <a href="{{ commit['url'] }}">{{ commit['name'] }}</a> {{ commit['date'].strftime('%b. %d, %Y') }}<br>{{ commit['msg'] }}
+        </div>
+    </li>
+    {% endfor %}
 {% endmacro %}
