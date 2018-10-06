@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 from github import Github
 
 g = Github(os.environ['GITHUB_TOKEN'])
@@ -20,5 +21,15 @@ def get_recent_commits(num):
     return final_list[:num]
 
 
-print(get_recent_commits(5))
+if __name__ == "__main__":
 
+    def format_commits(comm):
+        for commit in comm:
+            name = commit['name']
+            url = commit['url']
+            msg = commit['msg']
+            date = datetime.strftime(commit['date'], '%b. %d, %Y')
+            print(name, url, msg, date)
+
+    recent = get_recent_commits(5)
+    format_commits(recent)
