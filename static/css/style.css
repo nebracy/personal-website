@@ -264,19 +264,22 @@ label {
 .form__field--mask {
     display: none;
 }
-.form__field--flash {
-    color: #ff0000;
-}
 .form__field:focus {
     border: 1px solid #37c8ab;
     outline: none;
 }
-.form__field:not(:placeholder-shown):invalid {
+.form__field--invalid {
+    border: 1px solid #ff0000;
+}
+.form__field--flash {
+    color: #ff0000;
+}
+/* .form__field:not(:placeholder-shown):invalid {
     border: 1px solid #ff0000;
 }
 .form__field:not(:-ms-input-placeholder):invalid {
     border: 1px solid #ff0000;
-}
+} */
 ::-webkit-input-placeholder {
     color: #289784;
 }
