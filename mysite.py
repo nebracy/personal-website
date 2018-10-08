@@ -9,7 +9,7 @@ app.config.from_pyfile('config.py', silent=True)
 mail = Mail(app)
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     form = ContactForm()
     if form.validate_on_submit():
