@@ -3,7 +3,7 @@ from forms import ContactForm
 from flask_mail import Mail, Message
 
 app = Flask(__name__, instance_relative_config=True)
-app.config.from_object('config')
+app.config.from_object('config.TestConfig')
 app.config.from_pyfile('config.py', silent=True)
 
 mail = Mail(app)
