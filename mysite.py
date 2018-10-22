@@ -3,7 +3,7 @@ from forms import ContactForm
 from flask_mail import Mail, Message
 
 app = Flask(__name__, instance_relative_config=True)
-app.config.from_object('config.TestConfig')
+app.config.from_object('config.ProductionConfig')
 app.config.from_pyfile('config.py', silent=True)
 
 mail = Mail(app)
@@ -14,8 +14,7 @@ def index():
     form = ContactForm()
     if form.validate_on_submit():
         if form.website.data == '':
-            msg = Message(form.subj.data, sender=(form.name.data, form.email.data), recipients=['contact@nebracy.com'],
-                          reply_to=form.email.data)
+            msg = Message(form.subj.data, sender=(form.name.data, 'contact@nebracy.com'), recipients=['contact@nebracy.com'], reply_to=form.email.data)
             msg.body = form.msg.data
             mail.send(msg)
             flash(f'Email sent, thank you!')

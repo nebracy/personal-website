@@ -14,3 +14,4 @@ class ProductionConfig(Config):
 
 class TestConfig(Config):
     pass
+
