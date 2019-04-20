@@ -2,7 +2,7 @@ from flask import Flask, render_template, url_for, redirect, flash
 from forms import ContactForm
 from flask_mail import Mail, Message
 
-app = Flask(__name__, instance_relative_config=True)
+app = Flask(__name__, instance_relative_config=True, static_url_path='')
 app.config.from_object('config.ProductionConfig')
 app.config.from_pyfile('config.py', silent=True)
 
