@@ -215,13 +215,12 @@ nav, b.green {
     &__subheaders {
         height:50px;
         overflow:hidden;
-    }
-
-    &__subheaders div:first-child {
-        -webkit-animation: flip 8s ease-out 2s 1;
-                animation: flip 8s ease-out 2s 1;
-        -webkit-animation-fill-mode: backwards;
-                animation-fill-mode: backwards;
+        div:first-child {
+            -webkit-animation: flip 8s ease-out 2s 1;
+                    animation: flip 8s ease-out 2s 1;
+            -webkit-animation-fill-mode: backwards;
+                    animation-fill-mode: backwards;
+        }
     }
 }
 
@@ -286,10 +285,9 @@ nav, b.green {
     &__text {
         text-align: center;
         width: 80%;
-    }
-
-    &__text p {
-        margin-top: 0;
+        p {
+            margin-top: 0;
+        }
     }
 
     &__form {
@@ -400,12 +398,11 @@ label {
 
     &__links {
         align-self: center;
-    }
-
-    &__links a {
-        color: $link-light-color;
-        font-size: 1.4em;
-        padding: 5px 12px;
+        a {
+            color: $link-light-color;
+            font-size: 1.4em;
+            padding: 5px 12px;
+        }
     }
 
     &__copyright {
