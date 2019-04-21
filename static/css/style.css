@@ -1,6 +1,6 @@
 body {
   margin: 0 auto;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,7 +24,7 @@ a:link, a:visited {
 }
 
 h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 5em;
   letter-spacing: 4px;
   color: #ffffff;
@@ -34,7 +34,7 @@ h1 {
 }
 
 h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.5em;
   font-weight: 500;
   margin: 0;
@@ -45,7 +45,7 @@ h2 {
 }
 
 h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.7em;
   color: #289784;
   margin-top: 13px;
@@ -70,7 +70,7 @@ b.green {
 }
 
 nav, b.green {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 /* HEADER */
@@ -141,7 +141,7 @@ header {
 }
 
 .nav__btn:focus {
-  outline-color: #289784;
+  outline-color: #37c8ab;
 }
 
 .nav__menu {
@@ -398,7 +398,7 @@ label {
   font-size: 16px;
   border-radius: 3px;
   border: 1px solid #D1D1D1;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 .form__field--mask {

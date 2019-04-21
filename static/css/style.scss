@@ -1,14 +1,45 @@
-$dark-grey: #333333;
-$green-1: #289784;
-$green-2: #37c8ab;
+$font-header-color: #ffffff;
+$font-header-alt-color: #289784;
+$font-body-color: #333333;
+$font-body-bold-color: #289784;
+$font-alt-color: #289784;
+$font-light-color: #ffffff;
+$font-fam-main: 'Nunito', sans-serif;
+$font-fam-alt: 'Montserrat', sans-serif;
+
+$btn-color: #333333;
+$btn-font-color: #ffffff;
+$btn-hover-color: #37c8ab;
+$btn-hover-font-color: $btn-font-color;
+$invert-btn-color: $btn-font-color;
+$invert-btn-font-color: $btn-color;
+
+$link-color: #289784;
+$link-dark-color: #333333;
+$link-light-color: #ffffff;
+$link-color-active: #333333;
+$link-color-visited: #333333;
+$link-color-hover: #333333;
+
+$red-fail: #ff0000;
+$green-success: #09c738;
+
+$bg-main-color: #37c8ab;
+$bg-second-color: #289784;
+$bg-light-color: #efefef;
+$bg-dark-color: #333333;
+
+$brand-color: #37c8ab;
+$color-main: $brand-color;
+
 
 body {
     margin: 0 auto;
-    font-family: 'Nunito', sans-serif;
+    font-family: $font-fam-main;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    color: $dark-grey;
+    color: $font-body-color;
     background-color: #ffffff;
 }
 *, *:before, *:after {
@@ -16,37 +47,37 @@ body {
 }
 a:link, a:visited {
     text-decoration: none;
-    color: $dark-grey;
+    color: $link-dark-color;
 }
 h1 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font-fam-alt;
     font-size: 5em;
     letter-spacing: 4px;
-    color: #ffffff;
+    color: $font-header-color;
     text-shadow: 2px 2px 4px #000000;
     font-weight: 600;
     margin: 0 0;
 }
 h2 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font-fam-alt;
     font-size: 1.5em;
     font-weight: 500;
     margin: 0;
     padding:4px 6px;
     height:45px;
     margin-bottom:45px;
-    text-shadow: 2px 2px 4px $green-1;
+    text-shadow: 2px 2px 4px $font-header-alt-color;
 }
 h3 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font-fam-alt;
     font-size: 1.7em;
-    color: $green-1;
+    color: $font-header-alt-color;
     margin-top: 13px;
 }
 .fa-sm {
     font-size: 1.7em !important;
-    color: $green-2;
-    text-shadow: 0 0.5px 0.5px $green-1;
+    color: $color-main;
+    text-shadow: 0 0.5px 0.5px $font-body-bold-color;
 }
 hr {
     border: 0;
@@ -55,11 +86,11 @@ hr {
     width: 100%;
 }
 b.green {
-    color: $green-1;
+    color: $font-body-bold-color;
     font-size: 1em;
 }
 nav, b.green {
-    font-family: 'Montserrat', sans-serif;
+    font-family: $font-fam-alt;
 }
 
 
@@ -99,11 +130,11 @@ header {
     border: none;
 }
 .nav__btn:hover {
-    color: #ffffff;
-    background-color: $green-2;
+    color: $btn-hover-font-color;
+    background-color: $bg-main-color;
 }
 .nav__btn:focus {
-    outline-color: $green-1;
+    outline-color: $bg-main-color;
 }
 .nav__menu {
     padding: 0;
@@ -135,8 +166,8 @@ header {
     padding-left: 20px;
 }
 .nav__link:hover {
-    color: #ffffff;
-    background-color: $green-2;
+    color: $link-light-color;
+    background-color: $bg-main-color;
   }
 .nav__link:active {
     color: #000000;
@@ -165,7 +196,7 @@ section {
 .home {
     min-height: 45vh;
     align-items: flex-end;
-    background-image: linear-gradient(-90deg, #35cece, $green-2);
+    background-image: linear-gradient(-90deg, #35cece, $bg-main-color);
     padding: 64px 0 0 0;
 }
 .home__text {
@@ -209,7 +240,7 @@ section {
     align-self: stretch;
 }
 .about__tools {
-    color: $green-1;
+    color: $font-body-bold-color;
     width: 100%;
     max-width: 400px;
     align-self: center;
@@ -263,38 +294,38 @@ label {
     font-size: 16px;
     border-radius: 3px;
     border: 1px solid #D1D1D1;
-    font-family: 'Nunito', sans-serif;
+    font-family: $font-fam-main;
 }
 .form__field--mask {
     display: none;
 }
 .form__field:focus {
-    border: 1px solid $green-2;
+    border: 1px solid $bg-main-color;
     outline: none;
 }
 .form__field--invalid {
-    border: 1px solid #ff0000;
+    border: 1px solid $red-fail;
 }
 .form__field--flash {
-    color: #ff0000;
+    color: $red-fail;
 }
 .form__field:not(:placeholder-shown):invalid {
-    border: 1px solid #ff0000;
+    border: 1px solid $red-fail;
 }
 .form__field:not(:-ms-input-placeholder):invalid {
-    border: 1px solid #ff0000;
+    border: 1px solid $red-fail;
 }
 ::-webkit-input-placeholder {
-    color: $green-1;
+    color: $bg-second-color;
 }
 :-ms-input-placeholder {
-    color: $green-1;
+    color: $bg-second-color;
 }
 ::-ms-input-placeholder {
-    color: $green-1;
+    color: $bg-second-color;
 }
 ::placeholder {
-    color: $green-1;
+    color: $bg-second-color;
 }
 .form__submit {
     display: flex;
@@ -302,15 +333,15 @@ label {
     align-items: center;
 }
 .form__alert {
-    color: #09c738;
+    color: $green-success;
     font-weight: 600;
     margin-right: 30px;
 }
 .form__submit-btn {
     border: none;
-    background-color: $dark-grey;
+    background-color: $btn-color;
     transition-duration: 0.2s;
-    color: #ffffff;
+    color: $btn-font-color;
     padding: 10px 25px;
     margin: 5px;
     border-radius: 2px;
@@ -321,10 +352,10 @@ label {
     box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
 }
 .form__submit-btn:hover {
-    background-color: $green-2;
+    background-color: $btn-hover-color;
 }
 .form__submit-btn:active {
-    background-color: $dark-grey;
+    background-color: $btn-color;
 }
 
 
@@ -334,8 +365,8 @@ footer {
     min-height: 65px;
     display: flex;
     justify-content: center;
-    color: #ffffff;
-    background-color: $green-1;
+    color: $font-light-color;
+    background-color: $bg-second-color;
 }
 .foot__wrap {
     display: flex;
@@ -346,12 +377,12 @@ footer {
     align-self: center;
 }
 .foot__links a {
-    color: #ffffff;
+    color: $link-light-color;
     font-size: 1.4em;
     padding: 5px 12px;
 }
 .foot__links a:hover, .foot__site-github a:hover {
-    color: $dark-grey;
+    color: $link-color-hover;
 }
 .foot__copyright {
     align-self: center;
