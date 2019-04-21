@@ -125,6 +125,15 @@ nav, b.green {
 .nav {
     display: flex;
     flex: 0 1 65px;
+    @media screen and (min-width: 650px) {
+        flex: 0 1 25em;
+    }
+
+    &:hover .nav__menu {
+        @media screen and (min-width: 650px) {
+            flex-direction: row;
+        }
+    }
 
     &__btn {
         flex: 0 1 70px;
@@ -132,6 +141,9 @@ nav, b.green {
         color: #000000;
         background-color: #ffffff;
         border: none;
+        @media screen and (min-width: 650px) {
+            display: none;
+        }
         &:hover {
             color: $btn-hover-font-color;
             background-color: $bg-main-color;
@@ -153,6 +165,13 @@ nav, b.green {
         width: 150px;
         border: 1px solid #ebebeb;
         box-shadow: rgba(0, 0, 0, 0.02) 1px 1px 2px 2px;
+        @media screen and (min-width: 650px) {
+            display: flex;
+            flex: 0 1 25em;
+            position: static;
+            border: none;
+            box-shadow: none;
+        }
         &--show {
             display: flex;
             flex-direction: column;
@@ -171,6 +190,10 @@ nav, b.green {
         font-size: 1.1em;
         background-color: #ffffff;
         padding-left: 20px;
+        @media screen and (min-width: 650px) {
+            justify-content: center;
+            padding-left: 0;
+        }
         &:hover {
             color: $link-light-color;
             background-color: $bg-main-color;
@@ -194,6 +217,15 @@ nav, b.green {
         align-items: center;
         flex: 0 1 650px;
         text-align: center;
+        @media screen and (min-width: 650px) {
+            text-align: left;
+            align-items: stretch;
+        }
+        &--center {
+            @media screen and (min-width: 650px) {
+                align-items: center; 
+            }
+        }
     }
 }
 
@@ -251,6 +283,9 @@ nav, b.green {
         display: flex;
         flex-direction: column;
         align-self: stretch;
+        @media screen and (min-width: 650px) {
+            flex-direction: row;
+        }
     }
 
     &__tools {
@@ -412,35 +447,3 @@ label {
     color: $link-color-hover;
 }
 
-@media screen and (min-width: 650px) {
-    .nav {
-        flex: 0 1 25em;
-    }
-    .nav:hover .nav__menu {
-        flex-direction: row;
-    }
-    .nav__btn {
-        display: none;
-    }
-    .nav__menu {
-        display: flex;
-        flex: 0 1 25em;
-        position: static;
-        border: none;
-        box-shadow: none;
-    }
-    .nav__link {
-        justify-content: center;
-        padding-left: 0;
-    }
-    .section__wrap {
-        text-align: left;
-        align-items: stretch;
-    }
-    .section__wrap--center {
-        align-items: center; 
-    }
-    .about__content {
-        flex-direction: row;
-    }
-}
