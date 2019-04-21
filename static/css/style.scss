@@ -300,84 +300,82 @@ nav, b.green {
 .form {
     display: flex;
     flex-direction: column;
+
+    &__set {
+        margin: 4px 0 17px;
+        &:nth-child(6) {
+            margin: 0;
+        }
+    }
+
+    &__field {
+        width: 100%;
+        padding: 10px 10px;
+        font-size: 16px;
+        border-radius: 3px;
+        border: 1px solid #D1D1D1;
+        font-family: $font-fam-main;
+        &--mask {
+            display: none;
+        }
+        &--invalid {
+            border: 1px solid $red-fail;
+        }
+        &--flash {
+            color: $red-fail;
+        }
+        &:focus {
+            border: 1px solid $bg-main-color;
+            outline: none;
+        }
+        &:not(:placeholder-shown):invalid {
+            border: 1px solid $red-fail;
+        }
+        &:not(:-ms-input-placeholder):invalid {
+            border: 1px solid $red-fail;
+        }
+    }
+
+    &__submit {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    &__alert {
+        color: $green-success;
+        font-weight: 600;
+        margin-right: 30px;
+    }
+
+    &__submit-btn {
+        border: none;
+        background-color: $btn-color;
+        transition-duration: 0.2s;
+        color: $btn-font-color;
+        padding: 10px 25px;
+        margin: 5px;
+        border-radius: 2px;
+        font-family: 'Montserrat', "Font Awesome 5 Free", sans-serif;
+        font-weight: 600;
+        font-size: 80%;
+        text-transform: uppercase;
+        box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+        &:hover {
+            background-color: $btn-hover-color;
+        }
+        &:active {
+            background-color: $btn-color;
+        }
+    }
 }
-.form__set {
-    margin: 4px 0 17px;
-}
-.form__set:nth-child(6) {
-    margin: 0;
-}
+
 label {
     display: none;
 }
-.form__field {
-    width: 100%;
-    padding: 10px 10px;
-    font-size: 16px;
-    border-radius: 3px;
-    border: 1px solid #D1D1D1;
-    font-family: $font-fam-main;
-}
-.form__field--mask {
-    display: none;
-}
-.form__field:focus {
-    border: 1px solid $bg-main-color;
-    outline: none;
-}
-.form__field--invalid {
-    border: 1px solid $red-fail;
-}
-.form__field--flash {
-    color: $red-fail;
-}
-.form__field:not(:placeholder-shown):invalid {
-    border: 1px solid $red-fail;
-}
-.form__field:not(:-ms-input-placeholder):invalid {
-    border: 1px solid $red-fail;
-}
-::-webkit-input-placeholder {
-    color: $bg-second-color;
-}
-:-ms-input-placeholder {
-    color: $bg-second-color;
-}
-::-ms-input-placeholder {
-    color: $bg-second-color;
-}
+
 ::placeholder {
     color: $bg-second-color;
-}
-.form__submit {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-.form__alert {
-    color: $green-success;
-    font-weight: 600;
-    margin-right: 30px;
-}
-.form__submit-btn {
-    border: none;
-    background-color: $btn-color;
-    transition-duration: 0.2s;
-    color: $btn-font-color;
-    padding: 10px 25px;
-    margin: 5px;
-    border-radius: 2px;
-    font-family: 'Montserrat', "Font Awesome 5 Free", sans-serif;
-    font-weight: 600;
-    font-size: 80%;
-    text-transform: uppercase;
-    box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
-}
-.form__submit-btn:hover {
-    background-color: $btn-hover-color;
-}
-.form__submit-btn:active {
-    background-color: $btn-color;
 }
 
 
