@@ -118,62 +118,66 @@ header {
 .logo__img {
     width: 44px;
 }
+
 .nav {
     display: flex;
     flex: 0 1 65px;
-}
-.nav__btn {
-    flex: 0 1 70px;
-    font-size: 1.5em;
-    color: #000000;
-    background-color: #ffffff;
-    border: none;
-}
-.nav__btn:hover {
-    color: $btn-hover-font-color;
-    background-color: $bg-main-color;
-}
-.nav__btn:focus {
-    outline-color: $bg-main-color;
-}
-.nav__menu {
-    padding: 0;
-    margin: 0;
-    display: none;
-    list-style-type: none;
-    position: absolute;
-    z-index: 1;
-    right: 0;
-    bottom: -152px;
-    width: 150px;
-    border: 1px solid #ebebeb;
-    box-shadow: rgba(0, 0, 0, 0.02) 1px 1px 2px 2px;
-}
-.nav__menu--show {
-    display: flex;
-    flex-direction: column;
-}
-.nav__menu-item {
-    display: flex;
-    flex: 1 1 50px;
-}
-.nav__link {
-    display: flex;
-    align-items: center;
-    flex: 1 1;
-    font-size: 1.1em;
-    background-color: #ffffff;
-    padding-left: 20px;
-}
-.nav__link:hover {
-    color: $link-light-color;
-    background-color: $bg-main-color;
-  }
-.nav__link:active {
-    color: #000000;
-    background-color: #ebebeb;
-}
 
+    &__btn {
+        flex: 0 1 70px;
+        font-size: 1.5em;
+        color: #000000;
+        background-color: #ffffff;
+        border: none;
+        &:hover {
+            color: $btn-hover-font-color;
+            background-color: $bg-main-color;
+        }
+        &:focus {
+            outline-color: $bg-main-color;
+        }
+    }
+
+    &__menu {
+        padding: 0;
+        margin: 0;
+        display: none;
+        list-style-type: none;
+        position: absolute;
+        z-index: 1;
+        right: 0;
+        bottom: -152px;
+        width: 150px;
+        border: 1px solid #ebebeb;
+        box-shadow: rgba(0, 0, 0, 0.02) 1px 1px 2px 2px;
+        &--show {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__menu-item {
+        display: flex;
+        flex: 1 1 50px;
+    }
+
+    &__link {
+        display: flex;
+        align-items: center;
+        flex: 1 1;
+        font-size: 1.1em;
+        background-color: #ffffff;
+        padding-left: 20px;
+        &:hover {
+            color: $link-light-color;
+            background-color: $bg-main-color;
+        }
+        &:active {
+            color: #000000;
+            background-color: #ebebeb;
+        }
+    }
+}
 
 /* MAIN */
 section {
