@@ -524,14 +524,14 @@ label {
   padding: 5px 12px;
 }
 
-.foot__links a:hover, .foot__site-github a:hover {
-  color: #333333;
-}
-
 .foot__copyright {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+}
+
+.foot__links a:hover, .foot__site-github a:hover {
+  color: #333333;
 }
 
 @media screen and (min-width: 650px) {
