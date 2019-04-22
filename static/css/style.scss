@@ -307,6 +307,9 @@ nav, b.green {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+        @media screen and (min-width: 650px) {
+            justify-content: center;
+        }
     }
 
     &__github {

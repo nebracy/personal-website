@@ -411,6 +411,14 @@ nav, b.green {
       flex-wrap: wrap;
 }
 
+@media screen and (min-width: 650px) {
+  .about__tools {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
 .about__github {
   text-align: left;
   width: 100%;
