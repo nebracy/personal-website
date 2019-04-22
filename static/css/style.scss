@@ -80,6 +80,11 @@ h3 {
     color: $font-header-alt-color;
     margin-top: 13px;
 }
+h4 {
+    font-family: $font-family-alt;
+    font-size: 1.3em;
+    color: $font-header-alt-color;
+}
 .fa-sm {
     font-size: 1.7em !important;
     color: $brand-color;
@@ -304,6 +309,10 @@ nav, b.green {
         flex-wrap: wrap;
     }
 
+    &__github {
+        
+    }
+
     &__icon-set {
         display: flex;
         flex-direction: column;
@@ -317,6 +326,39 @@ nav, b.green {
     &__icon-text {
         text-align: center;
         font-size: 80%;
+    }
+}
+
+.git-history {
+    list-style: none;
+    li::before {
+        content: "\2022";
+        color: $brand-color;
+        font-weight: bold;
+        display: inline-block;
+        width: 1em;
+        margin-left: -2em;
+        position: absolute;
+    }
+
+    &__commit {
+        position: relative;
+        margin-bottom: 18px;
+    }
+    &__commit-header {
+        margin-bottom: 3px;
+        display: flex;
+        justify-content: space-between;
+    }
+    &__link {
+        font-weight: 600;
+        border-bottom: 1px dotted;
+    }
+    &__date {
+
+    }
+    &__msg {
+
     }
 }
 
