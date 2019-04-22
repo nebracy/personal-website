@@ -411,6 +411,11 @@ nav, b.green {
       flex-wrap: wrap;
 }
 
+.about__github {
+  text-align: left;
+  width: 100%;
+}
+
 .about__icon-set {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -460,9 +465,17 @@ nav, b.green {
           justify-content: space-between;
 }
 
-.git-history__link {
+.git-history__name {
   font-weight: 600;
   border-bottom: 1px dotted;
+}
+
+.git-history__link:hover {
+  color: #289784;
+}
+
+.git-history__link:active {
+  color: #289784;
 }
 
 .contact {

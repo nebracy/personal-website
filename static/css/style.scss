@@ -310,7 +310,8 @@ nav, b.green {
     }
 
     &__github {
-        
+        text-align: left;
+        width: 100%;
     }
 
     &__icon-set {
@@ -350,9 +351,17 @@ nav, b.green {
         display: flex;
         justify-content: space-between;
     }
-    &__link {
+    &__name {
         font-weight: 600;
         border-bottom: 1px dotted;
+    }
+    &__link {
+        &:hover {
+            color: $link-color;
+        }
+        &:active {
+            color: $link-color;
+        }
     }
     &__date {
 

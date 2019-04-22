@@ -33,8 +33,8 @@
     {% for commit in commits %}
     <li class="git-history__commit">
         <div class="git-history__commit-header">
-            <span class="git-history__link">
-                <a href="{{ commit['url'] }}">{{ commit['name'] }}</a>
+            <span class="git-history__name">
+                <a class="git-history__link" href="{{ commit['url'] }}">{{ commit['name'] }}</a>
             </span>
             <span class="git-history__date">
                 {{ commit['date'].strftime('%b. %d, %Y') }}
