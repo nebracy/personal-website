@@ -1,18 +1,18 @@
 $font-header-color: #ffffff;
 $font-header-alt-color: #289784;
 $font-body-color: #333333;
-$font-body-bold-color: #289784;
+$font-bold-color: #289784;
 $font-alt-color: #289784;
 $font-light-color: #ffffff;
-$font-fam-main: 'Nunito', sans-serif;
-$font-fam-alt: 'Montserrat', sans-serif;
+$font-family-main: 'Nunito', sans-serif;
+$font-family-alt: 'Montserrat', sans-serif;
 
-$btn-color: #333333;
+$btn-main-color: #333333;
 $btn-font-color: #ffffff;
 $btn-hover-color: #37c8ab;
 $btn-hover-font-color: $btn-font-color;
 $invert-btn-color: $btn-font-color;
-$invert-btn-font-color: $btn-color;
+$invert-btn-font-color: $btn-main-color;
 
 $link-color: #289784;
 $link-dark-color: #333333;
@@ -24,23 +24,29 @@ $link-color-hover: #333333;
 $red-fail: #ff0000;
 $green-success: #09c738;
 
-$bg-main-color: #37c8ab;
-$bg-second-color: #289784;
+$bg-primary-color: #37c8ab;
+$bg-secondary-color: #289784;
+$bg-body-color: #ffffff;
+$bg-section-color: #efefef;
+$bg-section-alt-color: #289784;
 $bg-light-color: #efefef;
 $bg-dark-color: #333333;
 
 $brand-color: #37c8ab;
-$color-main: $brand-color;
+$brand-success-color: $brand-color;
+$brand-error-color: $brand-color;
+$brand-warning-color: $brand-color;
+$brand-info-color: $brand-color;
 
 
 body {
     margin: 0 auto;
-    font-family: $font-fam-main;
+    font-family: $font-family-main;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     color: $font-body-color;
-    background-color: #ffffff;
+    background-color: $bg-body-color;
 }
 *, *:before, *:after {
     box-sizing: border-box;
@@ -50,7 +56,7 @@ a:link, a:visited {
     color: $link-dark-color;
 }
 h1 {
-    font-family: $font-fam-alt;
+    font-family: $font-family-alt;
     font-size: 5em;
     letter-spacing: 4px;
     color: $font-header-color;
@@ -59,7 +65,7 @@ h1 {
     margin: 0 0;
 }
 h2 {
-    font-family: $font-fam-alt;
+    font-family: $font-family-alt;
     font-size: 1.5em;
     font-weight: 500;
     margin: 0;
@@ -69,15 +75,15 @@ h2 {
     text-shadow: 2px 2px 4px $font-header-alt-color;
 }
 h3 {
-    font-family: $font-fam-alt;
+    font-family: $font-family-alt;
     font-size: 1.7em;
     color: $font-header-alt-color;
     margin-top: 13px;
 }
 .fa-sm {
     font-size: 1.7em !important;
-    color: $color-main;
-    text-shadow: 0 0.5px 0.5px $font-body-bold-color;
+    color: $brand-color;
+    text-shadow: 0 0.5px 0.5px $font-bold-color;
 }
 hr {
     border: 0;
@@ -86,11 +92,11 @@ hr {
     width: 100%;
 }
 b.green {
-    color: $font-body-bold-color;
+    color: $font-bold-color;
     font-size: 1em;
 }
 nav, b.green {
-    font-family: $font-fam-alt;
+    font-family: $font-family-alt;
 }
 
 
@@ -146,10 +152,10 @@ nav, b.green {
         }
         &:hover {
             color: $btn-hover-font-color;
-            background-color: $bg-main-color;
+            background-color: $bg-primary-color;
         }
         &:focus {
-            outline-color: $bg-main-color;
+            outline-color: $bg-primary-color;
         }
     }
 
@@ -196,7 +202,7 @@ nav, b.green {
         }
         &:hover {
             color: $link-light-color;
-            background-color: $bg-main-color;
+            background-color: $bg-primary-color;
         }
         &:active {
             color: #000000;
@@ -237,7 +243,7 @@ nav, b.green {
 .home {
     min-height: 45vh;
     align-items: flex-end;
-    background-image: linear-gradient(-90deg, #35cece, $bg-main-color);
+    background-image: linear-gradient(-90deg, #35cece, $bg-primary-color);
     padding: 64px 0 0 0;
 
     &__text {
@@ -289,7 +295,7 @@ nav, b.green {
     }
 
     &__tools {
-        color: $font-body-bold-color;
+        color: $font-bold-color;
         width: 100%;
         max-width: 400px;
         align-self: center;
@@ -315,7 +321,7 @@ nav, b.green {
 }
 
 .contact {
-    background-color: #efefef;
+    background-color: $bg-section-color;
 
     &__text {
         text-align: center;
@@ -349,7 +355,7 @@ nav, b.green {
         font-size: 16px;
         border-radius: 3px;
         border: 1px solid #D1D1D1;
-        font-family: $font-fam-main;
+        font-family: $font-family-main;
         &--mask {
             display: none;
         }
@@ -360,7 +366,7 @@ nav, b.green {
             color: $red-fail;
         }
         &:focus {
-            border: 1px solid $bg-main-color;
+            border: 1px solid $bg-primary-color;
             outline: none;
         }
         &:not(:placeholder-shown):invalid {
@@ -385,7 +391,7 @@ nav, b.green {
 
     &__submit-btn {
         border: none;
-        background-color: $btn-color;
+        background-color: $btn-main-color;
         transition-duration: 0.2s;
         color: $btn-font-color;
         padding: 10px 25px;
@@ -400,7 +406,7 @@ nav, b.green {
             background-color: $btn-hover-color;
         }
         &:active {
-            background-color: $btn-color;
+            background-color: $btn-main-color;
         }
     }
 }
@@ -410,7 +416,7 @@ label {
 }
 
 ::placeholder {
-    color: $bg-second-color;
+    color: $bg-secondary-color;
 }
 
 
@@ -421,7 +427,7 @@ label {
     display: flex;
     justify-content: center;
     color: $font-light-color;
-    background-color: $bg-second-color;
+    background-color: $bg-secondary-color;
 
     &__wrap {
         display: flex;
