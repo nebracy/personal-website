@@ -53,7 +53,7 @@ h3 {
 
 h4 {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.3em;
+  font-size: 1.2em;
   color: #289784;
 }
 
@@ -456,18 +456,24 @@ nav, b.green {
 }
 
 .git-history__commit-header {
-  margin-bottom: 3px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .git-history__name {
+  margin: 0 25px 3px 0;
   font-weight: 600;
   border-bottom: 1px dotted;
+}
+
+.git-history__link {
+  margin-bottom: 3px;
 }
 
 .git-history__link:hover {
@@ -476,6 +482,10 @@ nav, b.green {
 
 .git-history__link:active {
   color: #289784;
+}
+
+.git-history__date {
+  font-size: 0.95em;
 }
 
 .contact {
