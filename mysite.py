@@ -13,7 +13,7 @@ mail = Mail(app)
 @app.route('/', methods=['GET', 'POST'])
 def index():
     form = ContactForm()
-    commits = get_recent_commits(5)
+    commits = get_recent_commits(3)
     if form.validate_on_submit():
         if form.website.data == '':
             msg = Message(form.subj.data, sender=(form.name.data, 'contact@nebracy.com'), recipients=['contact@nebracy.com'], reply_to=form.email.data)
