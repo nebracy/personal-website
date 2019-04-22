@@ -10,8 +10,8 @@ function toggleDropdown(event) {
         var element = document.getElementById("dropdown");
         if (element.classList.contains("nav__menu--show")) {
             element.classList.remove("nav__menu--show");
+        }
     }
-}
 }
 
 function checkScreenSize() {

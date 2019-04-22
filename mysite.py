@@ -3,21 +3,20 @@ from forms import ContactForm
 from flask_mail import Mail, Message
 from commits import get_recent_commits
 
-app = Flask(__name__, instance_relative_config=True)
-app.config.from_object('config')
+app = Flask(__name__, instance_relative_config=True, static_url_path='')
+app.config.from_object('config.ProductionConfig')
 app.config.from_pyfile('config.py', silent=True)
 
 mail = Mail(app)
 
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     form = ContactForm()
     commits = get_recent_commits(5)
     if form.validate_on_submit():
         if form.website.data == '':
-            msg = Message(form.subj.data, sender=(form.name.data, form.email.data), recipients=['contact@nebracy.com'],
-                          reply_to=form.email.data)
+            msg = Message(form.subj.data, sender=(form.name.data, 'contact@nebracy.com'), recipients=['contact@nebracy.com'], reply_to=form.email.data)
             msg.body = form.msg.data
             mail.send(msg)
             flash(f'Email sent, thank you!')

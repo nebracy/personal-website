@@ -3,7 +3,7 @@
 {% block body %}
     {% include 'header.html' %}
     <main>
-        <section id="home" class="home">
+        <section id="home" class="home section">
             <div class="section__wrap">
                 <div class="home__text">
                     <h1>Hello</h1>
@@ -14,7 +14,7 @@
                 </div>
             </div>
         </section>
-        <section id="about" class="about">
+        <section id="about" class="about section">
             <div class="section__wrap">
                 <div class="about__header">
                     <span class="fa-stack fa-sm">
@@ -27,7 +27,7 @@
                 <div class="about__content">
                     <div class="about__text text">
                         <p><b class="green">Welcome!</b> I built this site using HTML and CSS to showcase finished Python projects, practice my web development skills, and show off what I’m currently working on. Strengthening my skills in Python, and venturing into JavaScript is actually one of my primary goals for the near future. I also have some familiarity with tools such as Git for version control and Ansible.</p>
-                        <p>I'm always eager to gain hands-on experience and try new tools so I can apply them to later personal projects. This website is static right now, but I’m currently learning Python frameworks such as Django and Flask, so please check back soon to see my progress!</p>
+                        <p>I'm always eager to gain hands-on experience and try new tools so I can apply them to later personal projects. This is a basic Flask website right now, but I’m still learning a lot about the framework along with Django, so please check back soon!</p>
                     </div>
                     <div class="about__tools">
                         <span class="about__icon-set"><i class="fab fa-html5 about__icon"></i><span class="about__icon-text">HTML5</span></span>
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </section>
-        <section id="contact" class="contact">
+        <section id="contact" class="contact section">
             <div class="section__wrap section__wrap--center">
                 <span class="fa-stack fa-sm">
                     <i class="fas fa-circle fa-stack-2x"></i>
@@ -53,13 +53,13 @@
                 <div class="contact__text text">
                     <p>Thanks for visiting my website!<br>You can reach me directly at <b class="green">contact@nebracy.com</b> or by filling out the form below.</p>
                 </div>
-                <form action="" method="post" class="contact__form form">
+                <form action="" method="post" id="contact_form" class="contact__form form">
                     {{ form.hidden_tag() }}
                     {{ render_field(form.name, class="form__field", placeholder="Name", maxlength="50") }}
                     {{ render_field(form.email, class="form__field", placeholder="Email", type="email") }}
                     {{ render_field(form.subj, class="form__field", placeholder="Subject", maxlength="70") }}
                     {{ render_field(form.msg, class="form__field", placeholder="Message", rows="13") }}
-                    {{ render_field(form.website, class="form__field form__field--mask", placeholder="This website field isn't real, don't complete", autocomplete="off", tabindex="-1") }}
+                    {{ render_field(form.website, class="form__field form__field--mask", placeholder="This website field isn't real, don't complete it", autocomplete="off", tabindex="-1") }}
                     {{ render_submit(form.submit, class="form__submit-btn") }}
                 </form>
             </div>
