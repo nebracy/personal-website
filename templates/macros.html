@@ -31,9 +31,17 @@
 
 {% macro recent_commits(commits) %}
     {% for commit in commits %}
-    <li class="">
-        <div class="">
-            <a href="{{ commit['url'] }}">{{ commit['name'] }}</a> {{ commit['date'].strftime('%b. %d, %Y') }}<br>{{ commit['msg'] }}
+    <li class="git-history__commit">
+        <div class="git-history__commit-header">
+            <div class="git-history__link">
+                <a href="{{ commit['url'] }}">{{ commit['name'] }}</a>
+            </div>
+            <div class="git-history__date">
+                {{ commit['date'].strftime('%b. %d, %Y') }}
+            </div>
+        </div>
+        <div class="git-history__msg">
+            {{ commit['msg'] }}
         </div>
     </li>
     {% endfor %}
