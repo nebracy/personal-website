@@ -82,7 +82,7 @@ h3 {
 }
 h4 {
     font-family: $font-family-alt;
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: $font-header-alt-color;
 }
 .fa-sm {
@@ -357,7 +357,8 @@ nav, b.green {
     &__name {
         margin: 0 25px 3px 0;
         font-weight: 600;
-        border-bottom: 1px dotted;
+        letter-spacing: 1.4px;
+        border-bottom: 1px dotted $link-color;
     }
     &__link {
         margin-bottom: 3px;
@@ -372,7 +373,7 @@ nav, b.green {
         font-size: 0.95em;
     }
     &__msg {
-
+        font-size: 0.9em;
     }
 }
 
