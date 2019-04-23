@@ -8,7 +8,7 @@ g = Github(os.environ['GITHUB_TOKEN'])
 def get_recent_commits(num):
     commit_list = []
     for repository in g.get_user().get_repos():
-        repo = g.get_user('GITHUB_USER').get_repo(name=repository.name)
+        repo = g.get_user(os.environ['GITHUB_USER']).get_repo(name=repository.name)
         commits = repo.get_commits()[:num]
         for c in commits:
             repo_name = repo.full_name
