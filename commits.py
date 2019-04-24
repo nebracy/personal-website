@@ -1,6 +1,6 @@
 import os
-from datetime import datetime
 from github import Github
+from mysite import db, Commit
 
 g = Github(os.environ['GITHUB_TOKEN'])
 
@@ -21,15 +21,20 @@ def get_recent_commits(num):
     return final_list[:num]
 
 
+def add_initial_commits(commits):
+    for commit in commits:
+        c = Commit(commit['name'], commit['url'], commit['date'], commit['msg'])
+        db.session.add(c)
+    db.session.commit()
+
+
+def main(n):
+    recent = get_recent_commits(n)
+    db.drop_all()
+    db.create_all()
+    add_initial_commits(recent)
+
+
 if __name__ == "__main__":
+    main(10)
 
-    def example_format(commits):
-        for commit in commits:
-            name = commit['name']
-            url = commit['url']
-            msg = commit['msg']
-            date = datetime.strftime(commit['date'], '%b. %d, %Y')
-            print(name, url, msg, date)
-
-    recent = get_recent_commits(5)
-    example_format(recent)
