@@ -34,14 +34,14 @@
     <li class="git-history__commit">
         <div class="git-history__commit-header">
             <span class="git-history__name">
-                <a class="git-history__link" href="{{ commit['url'] }}">{{ commit['name'] }}</a>
+                <a class="git-history__link" href="{{ commit.url }}">{{ commit.name }}</a>
             </span>
             <span class="git-history__date">
-                {{ commit['date'].strftime('%b. %d, %Y') }}
+                {{ commit.date.strftime('%b. %d, %Y') }}
             </span>
         </div>
         <div class="git-history__msg">
-            {{ commit['msg'] }}
+            {{ commit.msg }}
         </div>
     </li>
     {% endfor %}

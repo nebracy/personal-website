@@ -2,7 +2,6 @@ from flask import Flask, render_template, url_for, redirect, flash
 from forms import ContactForm
 from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
-from commits import get_recent_commits
 
 
 app = Flask(__name__, instance_relative_config=True, static_url_path='')
@@ -33,8 +32,8 @@ class Commit(db.Model):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
+    commits = Commit.query.limit(3).all()
     form = ContactForm()
-    commits = get_recent_commits(3)
     if form.validate_on_submit():
         if form.website.data == '':
             msg = Message(form.subj.data, sender=(form.name.data, 'contact@nebracy.com'), recipients=['contact@nebracy.com'], reply_to=form.email.data)
