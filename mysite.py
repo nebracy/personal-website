@@ -1,4 +1,7 @@
-from flask import Flask, render_template, url_for, redirect, flash
+import hashlib
+import hmac
+import os
+from flask import Flask, render_template, url_for, redirect, flash, request, jsonify, abort
 from forms import ContactForm
 from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
@@ -32,7 +35,7 @@ class Commit(db.Model):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    commits = Commit.query.limit(3).all()
+    commits = Commit.query.order_by(Commit.date.desc()).limit(3).all()
     form = ContactForm()
     if form.validate_on_submit():
         if form.website.data == '':

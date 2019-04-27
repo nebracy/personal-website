@@ -36,5 +36,5 @@ def main(n):
 
 
 if __name__ == "__main__":
-    main(10)
+    main(5)
 
