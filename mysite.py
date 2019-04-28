@@ -47,6 +47,33 @@ def index():
     return render_template('index.html', form=form, title="Home", commits=commits)
 
 
+@app.route('/payload', methods=['POST'])
+def webhook():
+    if "X-Hub-Signature" not in request.headers:
+        abort(400)
+
+    if request.headers["X-GitHub-Event"] == 'ping':
+        return jsonify({}), 200
+    elif request.headers["X-GitHub-Event"] == 'push':
+
+        signature = request.headers['X-Hub-Signature']
+        sha, signature = signature.split('=')
+
+        secret = str.encode(os.environ['GITHUB_SECRET'])
+
+        hashhex = hmac.new(secret, request.data, hashlib.sha1).hexdigest()
+
+        if not hmac.compare_digest(hashhex, signature):
+            abort(400)
+
+        payload = request.get_json()
+        print(payload)  # insert add db here
+        return jsonify({}), 200
+
+    else:
+        abort(400)
+
+
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html', title="Page Not Found"), 404
