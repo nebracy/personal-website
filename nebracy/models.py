@@ -1,6 +1,7 @@
 import os
 from github import Github
-from views import db, Commit
+from nebracy import db
+from .views import Commit
 
 g = Github(os.environ['GITHUB_TOKEN'])
 
