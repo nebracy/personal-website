@@ -1,3 +1,4 @@
+from datetime import datetime
 import hashlib
 import hmac
 import os
@@ -47,7 +48,7 @@ def index():
     return render_template('index.html', form=form, title="Home", commits=commits)
 
 
-@app.route('/payload', methods=['POST'])
+@app.route('/webhook', methods=['POST'])
 def webhook():
     if "X-Hub-Signature" not in request.headers:
         abort(400)
@@ -67,7 +68,15 @@ def webhook():
             abort(400)
 
         payload = request.get_json()
-        print(payload)  # insert add db here
+        for commit in payload['commits']:
+            pre_date = commit['timestamp']
+            date = datetime.fromisoformat(pre_date)
+            msg = commit['message']
+            name = payload['repository']['name']
+            url = payload['repository']['url']
+            c = Commit(name, url, date, msg)
+            db.session.add(c)
+        db.session.commit()
         return jsonify({}), 200
 
     else:
