@@ -1,6 +1,6 @@
 import os
 from github import Github
-from mysite import db, Commit
+from views import db, Commit
 
 g = Github(os.environ['GITHUB_TOKEN'])
 
