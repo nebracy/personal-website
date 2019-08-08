@@ -1,4 +1,5 @@
 class Config:
+    DEBUG = True
     SECRET_KEY = 'testkey'
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
@@ -6,12 +7,18 @@ class Config:
     MAIL_USE_SSL = False
     MAIL_USERNAME = ''
     MAIL_PASSWORD = ''
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///github.db'
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+
+class DevelopmentConfig(Config):
+    pass
+
+
+class TestingConfig(Config):
+    pass
 
 
 class ProductionConfig(Config):
-    pass
-
-
-class TestConfig(Config):
-    pass
+    DEBUG = False
 
