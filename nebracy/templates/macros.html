@@ -44,5 +44,7 @@
             {{ commit.msg }}
         </div>
     </li>
+    {% else %}
+    <li class="git-history__commit"><em>No recent github activity :(</em></li>
     {% endfor %}
 {% endmacro %}
