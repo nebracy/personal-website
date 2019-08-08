@@ -6,23 +6,7 @@ from flask import render_template, url_for, redirect, flash, request, jsonify, a
 from flask_mail import Message
 from nebracy import app, db, mail
 from .forms import ContactForm
-
-
-class Commit(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=False)
-    url = db.Column(db.String(100), nullable=False)
-    date = db.Column(db.DateTime, nullable=False)
-    msg = db.Column(db.String(75), nullable=False)
-
-    def __init__(self, name, url, date, msg):
-        self.name = name
-        self.url = url
-        self.date = date
-        self.msg = msg
-
-    def __repr__(self):
-        return f'<Commit {self.name}, {self.date}, {self.msg}>'
+from .models import Commit
 
 
 @app.route('/', methods=['GET', 'POST'])

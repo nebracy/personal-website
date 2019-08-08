@@ -1,9 +1,25 @@
 import os
 from github import Github
 from nebracy import db
-from .views import Commit
 
-g = Github(os.environ['GITHUB_TOKEN'])
+g = Github(os.getenv('GITHUB_TOKEN'))
+
+
+class Commit(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    url = db.Column(db.String(100), nullable=False)
+    date = db.Column(db.DateTime, nullable=False)
+    msg = db.Column(db.String(75), nullable=False)
+
+    def __init__(self, name, url, date, msg):
+        self.name = name
+        self.url = url
+        self.date = date
+        self.msg = msg
+
+    def __repr__(self):
+        return f'<Commit {self.name}, {self.date}, {self.msg}>'
 
 
 def get_recent_commits(num):
