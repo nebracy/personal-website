@@ -1,4 +1,5 @@
 import os
+from sqlalchemy import event
 from github import Github
 from nebracy import db
 
@@ -22,6 +23,12 @@ class Commit(db.Model):
         return f'<Commit {self.name}, {self.date}, {self.msg}>'
 
 
+@event.listens_for(Commit.__table__, 'after_create')
+def main(*args, **kwargs):
+    recent = get_recent_commits(5)
+    add_initial_commits(recent)
+
+
 def get_recent_commits(num):
     commit_list = []
     for repository in g.get_user().get_repos():
@@ -43,15 +50,3 @@ def add_initial_commits(commits):
         c = Commit(commit['name'], commit['url'], commit['date'], commit['msg'])
         db.session.add(c)
     db.session.commit()
-
-
-def main(n):
-    recent = get_recent_commits(n)
-    db.drop_all()
-    db.create_all()
-    add_initial_commits(recent)
-
-
-if __name__ == "__main__":
-    main(5)
-
