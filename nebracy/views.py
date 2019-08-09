@@ -25,7 +25,9 @@ def index():
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
-    if "X-Hub-Signature" or "X-GitHub-Event" not in request.headers:
+    if "X-Hub-Signature" not in request.headers:
+        abort(400)
+    elif "X-GitHub-Event" not in request.headers:
         abort(400)
 
     if request.headers["X-GitHub-Event"] == 'ping':
@@ -34,6 +36,8 @@ def webhook():
 
         signature = request.headers['X-Hub-Signature']
         sha, signature = signature.split('=')
+        if sha != "sha1":
+            abort(400)
 
         secret = str.encode(os.environ['GITHUB_SECRET'])
 
