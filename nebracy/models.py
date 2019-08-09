@@ -3,7 +3,7 @@ from sqlalchemy import event
 from github import Github
 from nebracy import db
 
-g = Github(os.getenv('GITHUB_TOKEN'))
+github = Github(os.getenv('GITHUB_TOKEN'))
 
 
 class Commit(db.Model):
@@ -31,8 +31,7 @@ def main(*args, **kwargs):
 
 def get_recent_commits(num):
     commit_list = []
-    for repository in g.get_user().get_repos():
-        repo = g.get_user(os.environ['GITHUB_USER']).get_repo(name=repository.name)
+    for repo in github.get_user().get_repos():
         commits = repo.get_commits()[:num]
         for c in commits:
             repo_name = repo.full_name
