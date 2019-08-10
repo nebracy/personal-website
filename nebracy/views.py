@@ -39,7 +39,7 @@ def webhook():
         if sha != "sha1":
             abort(400)
 
-        secret = str.encode(os.environ['GITHUB_SECRET'])
+        secret = str.encode(os.environ['GITHUB_HOOK_SECRET'])
 
         hashhex = hmac.new(secret, request.data, hashlib.sha1).hexdigest()
 
