@@ -8,3 +8,7 @@ __pycache__/
 *.css.map
 
 *.db
+
+Dockerfile
+.dockerignore
+docker-compose.yml
