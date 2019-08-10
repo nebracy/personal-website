@@ -1,3 +1,9 @@
+import os
+from nebracy import app
+
+db_path = os.path.join(app.instance_path, 'github.db')
+
+
 class Config:
     DEBUG = True
     SECRET_KEY = 'testkey'
@@ -7,7 +13,7 @@ class Config:
     MAIL_USE_SSL = False
     MAIL_USERNAME = ''
     MAIL_PASSWORD = ''
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///github.db'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///{}'.format(db_path)
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
@@ -21,4 +27,3 @@ class TestingConfig(Config):
 
 class ProductionConfig(Config):
     DEBUG = False
-
