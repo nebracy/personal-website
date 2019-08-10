@@ -26,9 +26,9 @@ def index():
 @app.route('/webhook', methods=['POST'])
 def webhook():
     if "X-Hub-Signature" not in request.headers:
-        abort(400)
+        abort(400, "Missing header")
     elif "X-GitHub-Event" not in request.headers:
-        abort(400)
+        abort(400, "Missing header")
 
     if request.headers["X-GitHub-Event"] == 'ping':
         return jsonify({}), 200
