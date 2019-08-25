@@ -55,11 +55,12 @@ def webhook():
         payload = request.get_json()
         for commit in payload['commits']:
             pre_date = commit['timestamp']
+            commit_id = commit['id']
             date = datetime.fromisoformat(pre_date)
             msg = commit['message']
             name = payload['repository']['name']
             url = payload['repository']['url']
-            c = Commit(name, url, date, msg)
+            c = Commit(commit_id, name, url, date, msg)
             db.session.add(c)
         db.session.commit()
         return jsonify({}), 200
