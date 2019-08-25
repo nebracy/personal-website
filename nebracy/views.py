@@ -2,7 +2,7 @@ from datetime import datetime
 import hashlib
 import hmac
 import os
-from sqlalchemy.exc import OperationalError
+from sqlalchemy.exc import OperationalError, IntegrityError
 from flask import render_template, url_for, redirect, flash, request, jsonify, abort
 from flask_mail import Message
 from nebracy import app, db, mail
@@ -53,16 +53,19 @@ def webhook():
             abort(400)
 
         payload = request.get_json()
-        for commit in payload['commits']:
-            pre_date = commit['timestamp']
-            commit_id = commit['id']
-            date = datetime.fromisoformat(pre_date)
-            msg = commit['message']
-            name = payload['repository']['name']
-            url = payload['repository']['url']
-            c = Commit(commit_id, name, url, date, msg)
-            db.session.add(c)
-        db.session.commit()
+        try:
+            for commit in payload['commits']:
+                pre_date = commit['timestamp']
+                commit_id = commit['id']
+                date = datetime.fromisoformat(pre_date)
+                msg = commit['message']
+                name = payload['repository']['name']
+                url = payload['repository']['url']
+                c = Commit(commit_id, name, url, date, msg)
+                db.session.add(c)
+            db.session.commit()
+        except IntegrityError:
+            abort(400, "Database is already up to date")
         return jsonify({}), 200
 
     else:
