@@ -1,6 +1,7 @@
 import os
-from sqlalchemy import event
 from github import Github
+import pytz
+from sqlalchemy import event
 from nebracy import db
 
 github = Github(os.getenv('GITHUB_TOKEN'))
@@ -39,12 +40,18 @@ def get_recent_commits(num):
             repo_name = repo.full_name
             repo_url = repo.html_url
             commit_msg = c.commit.message
-            commit_date = c.commit.committer.date
+            commit_date = convert_tz(c.commit.committer.date)
             commit_id = c.commit.sha
             commit_info = {'id': commit_id, 'name': repo_name, 'url': repo_url, 'date': commit_date, 'msg': commit_msg}
             commit_list.append(commit_info)
     final_list = sorted(commit_list, key=lambda commit: commit['date'], reverse=True)
     return final_list[:num]
+
+
+def convert_tz(date):
+    utc_date = pytz.utc.localize(date)
+    est_date = utc_date.astimezone(pytz.timezone('America/New_York'))
+    return est_date
 
 
 def add_initial_commits(commits):
