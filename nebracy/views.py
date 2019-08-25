@@ -25,7 +25,7 @@ def index():
             msg.body = form.msg.data
             mail.send(msg)
             flash(f'Email sent, thank you!')
-            return redirect(url_for('index'))
+            return redirect(url_for('index', _external=True, _scheme='https'))
     return render_template('index.html', form=form, title="Home", commits=commits)
 
 
