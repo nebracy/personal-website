@@ -1,14 +1,8 @@
 venv/
 instance/
-
 __pycache__/
-
 .idea/
 
 *.css.map
 
 *.db
-
-Dockerfile
-.dockerignore
-docker-compose.yml
