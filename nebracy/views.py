@@ -2,22 +2,17 @@ from datetime import datetime
 import hashlib
 import hmac
 import os
-from sqlalchemy.exc import OperationalError, IntegrityError
+from sqlalchemy.exc import IntegrityError
 from flask import render_template, url_for, redirect, flash, request, jsonify, abort
 from flask_mail import Message
-from nebracy import app, db, mail
+from nebracy import app, mail
 from .forms import ContactForm
-from .models import Commit
+from .models import db, Commit
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    try:
-        commits = Commit.query.order_by(Commit.date.desc()).limit(3).all()
-    except OperationalError:
-        print('Missing Commit table, creating...')
-        db.create_all()
-        commits = Commit.query.order_by(Commit.date.desc()).limit(3).all()
+    commits = Commit.query.order_by(Commit.date.desc()).limit(3).all()
     form = ContactForm()
     if form.validate_on_submit():
         if form.website.data == '':

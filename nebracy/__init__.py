@@ -11,3 +11,5 @@ db = SQLAlchemy(app)
 mail = Mail(app)
 
 from . import views
+
+db.create_all()
