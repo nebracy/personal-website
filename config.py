@@ -18,13 +18,13 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 
-class DevelopmentConfig(Config):
+class Development(Config):
     pass
 
 
-class TestingConfig(Config):
+class Staging(Config):
     pass
 
 
-class ProductionConfig(Config):
+class Production(Config):
     DEBUG = False
