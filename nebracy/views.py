@@ -48,20 +48,23 @@ def webhook():
             abort(400)
 
         payload = request.get_json()
-        try:
-            for commit in payload['commits']:
-                pre_date = commit['timestamp']
-                commit_id = commit['id']
-                date = datetime.fromisoformat(pre_date)
-                msg = commit['message']
-                name = payload['repository']['name']
-                url = payload['repository']['url']
-                c = Commit(commit_id, name, url, date, msg)
-                db.session.add(c)
-            db.session.commit()
-        except IntegrityError:
-            abort(400, "Database is already up to date")
-        return jsonify({}), 200
+        if payload['ref'] == 'refs/heads/master':
+            try:
+                for commit in payload['commits']:
+                    pre_date = commit['timestamp']
+                    commit_id = commit['id']
+                    date = datetime.fromisoformat(pre_date)
+                    msg = commit['message']
+                    name = payload['repository']['name']
+                    url = payload['repository']['url']
+                    c = Commit(commit_id, name, url, date, msg)
+                    db.session.add(c)
+                db.session.commit()
+            except IntegrityError:
+                abort(400, "Database is already up to date")
+            return jsonify({}), 200
+        else:
+            abort(400, "Commits from this push are from another branch besides master")
 
     else:
         abort(400)
