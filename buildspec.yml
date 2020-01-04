@@ -14,12 +14,12 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...          
       - docker build -t flask-nebracy .
-      - docker tag flask-nebracy:latest 926459945450.dkr.ecr.us-east-1.amazonaws.com/flask-nebracy:latest
+      - docker tag flask-nebracy:latest $REPO_URI
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push 926459945450.dkr.ecr.us-east-1.amazonaws.com/flask-nebracy:latest
-      - printf '[{"name":"flask","imageUri":"26459945450.dkr.ecr.us-east-1.amazonaws.com/flask-nebracy:latest"}]' > imagedefinitions.json
+      - docker push $REPO_URI
+      - printf '[{"name":"flask","imageUri":"%s"}]' $REPO_URI > imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
