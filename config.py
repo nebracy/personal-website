@@ -16,6 +16,7 @@ class Config:
     MAIL_PASSWORD = os.getenv('FLASK_MAIL_PASSWORD')
     SQLALCHEMY_DATABASE_URI = os.getenv('FLASK_DB_URI', default_db_path)
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SERVER_NAME = os.getenv('FLASK_SERVER_NAME', 'nebracy.com')
 
 
 class Development(Config):

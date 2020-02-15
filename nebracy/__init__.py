@@ -9,6 +9,14 @@ app.add_url_rule('/<path:filename>',
                  endpoint='static',
                  subdomain='<subdomain>',
                  view_func=app.send_static_file)
+
+
+@app.url_value_preprocessor
+def before_route(endpoint, values):
+    if values is not None:
+        values.pop('subdomain', None)
+
+
 env = os.getenv('FLASK_ENV', 'Production')
 app.config.from_object(f'config.{env}')
 app.config.from_pyfile('config.py', silent=True)
