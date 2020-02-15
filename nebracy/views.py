@@ -5,7 +5,7 @@ import os
 from sqlalchemy.exc import IntegrityError
 from flask import render_template, url_for, redirect, flash, request, jsonify, abort
 from flask_mail import Message
-from nebracy import app, mail, static
+from nebracy import app, mail, static, scheme
 from .forms import ContactForm
 from .models import db, Commit
 
@@ -21,7 +21,7 @@ def index():
             mail.send(msg)
             flash(f'Email sent, thank you!')
             return redirect(url_for('index', _external=True, _scheme='https'))
-    return render_template('index.html', form=form, title="Home", commits=commits, static=static)
+    return render_template('index.html', form=form, title="Home", commits=commits, static=static, scheme=scheme)
 
 
 @app.route('/webhook', methods=['POST'])
