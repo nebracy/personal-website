@@ -66,5 +66,5 @@
          </section>
     </main>
     {% include 'footer.html' %}
-    <script src="https://{{ domain }}.nebracy.com/js/script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js', subdomain=subdomain, _external=True) }}"></script>
 {% endblock body %}
