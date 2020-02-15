@@ -7,14 +7,14 @@ from flask_mail import Mail
 app = Flask(__name__, instance_relative_config=True, static_url_path='')
 app.add_url_rule('/<path:filename>',
                  endpoint='static',
-                 subdomain='<subdomain>',
+                 subdomain='<static>',
                  view_func=app.send_static_file)
 
 
 @app.url_value_preprocessor
 def before_route(endpoint, values):
     if values is not None:
-        values.pop('subdomain', None)
+        values.pop('static', None)
 
 
 env = os.getenv('FLASK_ENV', 'Production')

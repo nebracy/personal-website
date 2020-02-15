@@ -15,9 +15,9 @@ def index():
     commits = Commit.query.order_by(Commit.date.desc()).limit(3).all()
     form = ContactForm()
     if env == 'Production':
-        subdomain = 'static'
+        static = 'static'
     else:
-        subdomain = 'static2'
+        static = 'static2'
     if form.validate_on_submit():
         if form.website.data == '':
             msg = Message(form.subj.data, sender=(form.name.data, 'contact@nebracy.com'), recipients=['contact@nebracy.com'], reply_to=form.email.data)
@@ -25,7 +25,7 @@ def index():
             mail.send(msg)
             flash(f'Email sent, thank you!')
             return redirect(url_for('index', _external=True, _scheme='https'))
-    return render_template('index.html', form=form, title="Home", commits=commits, subdomain=subdomain)
+    return render_template('index.html', form=form, title="Home", commits=commits, static=static)
 
 
 @app.route('/webhook', methods=['POST'])
