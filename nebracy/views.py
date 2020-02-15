@@ -5,7 +5,7 @@ import os
 from sqlalchemy.exc import IntegrityError
 from flask import render_template, url_for, redirect, flash, request, jsonify, abort
 from flask_mail import Message
-from nebracy import app, mail, env
+from nebracy import app, mail, static
 from .forms import ContactForm
 from .models import db, Commit
 
@@ -14,10 +14,6 @@ from .models import db, Commit
 def index():
     commits = Commit.query.order_by(Commit.date.desc()).limit(3).all()
     form = ContactForm()
-    if env == 'Production':
-        static = 'static'
-    else:
-        static = 'static2'
     if form.validate_on_submit():
         if form.website.data == '':
             msg = Message(form.subj.data, sender=(form.name.data, 'contact@nebracy.com'), recipients=['contact@nebracy.com'], reply_to=form.email.data)
