@@ -20,6 +20,8 @@ def before_route(endpoint, values):
 env = os.getenv('FLASK_ENV', 'Production')
 app.config.from_object(f'config.{env}')
 app.config.from_pyfile('config.py', silent=True)
+if env != 'Production':
+    app.url_map.default_subdomain = 'test'
 db = SQLAlchemy(app)
 mail = Mail(app)
 
