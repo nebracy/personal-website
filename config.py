@@ -20,7 +20,7 @@ class Config:
 
 
 class Development(Config):
-    pass
+    SERVER_NAME = 'local.nebracy.com:5000'   # Add/Update hosts file
 
 
 class Staging(Config):
