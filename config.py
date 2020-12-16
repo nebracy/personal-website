@@ -7,7 +7,7 @@ default_db_path = 'sqlite:///{}'.format(db_path)
 
 class Config:
     DEBUG = True
-    SECRET_KEY = os.getenv('FLASK_SECRET_KEY', 'tempkey')
+    SECRET_KEY = os.getenv('FLASK_SECRET_KEY', 'defaultsecretkey')
     MAIL_SERVER = os.getenv('FLASK_MAIL_SERVER', 'smtp.gmail.com')
     MAIL_PORT = 587
     MAIL_USE_TLS = True
@@ -20,7 +20,7 @@ class Config:
 
 
 class Development(Config):
-    SERVER_NAME = 'local.nebracy.com:5000'   # Add/Update hosts file
+    SERVER_NAME = 'local.nebracy.com'   # Add/Update hosts file
 
 
 class Staging(Config):
