@@ -3,12 +3,16 @@ import hashlib
 import hmac
 import os
 from sqlalchemy.exc import IntegrityError
-from flask import render_template, url_for, redirect, flash, request, jsonify, abort
+from flask import Blueprint, render_template, url_for, redirect, flash, request, jsonify, abort
 from flask_mail import Message
-from nebracy import app, forms, mail, models, static_subdomain
+from nebracy import forms, mail, models, static_subdomain
 
 
-@app.route('/', methods=['GET', 'POST'])
+home = Blueprint('home', __name__)
+errors = Blueprint('errors', __name__)
+
+
+@home.route('/', methods=['GET', 'POST'])
 def index():
     commits = models.Commit.query.order_by(models.Commit.date.desc()).limit(3).all()
     contact_form = forms.ContactForm()
@@ -25,7 +29,7 @@ def index():
     return render_template('index.html', form=contact_form, title="Home", commits=commits, static=static_subdomain)
 
 
-@app.route('/webhook', methods=['POST'])
+@home.route('/webhook', methods=['POST'])
 def webhook():
     try:
         if request.headers["X-GitHub-Event"] == 'ping':
@@ -62,7 +66,7 @@ def webhook():
         abort(400, "Commits from this push are from another branch besides master")
 
 
-@app.errorhandler(404)
+@errors.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html', title="Page Not Found"), 404
 
