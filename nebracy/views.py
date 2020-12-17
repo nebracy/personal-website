@@ -5,23 +5,24 @@ import os
 from sqlalchemy.exc import IntegrityError
 from flask import render_template, url_for, redirect, flash, request, jsonify, abort
 from flask_mail import Message
-from nebracy import app, mail, static
-from .forms import ContactForm
-from .models import db, Commit
+from nebracy import app, forms, mail, models, static_subdomain
 
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    commits = Commit.query.order_by(Commit.date.desc()).limit(3).all()
-    form = ContactForm()
-    if form.validate_on_submit():
-        if form.website.data == '':
-            msg = Message(form.subj.data, sender=(form.name.data, 'contact@nebracy.com'), recipients=['contact@nebracy.com'], reply_to=form.email.data)
-            msg.body = form.msg.data
+    commits = models.Commit.query.order_by(models.Commit.date.desc()).limit(3).all()
+    contact_form = forms.ContactForm()
+    if contact_form.validate_on_submit():
+        if contact_form.website.data == '':
+            msg = Message(contact_form.subj.data,
+                          sender=(contact_form.name.data, 'contact@nebracy.com'),
+                          recipients=['contact@nebracy.com'],
+                          reply_to=contact_form.email.data)
+            msg.body = contact_form.msg.data
             mail.send(msg)
             flash(f'Email sent, thank you!')
             return redirect(url_for('index', _external=True, _scheme='https'))
-    return render_template('index.html', form=form, title="Home", commits=commits, static=static)
+    return render_template('index.html', form=contact_form, title="Home", commits=commits, static=static_subdomain)
 
 
 @app.route('/webhook', methods=['POST'])
@@ -51,9 +52,9 @@ def webhook():
                 msg = commit['message']
                 name = payload['repository']['name']
                 url = payload['repository']['url']
-                c = Commit(commit_id, name, url, date, msg)
-                db.session.add(c)
-            db.session.commit()
+                c = models.Commit(commit_id, name, url, date, msg)
+                models.db.session.add(c)
+            models.db.session.commit()
         except IntegrityError:
             abort(400, "Database is already up to date")
         return jsonify({}), 200

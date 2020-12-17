@@ -1,7 +1,7 @@
 import os
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
+from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__, instance_relative_config=True, static_url_path='')
@@ -20,9 +20,9 @@ def before_route(endpoint, values):
 env = os.getenv('FLASK_ENV', 'Production')
 app.config.from_object(f'config.{env}')
 if env == 'Production':
-    static = 'static'
+    static_subdomain = 'static'
 else:
-    static = 'static2'
+    static_subdomain = 'static2'
     app.url_map.default_subdomain = 'test'
 db = SQLAlchemy(app)
 mail = Mail(app)
