@@ -12,12 +12,11 @@ class Config:
     MAIL_PASSWORD = os.getenv('FLASK_MAIL_PASSWORD')
     SQLALCHEMY_DATABASE_URI = os.getenv('FLASK_DB_URI', 'sqlite:///:memory:')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SERVER_NAME = os.getenv('FLASK_SERVER_NAME', 'nebracy.com')
 
 
 class Development(Config):
     TESTING = True
-    SERVER_NAME = 'local.nebracy.com'   # Add/Update hosts file
+    SERVER_NAME = os.getenv('FLASK_SERVER_NAME', 'local.nebracy.com:5000')
 
 
 class Staging(Config):
