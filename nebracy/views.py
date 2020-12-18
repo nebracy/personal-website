@@ -66,13 +66,13 @@ def webhook():
         abort(400, "Commits from this push are from another branch besides master")
 
 
-@errors.errorhandler(404)
+@errors.app_errorhandler(404)
 def page_not_found(error):
     return render_template('404.html', title="Page Not Found"), 404
 
 
 # todo create 500.html
-# @errors.errorhandler(500)
+# @errors.app_errorhandler(500)
 # def internal_server_error(error):
 #     return render_template('500.html', title="Internal Server Error"), 500
 
