@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+{% block styles %}
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet">
+{% endblock styles %}
+{% block head %}
+{{ super() }}
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0 auto;
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            color: #333333;
+            background-image: linear-gradient(0deg, #35cece, #37c8ab);
+        }
+        *, *:before, *:after {
+            box-sizing: border-box;
+        }
+        main {
+            max-height: 500px;
+            flex: 1 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .content {
+            max-height: 360px;
+            flex: 1 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            font-size: 12em;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px #000000;
+        }
+        h2 {
+            margin: 0;
+            font-size: 1.6em;
+            text-shadow: 2px 2px 4px #289784;
+            text-transform: uppercase;
+        }
+        .content__button {
+            flex: 1 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        .button {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 42px;
+            width: 193px;
+            color: #ffffff;
+            font-size: 90%;
+            text-decoration: none;
+            background-color: #333333;
+            transition-duration: 0.2s;
+            border: 1px solid #333333;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(50,50,93,.11), 0 1px 3px rgba(0,0,0,.08);
+        }
+        .button:hover {
+            font-weight: 600;
+            color: #333333;
+            background-color: transparent;
+            border: 2px solid #333333;
+        }
+        .button:active {
+            color: #ffffff;
+            background-color: #333333;
+        }
+        @media screen and (max-width: 450px) {
+            h1 {
+                font-size: 42vw;
+            }
+            h2 {
+                font-size: 5.5vw;
+            }
+            .content__button {
+                flex: 0 1;
+            }
+            .content {
+                justify-content: space-evenly;
+            }
+            .button {
+                font-size: 14px;
+                font-weight: 600;
+                height: inherit;
+                width: inherit;
+                box-shadow: none;
+            }
+            .button, .button:hover, .button:active {
+                background-color: initial;
+                border: none;
+            }
+        }
+        @media screen and (max-width: 275px) {
+            h2 {
+                font-size: 15.5px;
+            }
+        }
+    </style>
+{% endblock head %}
+{% block body %}
+<main>
+    <div class="content">
+        <div class="content__headers">
+            <h1>500</h1>
+            <h2>Internal Server Error</h2>
+        </div>
+        <div class="content__button">
+            <a class="button" href="{{ url_for('home.index', _external=True, _scheme='https') }}">Try Again</a>
+        </div>
+    </div>
+</main>
+{% endblock body %}
