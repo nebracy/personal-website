@@ -3,7 +3,7 @@ import hashlib
 import hmac
 import os
 from sqlalchemy.exc import IntegrityError
-from flask import Blueprint, render_template, url_for, redirect, flash, request, jsonify, abort
+from flask import abort, Blueprint, jsonify, render_template, redirect, flash, request, url_for
 from flask_mail import Message
 from nebracy import forms, mail, models, static_subdomain
 
@@ -14,7 +14,7 @@ errors = Blueprint('errors', __name__)
 
 @home.route('/', methods=['GET', 'POST'])
 def index():
-    commits = models.Commit.query.order_by(models.Commit.date.desc()).limit(3).all()
+    git_commits = models.Commit.query.order_by(models.Commit.date.desc()).limit(3).all()
     contact_form = forms.ContactForm()
     if contact_form.validate_on_submit():
         if contact_form.website.data == '':
@@ -26,7 +26,7 @@ def index():
             mail.send(msg)
             flash(f'Email sent, thank you!')
             return redirect(url_for('index', _external=True, _scheme='https'))
-    return render_template('index.html', form=contact_form, title="Home", commits=commits, static=static_subdomain)
+    return render_template('index.html', form=contact_form, title="Home", commits=git_commits, static=static_subdomain)
 
 
 @home.route('/webhook', methods=['POST'])
