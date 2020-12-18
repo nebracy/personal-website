@@ -10,6 +10,7 @@ class Config:
     MAIL_USE_SSL = False
     MAIL_USERNAME = os.getenv('FLASK_MAIL_USERNAME')
     MAIL_PASSWORD = os.getenv('FLASK_MAIL_PASSWORD')
+    MAIL_DEFAULT_SENDER = os.getenv('FLASK_MAIL_DEFAULT_SENDER')
     SQLALCHEMY_DATABASE_URI = os.getenv('FLASK_DB_URI', 'sqlite:///:memory:')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
@@ -20,8 +21,9 @@ class Development(Config):
 
 
 class Staging(Config):
-    pass
+    TESTING = True
 
 
 class Production(Config):
-    pass
+    SECRET_KEY = os.getenv('FLASK_SECRET_KEY')
+    MAIL_SERVER = os.getenv('FLASK_MAIL_SERVER', 'smtp-relay.gmail.com')

@@ -3,7 +3,8 @@ import hashlib
 import hmac
 import os
 from sqlalchemy.exc import IntegrityError
-from flask import abort, Blueprint, jsonify, render_template, redirect, flash, request, url_for
+from flask import (abort, Blueprint, current_app as app, jsonify, render_template,
+                   redirect, flash, request, url_for)
 from flask_mail import Message
 from nebracy import forms, mail, models
 
@@ -19,8 +20,8 @@ def index():
     if contact_form.validate_on_submit():
         if contact_form.website.data == '':
             msg = Message(contact_form.subj.data,
-                          sender=(contact_form.name.data, 'contact@nebracy.com'),
-                          recipients=['contact@nebracy.com'],
+                          sender=(contact_form.name.data, app.config['MAIL_DEFAULT_SENDER']),
+                          recipients=[app.config['MAIL_DEFAULT_SENDER']],
                           reply_to=contact_form.email.data)
             msg.body = contact_form.msg.data
             mail.send(msg)
