@@ -14,19 +14,19 @@ elif config_env == 'Staging' or 'Development':
     static_subdomain = 'static2'
 
 
-def create_app(env):
-    app = Flask(__name__, instance_relative_config=True, static_url_path='')
+def create_app():
+    app = Flask(__name__, static_url_path='')
     app.add_url_rule('/<path:filename>',
                      endpoint='static',
                      subdomain='<static>',
                      view_func=app.send_static_file)
 
-    app.config.from_object(f'config.{env}')
+    app.config.from_object(f'config.{os.getenv("FLASK_ENV", "Production")}')
 
-    if env == 'Staging':
-        app.url_map.default_subdomain = 'test'
-    elif env == 'Development':
-        app.url_map.default_subdomain = 'local'
+    # if env == 'Staging':
+    #     app.url_map.default_subdomain = 'test'
+    # elif env == 'Development':
+    #     app.url_map.default_subdomain = 'local'
 
     db.init_app(app)
     mail.init_app(app)
@@ -40,7 +40,6 @@ def create_app(env):
         return app
 
 
-# todo
 # @app.url_value_preprocessor
 # def before_route(endpoint, values):
 #     if values is not None:
