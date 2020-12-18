@@ -55,11 +55,10 @@
                 </div>
                 <form action="" method="post" id="contact_form" class="contact__form form">
                     {{ form.hidden_tag() }}
-                    {{ render_field(form.name, class="form__field", placeholder="Name", maxlength="50") }}
-                    {{ render_field(form.email, class="form__field", placeholder="Email", type="email") }}
-                    {{ render_field(form.subj, class="form__field", placeholder="Subject", maxlength="70") }}
-                    {{ render_field(form.msg, class="form__field", placeholder="Message", rows="13") }}
-                    {{ render_field(form.website, class="form__field form__field--mask", placeholder="This website field isn't real, don't complete it", autocomplete="off", tabindex="-1") }}
+                    {{ render_field(form.name, class="form__field", placeholder="Name", maxlength="75") }}
+                    {{ render_field(form.email, class="form__field", placeholder="Email", type="email", maxlength="255") }}
+                    {{ render_field(form.subj, class="form__field", placeholder="Subject", maxlength="75") }}
+                    {{ render_field(form.msg, class="form__field", placeholder="Message", rows="13", maxlength="2000") }}
                     {{ render_submit(form.submit, class="form__submit-btn") }}
                 </form>
             </div>
