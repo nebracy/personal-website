@@ -69,11 +69,11 @@ def webhook():
 
 @errors.app_errorhandler(404)
 def page_not_found(error):
-    return render_template('404.html', title="Page Not Found"), 404
+    return render_template('errors/404.html', title="Page Not Found"), 404
 
 
 # todo create 500.html
 # @errors.app_errorhandler(500)
 # def internal_server_error(error):
-#     return render_template('500.html', title="Internal Server Error"), 500
+#     return render_template('errors/500.html', title="Internal Server Error"), 500
 
