@@ -15,7 +15,8 @@ errors = Blueprint('errors', __name__)
 
 @home.route('/', methods=['GET', 'POST'])
 def index():
-    git_commits = models.Commit.query.order_by(models.Commit.date.desc()).limit(3).all()
+    commits = models.Commit
+    git_commits = commits.query.order_by(commits.date.desc()).limit(3).all()
     contact_form = forms.ContactForm()
     if contact_form.validate_on_submit():
         if contact_form.website.data == '':
