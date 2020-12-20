@@ -4,10 +4,8 @@ RUN groupadd -r flaskapp && useradd -r -g flaskapp -s /sbin/nologin flaskapp
 
 WORKDIR /app
 
-COPY requirements.txt ./
-RUN pip install -r requirements.txt
-
 COPY . ./
+RUN pip install -r requirements.txt
 
 RUN chown -R flaskapp:flaskapp /app
 USER flaskapp
