@@ -16,7 +16,7 @@ class Config:
 
 class Development(Config):
     TESTING = True
-    SERVER_NAME = os.getenv('FLASK_SERVER_NAME', 'local.nebracy.com:5000')
+    # SERVER_NAME = os.getenv('FLASK_SERVER_NAME', 'local.nebracy.com:5000')
 
 
 class Staging(Config):
