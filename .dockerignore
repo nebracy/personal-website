@@ -1,11 +1,15 @@
 venv/
 __pycache__/
+.pytest_cache/
 .idea/
 instance/
-nebracy/static/
+tests/
+instance/
 .git/
 .gitignore
 .dockerignore
+Dockerfile
+buildspec.yml
 .env
 *.css.map
 *.db
