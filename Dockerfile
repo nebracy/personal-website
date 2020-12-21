@@ -1,14 +1,12 @@
 FROM python:3.7-slim-buster
 
-RUN groupadd -r flaskapp && useradd -r -g flaskapp -s /sbin/nologin flaskapp
-
 WORKDIR /app
 
 COPY . ./
 RUN pip install -r requirements.txt
 
-RUN chown -R flaskapp:flaskapp /app
-USER flaskapp
+RUN useradd appuser && chown -R appuser /app
+USER appuser
 
 EXPOSE 5000
 CMD ["gunicorn", "-b", "0.0.0.0:5000", "run:app"]
