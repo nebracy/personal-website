@@ -10,7 +10,8 @@ mail = Mail()
 
 def create_app():
     app = Flask(__name__, static_url_path='')
-    app.config.from_object(f'config.{os.getenv("FLASK_CONFIG", "Production")}')
+    config = os.getenv("FLASK_CONFIG", "Production")
+    app.config.from_object(f'config.{config}')
 
     db.init_app(app)
     mail.init_app(app)
