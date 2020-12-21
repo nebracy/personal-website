@@ -4,7 +4,7 @@ __pycache__/
 .idea/
 instance/
 tests/
-instance/
+local/
 .git/
 .gitignore
 .dockerignore
