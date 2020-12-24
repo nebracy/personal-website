@@ -12,18 +12,20 @@ class Config:
     MAIL_DEFAULT_SENDER = os.getenv('FLASK_MAIL_DEFAULT_SENDER')
     SQLALCHEMY_DATABASE_URI = os.getenv('FLASK_DB_URI', 'sqlite:///:memory:')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    S3_FOLDER = None
 
 
 class Development(Config):
     TESTING = True
-    # SERVER_NAME = os.getenv('FLASK_SERVER_NAME', 'local.nebracy.com:443')
-    # SERVER_NAME for local flask run outside of docker
+    # SERVER_NAME = os.getenv('FLASK_SERVER_NAME', 'local.nebracy.com:443')     # local flask run only
 
 
 class Staging(Config):
     TESTING = True
+    S3_FOLDER = 'static/staging'
 
 
 class Production(Config):
     SECRET_KEY = os.getenv('FLASK_SECRET_KEY')
-    MAIL_SERVER = os.getenv('FLASK_MAIL_SERVER', 'smtp-relay.gmail.com')
+    MAIL_SERVER = os.getenv('FLASK_MAIL_SERVER', 'smtppro.zoho.com')
+    S3_FOLDER = 'static/production'
