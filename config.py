@@ -22,7 +22,7 @@ class Development(Config):
 
 class Staging(Config):
     TESTING = True
-    S3_FOLDER = 'static'
+    S3_FOLDER = 'static/staging'
     # SERVER_NAME = 'test.nebracy.com:443'
 
 
