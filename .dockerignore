@@ -4,6 +4,7 @@ __pycache__/
 .idea/
 instance/
 tests/
+nebracy/static/
 local/
 .git/
 .gitignore
@@ -14,3 +15,4 @@ buildspec.yml
 *.css.map
 *.db
 README.md
+__pycache__

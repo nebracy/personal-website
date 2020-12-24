@@ -17,12 +17,13 @@ class Config:
 
 class Development(Config):
     TESTING = True
-    # SERVER_NAME = os.getenv('FLASK_SERVER_NAME', 'local.nebracy.com:443')     # local flask run only
+    # SERVER_NAME = 'local.nebracy.com:443'     # local flask run only
 
 
 class Staging(Config):
     TESTING = True
-    S3_FOLDER = 'static/staging'
+    S3_FOLDER = 'static'
+    # SERVER_NAME = 'test.nebracy.com:443'
 
 
 class Production(Config):
