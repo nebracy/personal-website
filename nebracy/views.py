@@ -19,15 +19,14 @@ def index():
     git_commits = commits.query.order_by(commits.date.desc()).limit(3).all()
     contact_form = forms.ContactForm()
     if contact_form.validate_on_submit():
-        if contact_form.website.data == '':
-            msg = Message(contact_form.subj.data,
-                          sender=(contact_form.name.data, app.config['MAIL_DEFAULT_SENDER']),
-                          recipients=[app.config['MAIL_DEFAULT_SENDER']],
-                          reply_to=contact_form.email.data)
-            msg.body = contact_form.msg.data
-            mail.send(msg)
-            flash(f'Email sent, thank you!')
-            return redirect(url_for('home.index', _external=True, _scheme='https'))
+        msg = Message(contact_form.subj.data,
+                      sender=(contact_form.name.data, app.config['MAIL_DEFAULT_SENDER']),
+                      recipients=[app.config['MAIL_DEFAULT_SENDER']],
+                      reply_to=contact_form.email.data)
+        msg.body = contact_form.msg.data
+        mail.send(msg)
+        flash(f'Email sent, thank you!')
+        return redirect(url_for('home.index', _external=True, _scheme='https'))
     return render_template('index.html', form=contact_form, title="Home", commits=git_commits)
 
 
