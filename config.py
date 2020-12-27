@@ -5,7 +5,6 @@ basedir = os.path.dirname(__file__)
 
 
 class Config:
-    TESTING = False
     SECRET_KEY = os.getenv('FLASK_SECRET_KEY')
     MAIL_PORT = 587
     MAIL_USE_TLS = True
@@ -19,7 +18,6 @@ class Config:
 
 
 class Development(Config):
-    TESTING = True
     SECRET_KEY = 'default-secret-key'
     MAIL_SERVER = 'smtp.gmail.com'
     SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
@@ -27,7 +25,6 @@ class Development(Config):
 
 
 class Staging(Config):
-    TESTING = True
     S3_FOLDER = 'static/staging'
 
 
