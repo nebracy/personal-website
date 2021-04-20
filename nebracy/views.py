@@ -45,7 +45,7 @@ def webhook():
         secret = str.encode(os.getenv('GITHUB_HOOK_SECRET'))
         hashhex = hmac.new(secret, request.data, hashlib.sha1).hexdigest()
         if not hmac.compare_digest(hashhex, signature):
-            abort(400)
+            abort(400, "Incorrect secret")
 
     payload = request.get_json()
     if payload['ref'] == 'refs/heads/master':
