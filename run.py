@@ -1,8 +1,9 @@
+from os import getenv as env
 import ssl
 from nebracy import create_app
 
 
-app = create_app()
+app = create_app(env("FLASK_CONFIG"), env("DEV_STATIC_FOLDER"))
 
 if __name__ == "__main__":
     context = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)

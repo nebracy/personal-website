@@ -1,4 +1,3 @@
-import os
 from flask import Flask
 from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
@@ -6,15 +5,13 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 mail = Mail()
-static_folder = os.getenv('FLASK_STATIC_FOLDER', None)
 
 
-def create_app():
+def create_app(config='Production', static_folder=None):     # static_folder must be None for static subdomain
     app = Flask(__name__, static_url_path='', static_folder=static_folder)
-    app.config.from_object(f'config.{os.getenv("FLASK_CONFIG")}')
-    s3_folder = app.config.get('S3_FOLDER')
+    app.config.from_object(f'config.{config.capitalize()}')
     if not static_folder:
-        app.static_folder = s3_folder
+        app.static_folder = app.config.get('S3_FOLDER')
         app.add_url_rule('/<path:filename>',
                          endpoint='static',
                          view_func=app.send_static_file,
