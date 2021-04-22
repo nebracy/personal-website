@@ -17,16 +17,20 @@ class Config:
     S3_FOLDER = None
 
 
-class Development(Config):
-    SECRET_KEY = 'default-secret-key'
-    MAIL_SERVER = 'smtp.gmail.com'
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
-    # SERVER_NAME = 'local.nebracy.com:443'
+class Production(Config):
+    S3_FOLDER = 'static/production'
 
 
 class Staging(Config):
     S3_FOLDER = 'static/staging'
 
 
-class Production(Config):
-    S3_FOLDER = 'static/production'
+class Development(Config):
+    SECRET_KEY = 'default-secret-key'
+    MAIL_SERVER = 'smtp.gmail.com'
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
+    TESTING = True
+    PRESERVE_CONTEXT_ON_EXCEPTION = False
+    DEBUG = True
+    ENV = 'development'
+    # SERVER_NAME = 'local.nebracy.com:443'
