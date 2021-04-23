@@ -30,3 +30,9 @@ def test_webhook_ping_header(client):
     response = client.post('/webhook', headers=headers)
     assert response.status_code == 200
 
+
+@pytest.mark.parametrize("headers", [{'': ''}, {'X-GitHub-Event': ''}, {'X-GitHub-Event': 'junk'}, {'X-GitHub-Event': 'push', 'X-Hub-Signature': ''}])
+def test_webhook_wrong_headers(client, headers):
+    response = client.post('/webhook', headers=headers)
+    assert response.status_code == 400
+    assert b"Missing correct headers" in response.data
