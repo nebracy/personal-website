@@ -44,3 +44,17 @@ def test_webhook_wrong_github_secret(client):
     assert response.status_code == 400
     assert b"Incorrect secret" in response.data
 
+
+def test_webhook_no_payload(client):
+    """May add try except to code later"""
+    headers = {'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1=309013598748f3c03458df4c8e8e4e28415140d6'}
+    with pytest.raises(KeyError):
+        client.post('/webhook', headers=headers, json={})
+
+
+def test_webhook_missing_commit_data(client):
+    """May add try except to code later"""
+    mock_payload = {'ref': 'refs/heads/master'}
+    headers = {'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1=59b4d890f67dc3d7e5ad534dbab78081696dd759'}
+    with pytest.raises(KeyError):
+        client.post('/webhook', headers=headers, json=mock_payload)
