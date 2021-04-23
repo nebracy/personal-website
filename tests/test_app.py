@@ -36,3 +36,11 @@ def test_webhook_wrong_headers(client, headers):
     response = client.post('/webhook', headers=headers)
     assert response.status_code == 400
     assert b"Missing correct headers" in response.data
+
+
+def test_webhook_wrong_github_secret(client):
+    headers = {'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1='}
+    response = client.post('/webhook', headers=headers)
+    assert response.status_code == 400
+    assert b"Incorrect secret" in response.data
+
