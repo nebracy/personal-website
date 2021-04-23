@@ -61,3 +61,12 @@ def test_webhook_not_master_branch(client):
     assert response.status_code == 400
     assert b"Commits from this push are from another branch besides master" in response.data
 
+
+def test_webhook_commit(client):
+    headers = {'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1=0539ad02fd7789350c31ce70f8991dce735a0c1a'}
+    response = client.post('/webhook', headers=headers, json=payload)
+    response2 = client.post('/webhook', headers=headers, json=payload)
+    assert response.status_code == 200
+    assert b"" in response.data
+    assert response2.status_code == 400
+    assert b"Database is already up to date" in response2.data
