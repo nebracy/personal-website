@@ -24,3 +24,9 @@ def test_webhook_get(client):
     response = client.get('/webhook')
     assert response.status_code == 404
 
+
+def test_webhook_ping_header(client):
+    headers = {'X-GitHub-Event': 'ping'}
+    response = client.post('/webhook', headers=headers)
+    assert response.status_code == 200
+
