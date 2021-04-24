@@ -21,11 +21,13 @@ def test_home_get(client):
 
 
 def test_webhook_get(client):
+    """"""
     response = client.get('/webhook')
     assert response.status_code == 404
 
 
 def test_webhook_ping_header(client):
+    """"""
     headers = {'X-GitHub-Event': 'ping'}
     response = client.post('/webhook', headers=headers)
     assert response.status_code == 200
@@ -33,12 +35,14 @@ def test_webhook_ping_header(client):
 
 @pytest.mark.parametrize("headers", [{'': ''}, {'X-GitHub-Event': ''}, {'X-GitHub-Event': 'junk'}, {'X-GitHub-Event': 'push', 'X-Hub-Signature': ''}])
 def test_webhook_wrong_headers(client, headers):
+    """"""
     response = client.post('/webhook', headers=headers)
     assert response.status_code == 400
     assert b"Missing correct headers" in response.data
 
 
 def test_webhook_wrong_github_secret(client):
+    """"""
     headers = {'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1='}
     response = client.post('/webhook', headers=headers)
     assert response.status_code == 400
@@ -55,14 +59,16 @@ def test_webhook_missing_commit_payload(client, signature, mock_payload):
 
 
 def test_webhook_not_master_branch(client):
-    mock_payload = {'ref': 'refs/heads/staging'}
+    """"""
+    payload_stub = {'ref': 'refs/heads/staging'}
     headers = {'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1=c7abcc644d90c1a4a3ee67bd0ecf8665ea1d7347'}
-    response = client.post('/webhook', headers=headers, json=mock_payload)
+    response = client.post('/webhook', headers=headers, json=payload_stub)
     assert response.status_code == 400
     assert b"Commits from this push are from another branch besides master" in response.data
 
 
 def test_webhook_commit(client):
+    """"""
     headers = {'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1=0539ad02fd7789350c31ce70f8991dce735a0c1a'}
     response = client.post('/webhook', headers=headers, json=payload)
     response2 = client.post('/webhook', headers=headers, json=payload)
