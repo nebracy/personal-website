@@ -26,6 +26,8 @@ class Commit(db.Model):
         return f'<Commit {self.commit_id}, {self.name}, {self.date}, {self.msg}>'
 
 
+# TODO limit commits retrieved per repo to within the last 6 months
+# TODO also need message on website when there are no recent commits/table is empty
 def add_initial_commits(commits):
     for commit in commits:
         c = Commit(commit['id'], commit['name'], commit['url'], commit['date'], commit['msg'])
@@ -43,14 +45,10 @@ def get_commits_per_repo(num):
     commit_list = []
     for repo in github.get_user().get_repos():
         commits = repo.get_commits()[:num]
-        for c in commits:
-            repo_name = repo.full_name
-            repo_url = repo.html_url
-            commit_msg = c.commit.message
+        for c in commits:               # add check for commit_date < 6 mo from today
             commit_date = convert_tz(c.commit.committer.date)
-            commit_id = c.commit.sha
-            commit_info = {'id': commit_id, 'name': repo_name, 'url': repo_url, 'date': commit_date, 'msg': commit_msg}
-            commit_list.append(commit_info)
+            commit_list.append({'id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
+                                'date': commit_date, 'msg': c.commit.message})
     final_list = sorted(commit_list, key=lambda commit: commit['date'], reverse=True)
     return final_list[:num]
 
