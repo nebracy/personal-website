@@ -26,10 +26,17 @@ class Commit(db.Model):
         return f'<Commit {self.commit_id}, {self.name}, {self.date}, {self.msg}>'
 
 
-@event.listens_for(Commit.__table__, 'after_create')
-def main(*args, **kwargs):
-    recent = get_recent_commits(5)
-    add_initial_commits(recent)
+def add_initial_commits(commits):
+    for commit in commits:
+        c = Commit(commit['id'], commit['name'], commit['url'], commit['date'], commit['msg'])
+        db.session.add(c)
+    db.session.commit()
+
+
+def convert_tz(date):
+    utc_date = pytz.utc.localize(date)
+    est_date = utc_date.astimezone(pytz.timezone('America/New_York'))
+    return est_date
 
 
 def get_recent_commits(num):
@@ -48,14 +55,7 @@ def get_recent_commits(num):
     return final_list[:num]
 
 
-def convert_tz(date):
-    utc_date = pytz.utc.localize(date)
-    est_date = utc_date.astimezone(pytz.timezone('America/New_York'))
-    return est_date
-
-
-def add_initial_commits(commits):
-    for commit in commits:
-        c = Commit(commit['id'], commit['name'], commit['url'], commit['date'], commit['msg'])
-        db.session.add(c)
-    db.session.commit()
+@event.listens_for(Commit.__table__, 'after_create')
+def autofill_commit_table(*args, **kwargs):
+    recent = get_recent_commits(5)
+    add_initial_commits(recent)
