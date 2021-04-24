@@ -39,7 +39,7 @@ def convert_tz(date):
     return est_date
 
 
-def get_recent_commits(num):
+def get_commits_per_repo(num):
     commit_list = []
     for repo in github.get_user().get_repos():
         commits = repo.get_commits()[:num]
@@ -57,5 +57,5 @@ def get_recent_commits(num):
 
 @event.listens_for(Commit.__table__, 'after_create')
 def autofill_commit_table(*args, **kwargs):
-    recent = get_recent_commits(5)
+    recent = get_commits_per_repo(3)
     add_initial_commits(recent)
