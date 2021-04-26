@@ -46,7 +46,8 @@ class Commit(db.Model):
             db.session.add(c)
         db.session.commit()
 
-    def convert_tz(self, unconverted_date):
+    @staticmethod
+    def convert_tz(unconverted_date):
         utc_date = pytz.utc.localize(unconverted_date)
         est_date = utc_date.astimezone(pytz.timezone('America/New_York'))
         return est_date
