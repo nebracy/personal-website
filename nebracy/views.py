@@ -55,12 +55,11 @@ def webhook():
     if payload['ref'] == 'refs/heads/master':
         try:
             for commit in payload['commits']:
-                pre_date = commit['timestamp']
                 commit_id = commit['id']
-                date = datetime.fromisoformat(pre_date)
-                msg = commit['message']
                 name = payload['repository']['name']
                 url = payload['repository']['url']
+                date = datetime.fromisoformat(commit['timestamp'])
+                msg = commit['message']
                 c = models.Commit(commit_id, name, url, date, msg)
                 models.db.session.add(c)
             models.db.session.commit()
