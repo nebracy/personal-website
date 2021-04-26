@@ -25,7 +25,10 @@ class Commit(db.Model):
         self.commit_list = []
 
     def __repr__(self):
-        return f'<Commit {self.commit_id}, {self.name}, {self.date}, {self.msg}>'
+        return f'<Commit {self.commit_id}, {self.name}, {self.url}, {self.date}, {self.msg}>'
+
+    def __len__(self):
+        return len(self.commit_list)
 
     def get_commits_per_repo(self, num, months_ago=6):
         num_months_ago = datetime.today() - relativedelta(months=months_ago)
