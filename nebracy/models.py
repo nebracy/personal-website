@@ -29,8 +29,6 @@ class Commit(db.Model):
         return f'<Commit {self.commit_id}, {self.name}, {self.date}, {self.msg}>'
 
 
-# TODO limit commits retrieved per repo to within the last 6 months
-# TODO also need message on website when there are no recent commits/table is empty
 def add_initial_commits(commits):
     for commit in commits:
         c = Commit(commit['id'], commit['name'], commit['url'], commit['date'], commit['msg'])
