@@ -3,6 +3,9 @@ from github import Github
 import pytz
 from sqlalchemy import event
 from nebracy import db
+from dateutil.relativedelta import relativedelta
+from datetime import datetime
+
 
 github = Github(os.getenv('GITHUB_TOKEN'))
 
@@ -41,14 +44,16 @@ def convert_tz(date):
     return est_date
 
 
-def get_commits_per_repo(num):
+def get_commits_per_repo(num, months_ago=6):
     commit_list = []
+    num_months_ago = datetime.today() - relativedelta(months=months_ago)
     for repo in github.get_user().get_repos():
         commits = repo.get_commits()[:num]
-        for c in commits:               # add check for commit_date < 6 mo from today
-            commit_date = convert_tz(c.commit.committer.date)
-            commit_list.append({'id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
-                                'date': commit_date, 'msg': c.commit.message})
+        for c in commits:
+            if c.commit.committer.date > num_months_ago:
+                commit_date = convert_tz(c.commit.committer.date)
+                commit_list.append({'id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
+                                    'date': commit_date, 'msg': c.commit.message})
     final_list = sorted(commit_list, key=lambda commit: commit['date'], reverse=True)
     return final_list[:num]
 
