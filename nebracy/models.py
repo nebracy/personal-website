@@ -59,8 +59,9 @@ class Commit(db.Model):
 @event.listens_for(Commit.__table__, 'after_create')
 def autofill_table(*args, **kwargs):
     commit = Commit()
-    commit.get_commits_per_repo(3)
-    commit.sort_list(3)
+    max_num = 3
+    commit.get_commits_per_repo(max_num)
+    commit.sort_list(max_num)
     commit.add_initial_commits()
 
 
