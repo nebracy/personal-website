@@ -29,17 +29,10 @@ class Commit(db.Model):
         return f'<Commit {self.commit_id}, {self.name}, {self.date}, {self.msg}>'
 
 
-def add_initial_commits(commits):
-    for commit in commits:
-        c = Commit(commit['id'], commit['name'], commit['url'], commit['date'], commit['msg'])
-        db.session.add(c)
-    db.session.commit()
-
-
-def convert_tz(unconverted_date):
-    utc_date = pytz.utc.localize(unconverted_date)
-    est_date = utc_date.astimezone(pytz.timezone('America/New_York'))
-    return est_date
+@event.listens_for(Commit.__table__, 'after_create')
+def autofill_commit_table(*args, **kwargs):
+    recent = get_commits_per_repo(3)
+    add_initial_commits(recent)
 
 
 def get_commits_per_repo(num, months_ago=6):
@@ -56,7 +49,20 @@ def get_commits_per_repo(num, months_ago=6):
     return final_list[:num]
 
 
-@event.listens_for(Commit.__table__, 'after_create')
-def autofill_commit_table(*args, **kwargs):
-    recent = get_commits_per_repo(3)
-    add_initial_commits(recent)
+def add_initial_commits(commits):
+    for commit in commits:
+        c = Commit(commit['id'], commit['name'], commit['url'], commit['date'], commit['msg'])
+        db.session.add(c)
+    db.session.commit()
+
+
+def convert_tz(unconverted_date):
+    utc_date = pytz.utc.localize(unconverted_date)
+    est_date = utc_date.astimezone(pytz.timezone('America/New_York'))
+    return est_date
+
+
+
+
+
+
