@@ -2,7 +2,7 @@ from datetime import datetime
 import hashlib
 import hmac
 import os
-from sqlalchemy.exc import IntegrityError
+from sqlalchemy.exc import IntegrityError, OperationalError
 from flask import (abort, Blueprint, current_app as app, jsonify, render_template,
                    redirect, flash, request, url_for)
 from flask_mail import Message
@@ -15,8 +15,12 @@ errors = Blueprint('errors', __name__)
 
 @home.route('/', methods=['GET', 'POST'])
 def index():
-    commits = models.Commit
-    git_commits = commits.query.order_by(commits.date.desc()).limit(3).all()
+    try:
+        commits = models.Commit
+        git_commits = commits.query.order_by(commits.date.desc()).limit(3).all()
+    except OperationalError:
+        print('Missing commit table')
+        git_commits = []
     contact_form = forms.ContactForm()
     if contact_form.validate_on_submit():
         msg = Message(contact_form.subj.data,
