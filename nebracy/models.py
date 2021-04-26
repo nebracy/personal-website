@@ -36,8 +36,7 @@ class Commit(db.Model):
                     commit_date = self.convert_tz(c.commit.committer.date)
                     commit_list.append({'id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
                                         'date': commit_date, 'msg': c.commit.message})
-        final_list = sorted(commit_list, key=lambda commit: commit['date'], reverse=True)
-        return final_list[:num]
+        return commit_list
 
     def add_initial_commits(self, commits):
         for commit in commits:
@@ -55,7 +54,8 @@ class Commit(db.Model):
 def autofill_table(*args, **kwargs):
     commit = Commit()
     recent = commit.get_commits_per_repo(3)
-    commit.add_initial_commits(recent)
+    final_list = sorted(recent, key=lambda commit: commit['date'], reverse=True)
+    commit.add_initial_commits(final_list[:3])
 
 
 
