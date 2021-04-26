@@ -18,7 +18,7 @@ class Commit(db.Model):
     date = db.Column(db.DateTime, nullable=False)
     msg = db.Column(db.String(75), nullable=False)
 
-    def __init__(self, commit_id, name, url, date, msg):
+    def __init__(self, commit_id=None, name=None, url=None, date=None, msg=None):
         self.commit_id = commit_id
         self.name = name
         self.url = url
@@ -28,41 +28,36 @@ class Commit(db.Model):
     def __repr__(self):
         return f'<Commit {self.commit_id}, {self.name}, {self.date}, {self.msg}>'
 
+    def get_commits_per_repo(self, num, months_ago=6):
+        commit_list = []
+        num_months_ago = datetime.today() - relativedelta(months=months_ago)
+        for repo in github.get_user().get_repos():
+            commits = repo.get_commits()[:num]
+            for c in commits:
+                if c.commit.committer.date > num_months_ago:
+                    commit_date = self.convert_tz(c.commit.committer.date)
+                    commit_list.append({'id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
+                                        'date': commit_date, 'msg': c.commit.message})
+        final_list = sorted(commit_list, key=lambda commit: commit['date'], reverse=True)
+        return final_list[:num]
+
+    def add_initial_commits(self, commits):
+        for commit in commits:
+            c = Commit(commit['id'], commit['name'], commit['url'], commit['date'], commit['msg'])
+            db.session.add(c)
+        db.session.commit()
+
+    def convert_tz(self, unconverted_date):
+        utc_date = pytz.utc.localize(unconverted_date)
+        est_date = utc_date.astimezone(pytz.timezone('America/New_York'))
+        return est_date
+
 
 @event.listens_for(Commit.__table__, 'after_create')
-def autofill_commit_table(*args, **kwargs):
-    recent = get_commits_per_repo(3)
-    add_initial_commits(recent)
-
-
-def get_commits_per_repo(num, months_ago=6):
-    commit_list = []
-    num_months_ago = datetime.today() - relativedelta(months=months_ago)
-    for repo in github.get_user().get_repos():
-        commits = repo.get_commits()[:num]
-        for c in commits:
-            if c.commit.committer.date > num_months_ago:
-                commit_date = convert_tz(c.commit.committer.date)
-                commit_list.append({'id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
-                                    'date': commit_date, 'msg': c.commit.message})
-    final_list = sorted(commit_list, key=lambda commit: commit['date'], reverse=True)
-    return final_list[:num]
-
-
-def add_initial_commits(commits):
-    for commit in commits:
-        c = Commit(commit['id'], commit['name'], commit['url'], commit['date'], commit['msg'])
-        db.session.add(c)
-    db.session.commit()
-
-
-def convert_tz(unconverted_date):
-    utc_date = pytz.utc.localize(unconverted_date)
-    est_date = utc_date.astimezone(pytz.timezone('America/New_York'))
-    return est_date
-
-
-
+def autofill_table(*args, **kwargs):
+    commit = Commit()
+    recent = commit.get_commits_per_repo(3)
+    commit.add_initial_commits(recent)
 
 
 
