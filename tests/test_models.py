@@ -12,3 +12,13 @@ def test_query_order_limit(client):
     commit = Commit.query.order_by(Commit.date.desc()).limit(3).all()
     assert len(commit) == 3
     # check commits from most recent
+
+
+"""test fill empty list with 3 commits per repo from github - MOCK: github api RETURN repo"""
+
+
+"""test narrow list to most recent 3"""
+
+
+"""test no commits older than 6 months in list"""
+
