@@ -22,24 +22,23 @@ class Commit(db.Model):
         self.url = url
         self.date = date
         self.msg = msg
+        self.commit_list = []
 
     def __repr__(self):
         return f'<Commit {self.commit_id}, {self.name}, {self.date}, {self.msg}>'
 
     def get_commits_per_repo(self, num, months_ago=6):
-        commit_list = []
         num_months_ago = datetime.today() - relativedelta(months=months_ago)
         for repo in Commit.github.get_user().get_repos():
             commits = repo.get_commits()[:num]
             for c in commits:
                 if c.commit.committer.date > num_months_ago:
                     commit_date = self.convert_tz(c.commit.committer.date)
-                    commit_list.append({'id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
-                                        'date': commit_date, 'msg': c.commit.message})
-        return commit_list
+                    self.commit_list.append({'id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
+                                            'date': commit_date, 'msg': c.commit.message})
 
-    def add_initial_commits(self, commits):
-        for commit in commits:
+    def add_initial_commits(self):
+        for commit in self.commit_list:
             c = Commit(commit['id'], commit['name'], commit['url'], commit['date'], commit['msg'])
             db.session.add(c)
         db.session.commit()
@@ -53,9 +52,9 @@ class Commit(db.Model):
 @event.listens_for(Commit.__table__, 'after_create')
 def autofill_table(*args, **kwargs):
     commit = Commit()
-    recent = commit.get_commits_per_repo(3)
-    final_list = sorted(recent, key=lambda commit: commit['date'], reverse=True)
-    commit.add_initial_commits(final_list[:3])
+    commit.get_commits_per_repo(3)
+    # final_list = sorted(recent, key=lambda commit: commit['date'], reverse=True)
+    commit.add_initial_commits()
 
 
 
