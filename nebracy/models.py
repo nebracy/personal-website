@@ -48,12 +48,16 @@ class Commit(db.Model):
         est_date = utc_date.astimezone(pytz.timezone('America/New_York'))
         return est_date
 
+    def sort_list(self, num):
+        final_list = sorted(self.commit_list, key=lambda commit: commit['date'], reverse=True)[:3]
+        self.commit_list = final_list[:num]
+
 
 @event.listens_for(Commit.__table__, 'after_create')
 def autofill_table(*args, **kwargs):
     commit = Commit()
     commit.get_commits_per_repo(3)
-    # final_list = sorted(recent, key=lambda commit: commit['date'], reverse=True)
+    commit.sort_list(3)
     commit.add_initial_commits()
 
 
