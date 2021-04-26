@@ -7,9 +7,6 @@ from dateutil.relativedelta import relativedelta
 from datetime import datetime
 
 
-github = Github(os.getenv('GITHUB_TOKEN'))
-
-
 class Commit(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     commit_id = db.Column(db.String(40), unique=True, nullable=False)
@@ -17,6 +14,7 @@ class Commit(db.Model):
     url = db.Column(db.String(100), nullable=False)
     date = db.Column(db.DateTime, nullable=False)
     msg = db.Column(db.String(75), nullable=False)
+    github = Github(os.getenv('GITHUB_TOKEN'))
 
     def __init__(self, commit_id=None, name=None, url=None, date=None, msg=None):
         self.commit_id = commit_id
@@ -31,7 +29,7 @@ class Commit(db.Model):
     def get_commits_per_repo(self, num, months_ago=6):
         commit_list = []
         num_months_ago = datetime.today() - relativedelta(months=months_ago)
-        for repo in github.get_user().get_repos():
+        for repo in Commit.github.get_user().get_repos():
             commits = repo.get_commits()[:num]
             for c in commits:
                 if c.commit.committer.date > num_months_ago:
