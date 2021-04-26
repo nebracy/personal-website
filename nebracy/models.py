@@ -38,8 +38,8 @@ def add_initial_commits(commits):
     db.session.commit()
 
 
-def convert_tz(date):
-    utc_date = pytz.utc.localize(date)
+def convert_tz(unconverted_date):
+    utc_date = pytz.utc.localize(unconverted_date)
     est_date = utc_date.astimezone(pytz.timezone('America/New_York'))
     return est_date
 
