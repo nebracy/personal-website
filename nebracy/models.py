@@ -8,6 +8,7 @@ from datetime import datetime
 
 
 class Commit(db.Model):
+    __tablename__ = 'commit'
     id = db.Column(db.Integer, primary_key=True)
     commit_id = db.Column(db.String(40), unique=True, nullable=False)
     name = db.Column(db.String(50), nullable=False)
