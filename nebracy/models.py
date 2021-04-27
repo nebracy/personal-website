@@ -48,19 +48,8 @@ class GithubCommits:
             commits = repo.get_commits()[:self.commit_num]
             for c in commits:
                 if c.commit.committer.date > num_months_ago:
-                    commit_date = self.convert_tz(c.commit.committer.date)
                     self.list.append({'id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
-                                      'date': commit_date, 'msg': c.commit.message})
-
-    @staticmethod
-    def convert_tz(unconverted_date):
-        utc_date = pytz.utc.localize(unconverted_date)
-        est_date = utc_date.astimezone(pytz.timezone('America/New_York'))
-        return est_date
-
-    def sort_list(self):
-        final_list = sorted(self.list, key=lambda commit: commit['date'], reverse=True)[:3]
-        self.list = final_list[:self.commit_num]
+                                      'date': self.convert_tz(c.commit.committer.date), 'msg': c.commit.message})
 
     def add_to_db(self, payload=None):
         if payload is not None:
@@ -75,6 +64,16 @@ class GithubCommits:
             self.list.append({'id': commit['id'], 'name': payload['repository']['name'],
                               'url': payload['repository']['url'],
                               'date': datetime.fromisoformat(commit['timestamp']), 'msg': commit['message']})
+
+    def sort_list(self):
+        final_list = sorted(self.list, key=lambda commit: commit['date'], reverse=True)[:3]
+        self.list = final_list[:self.commit_num]
+
+    @staticmethod
+    def convert_tz(unconverted_date):
+        utc_date = pytz.utc.localize(unconverted_date)
+        est_date = utc_date.astimezone(pytz.timezone('America/New_York'))
+        return est_date
 
 
 @event.listens_for(Commit.__table__, 'after_create')
