@@ -52,8 +52,8 @@ def webhook():
             abort(400, "Incorrect secret")
 
     payload = request.get_json()
-    g = models.GithubCommits()
     if payload['ref'] == 'refs/heads/master':
+        g = models.GithubCommits()
         try:
             g.add_to_db(payload)
         except IntegrityError:
