@@ -17,10 +17,10 @@ errors = Blueprint('errors', __name__)
 def index():
     try:
         commits = models.Commit
-        git_commits = commits.query.order_by(commits.date.desc()).limit(3).all()
+        db_commits = commits.query.order_by(commits.date.desc()).limit(3).all()
     except OperationalError:
         print('Missing commit table')
-        git_commits = []
+        db_commits = []
     contact_form = forms.ContactForm()
     if contact_form.validate_on_submit():
         msg = Message(contact_form.subj.data,
@@ -31,7 +31,7 @@ def index():
         mail.send(msg)
         flash(f'Email sent, thank you!')
         return redirect(url_for('home.index', _external=True, _scheme='https'))
-    return render_template('index.html', form=contact_form, title="Home", commits=git_commits)
+    return render_template('index.html', form=contact_form, title="Home", commits=db_commits)
 
 
 @home.route('/webhook', methods=['POST'])
