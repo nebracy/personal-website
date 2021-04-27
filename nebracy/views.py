@@ -1,12 +1,13 @@
-from datetime import datetime
 import hashlib
 import hmac
 import os
-from sqlalchemy.exc import IntegrityError, OperationalError
 from flask import (abort, Blueprint, current_app as app, jsonify, render_template,
                    redirect, flash, request, url_for)
 from flask_mail import Message
-from nebracy import forms, mail, models
+from sqlalchemy.exc import IntegrityError, OperationalError
+from nebracy import mail
+from nebracy.forms import ContactForm
+from nebracy.models import Commit, GithubCommits
 
 
 home = Blueprint('home', __name__)
@@ -16,12 +17,11 @@ errors = Blueprint('errors', __name__)
 @home.route('/', methods=['GET', 'POST'])
 def index():
     try:
-        commits = models.Commit
-        db_commits = commits.query.order_by(commits.date.desc()).limit(3).all()
+        db_commits = Commit.query.order_by(Commit.date.desc()).limit(3).all()
     except OperationalError:
         print('Missing commit table')
         db_commits = []
-    contact_form = forms.ContactForm()
+    contact_form = ContactForm()
     if contact_form.validate_on_submit():
         msg = Message(contact_form.subj.data,
                       sender=(contact_form.name.data, app.config['MAIL_DEFAULT_SENDER']),
@@ -53,9 +53,9 @@ def webhook():
 
     payload = request.get_json()
     if payload['ref'] == 'refs/heads/master':
-        g = models.GithubCommits()
+        github_commits = GithubCommits()
         try:
-            g.add_to_db(payload)
+            github_commits.add_to_db(payload)
         except IntegrityError:
             abort(400, "Database is already up to date")
         return jsonify({}), 200

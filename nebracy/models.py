@@ -4,7 +4,7 @@ import pytz
 from sqlalchemy import event
 from nebracy import db
 from dateutil.relativedelta import relativedelta
-from datetime import datetime
+from datetime import datetime as dt
 
 
 class Commit(db.Model):
@@ -43,10 +43,10 @@ class GithubCommits:
         return len(self.list)
 
     def get_commits_per_repo(self, months_ago=6):
-        num_months_ago = datetime.today() - relativedelta(months=months_ago)
         for repo in GithubCommits.github.get_user().get_repos():
             commits = repo.get_commits()[:self.commit_num]
             for c in commits:
+                num_months_ago = dt.today() - relativedelta(months=months_ago)
                 if c.commit.committer.date > num_months_ago:
                     self.list.append({'id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
                                       'date': self.convert_tz(c.commit.committer.date), 'msg': c.commit.message})
@@ -63,7 +63,7 @@ class GithubCommits:
         for commit in payload['commits']:
             self.list.append({'id': commit['id'], 'name': payload['repository']['name'],
                               'url': payload['repository']['url'],
-                              'date': datetime.fromisoformat(commit['timestamp']), 'msg': commit['message']})
+                              'date': dt.fromisoformat(commit['timestamp']), 'msg': commit['message']})
 
     def sort_list(self):
         final_list = sorted(self.list, key=lambda commit: commit['date'], reverse=True)[:3]
