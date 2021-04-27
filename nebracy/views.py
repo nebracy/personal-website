@@ -52,17 +52,10 @@ def webhook():
             abort(400, "Incorrect secret")
 
     payload = request.get_json()
+    g = models.GithubCommits()
     if payload['ref'] == 'refs/heads/master':
         try:
-            for commit in payload['commits']:
-                commit_id = commit['id']
-                name = payload['repository']['name']
-                url = payload['repository']['url']
-                date = datetime.fromisoformat(commit['timestamp'])
-                msg = commit['message']
-                c = models.Commit(commit_id, name, url, date, msg)
-                models.db.session.add(c)
-            models.db.session.commit()
+            g.add_to_db(payload)
         except IntegrityError:
             abort(400, "Database is already up to date")
         return jsonify({}), 200

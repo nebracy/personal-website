@@ -62,11 +62,19 @@ class GithubCommits:
         final_list = sorted(self.list, key=lambda commit: commit['date'], reverse=True)[:3]
         self.list = final_list[:self.commit_num]
 
-    def add_to_db(self):
+    def add_to_db(self, payload=None):
+        if payload is not None:
+            self.process_webhook(payload)
         for commit in self.list:
             c = self.commit(commit['id'], commit['name'], commit['url'], commit['date'], commit['msg'])
             db.session.add(c)
         db.session.commit()
+
+    def process_webhook(self, payload):
+        for commit in payload['commits']:
+            self.list.append({'id': commit['id'], 'name': payload['repository']['name'],
+                              'url': payload['repository']['url'],
+                              'date': datetime.fromisoformat(commit['timestamp']), 'msg': commit['message']})
 
 
 @event.listens_for(Commit.__table__, 'after_create')
