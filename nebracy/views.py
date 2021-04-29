@@ -4,6 +4,7 @@ import os
 from flask import (abort, Blueprint, current_app as app, jsonify, render_template,
                    redirect, flash, request, url_for)
 from flask_mail import Message
+from github import GithubException
 from sqlalchemy.exc import IntegrityError, OperationalError
 from nebracy import mail
 from nebracy.forms import ContactForm
@@ -58,6 +59,8 @@ def webhook():
             github_commits.add_to_db(payload)
         except IntegrityError:
             abort(400, "Database is already up to date")
+        except GithubException:
+            abort(400, "The environment variable GITHUB_TOKEN is not set")
         return jsonify({}), 200
     else:
         abort(400, "Commits from this push are from another branch besides master")

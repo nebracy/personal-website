@@ -2,7 +2,7 @@ import os
 import pytz
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from github import Github
+from github import Github, GithubException
 from sqlalchemy import event
 from typing import Optional
 from nebracy import db
@@ -80,9 +80,14 @@ class GithubCommits:
 @event.listens_for(Commit.__table__, 'after_create')
 def autofill_table(*args, **kwargs) -> None:
     github_commits = GithubCommits()
-    github_commits.get_commits_per_repo()
-    github_commits.sort_list()
-    github_commits.add_to_db()
+    try:
+        github_commits.get_commits_per_repo()
+    except GithubException:
+        print("The environment variable GITHUB_TOKEN is not set")
+    else:
+        github_commits.sort_list()
+        github_commits.add_to_db()
+
 
 
 
