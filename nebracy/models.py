@@ -30,7 +30,7 @@ class Commit(db.Model):
 
 class GithubCommits:
     __tablename__ = 'github commits'
-    github = Github(os.getenv('GITHUB_TOKEN'))      # TODO test for missing github env
+    github = Github(os.getenv('GITHUB_TOKEN'))
 
     def __init__(self, commit_num: int = 3) -> None:
         self.commit_num = commit_num

@@ -1,5 +1,7 @@
-from nebracy.models import Commit
 from datetime import datetime
+import os
+import pytest
+from nebracy.models import Commit, GithubCommits
 
 
 def test_commit_class(client):
@@ -12,6 +14,11 @@ def test_commit_class(client):
 #     commit = Commit.query.order_by(Commit.date.desc()).limit(3).all()
 #     assert len(commit) == 3
 #     # check commits from most recent
+
+
+# def test_missing_github_env_except(monkeypatch, client):
+#     """"""
+#     monkeypatch.delenv('GITHUB_TOKEN')
 
 
 """test fill empty list with 3 commits per repo from github - MOCK: github api RETURN repo"""
