@@ -32,7 +32,7 @@ class GithubCommits:
     __tablename__ = 'github commits'
     github = Github(os.getenv('GITHUB_TOKEN'))      # TODO test for missing github env
 
-    def __init__(self, commit_num: str = 3) -> None:
+    def __init__(self, commit_num: int = 3) -> None:
         self.commit_num = commit_num
         self.list = []
         self.commit = Commit
