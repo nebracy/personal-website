@@ -4,7 +4,7 @@ import pytz
 from sqlalchemy import event
 from nebracy import db
 from dateutil.relativedelta import relativedelta
-from datetime import datetime as dt
+from datetime import datetime
 
 
 class Commit(db.Model):
@@ -31,27 +31,27 @@ class GithubCommits:
     __tablename__ = 'github commits'
     github = Github(os.getenv('GITHUB_TOKEN'))
 
-    def __init__(self, commit_num=3):
+    def __init__(self, commit_num: str = 3) -> None:
         self.commit_num = commit_num
         self.list = []
         self.commit = Commit
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f'<GithubCommits {self.commit_num}>'
 
-    def __len__(self):
+    def __len__(self) -> int:
         return len(self.list)
 
-    def get_commits_per_repo(self, months_ago=6):
+    def get_commits_per_repo(self, months_ago: int = 6) -> None:
         for repo in GithubCommits.github.get_user().get_repos():
             commits = repo.get_commits()[:self.commit_num]
             for c in commits:
-                num_months_ago = dt.today() - relativedelta(months=months_ago)
+                num_months_ago = datetime.today() - relativedelta(months=months_ago)
                 if c.commit.committer.date > num_months_ago:
                     self.list.append({'id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
                                       'date': self.convert_tz(c.commit.committer.date), 'msg': c.commit.message})
 
-    def add_to_db(self, payload=None):
+    def add_to_db(self, payload=None) -> None:
         if payload is not None:
             self.process_webhook(payload)
         for commit in self.list:
@@ -59,18 +59,18 @@ class GithubCommits:
             db.session.add(c)
         db.session.commit()
 
-    def process_webhook(self, payload):
+    def process_webhook(self, payload) -> None:
         for commit in payload['commits']:
             self.list.append({'id': commit['id'], 'name': payload['repository']['name'],
                               'url': payload['repository']['url'],
-                              'date': dt.fromisoformat(commit['timestamp']), 'msg': commit['message']})
+                              'date': datetime.fromisoformat(commit['timestamp']), 'msg': commit['message']})
 
-    def sort_list(self):
+    def sort_list(self) -> None:
         final_list = sorted(self.list, key=lambda commit: commit['date'], reverse=True)[:3]
         self.list = final_list[:self.commit_num]
 
     @staticmethod
-    def convert_tz(unconverted_date):
+    def convert_tz(unconverted_date: datetime) -> datetime:
         utc_date = pytz.utc.localize(unconverted_date)
         est_date = utc_date.astimezone(pytz.timezone('America/New_York'))
         return est_date
