@@ -1,11 +1,11 @@
 import os
-from github import Github
 import pytz
-from sqlalchemy import event
-from nebracy import db
-from dateutil.relativedelta import relativedelta
 from datetime import datetime
+from dateutil.relativedelta import relativedelta
+from github import Github
+from sqlalchemy import event
 from typing import Optional
+from nebracy import db
 
 
 class Commit(db.Model):
@@ -30,7 +30,7 @@ class Commit(db.Model):
 
 class GithubCommits:
     __tablename__ = 'github commits'
-    github = Github(os.getenv('GITHUB_TOKEN'))
+    github = Github(os.getenv('GITHUB_TOKEN'))      # TODO test for missing github env
 
     def __init__(self, commit_num: str = 3) -> None:
         self.commit_num = commit_num
