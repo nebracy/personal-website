@@ -5,6 +5,7 @@ from sqlalchemy import event
 from nebracy import db
 from dateutil.relativedelta import relativedelta
 from datetime import datetime
+from typing import Optional
 
 
 class Commit(db.Model):
@@ -51,7 +52,7 @@ class GithubCommits:
                     self.list.append({'id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
                                       'date': self.convert_tz(c.commit.committer.date), 'msg': c.commit.message})
 
-    def add_to_db(self, payload=None) -> None:
+    def add_to_db(self, payload: Optional[dict] = None) -> None:
         if payload is not None:
             self.process_webhook(payload)
         for commit in self.list:
@@ -59,7 +60,7 @@ class GithubCommits:
             db.session.add(c)
         db.session.commit()
 
-    def process_webhook(self, payload) -> None:
+    def process_webhook(self, payload: dict) -> None:
         for commit in payload['commits']:
             self.list.append({'id': commit['id'], 'name': payload['repository']['name'],
                               'url': payload['repository']['url'],
@@ -77,7 +78,7 @@ class GithubCommits:
 
 
 @event.listens_for(Commit.__table__, 'after_create')
-def autofill_table(*args, **kwargs):
+def autofill_table(*args, **kwargs) -> None:
     github_commits = GithubCommits()
     github_commits.get_commits_per_repo()
     github_commits.sort_list()
