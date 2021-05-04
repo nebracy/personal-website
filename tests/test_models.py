@@ -21,11 +21,23 @@ def test_commit_class(client):
 #     monkeypatch.delenv('GITHUB_TOKEN')
 
 
-"""test fill empty list with 3 commits per repo from github - MOCK: github api RETURN repo"""
+def test_a():
+    """test fill empty list with 3 commits per repo from github - MOCK: github api RETURN repo"""
+    pass
 
 
-"""test narrow list to most recent 3"""
+def test_b():
+    """test narrow list to most recent 3"""
+    pass
 
 
-"""test no commits older than 6 months in list"""
+def test_c():
+    """test no commits older than 6 months in list"""
 
+
+def test_convert_tz():
+    expected = 'todo'
+    dt = datetime.strptime('2021-04-26 10:27:16', '%Y-%m-%d %H:%M:%S')
+    converted = GithubCommits.convert_tz(dt)
+    print(converted)
+    # assert expected == converted
