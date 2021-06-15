@@ -38,9 +38,9 @@ def test_c():
 
 def test_convert_tz():
     """test GithubCommits method converts naive utc datetime to etc datetime"""
-    dt = datetime.strptime('2021-04-26 10:27:16', '%Y-%m-%d %H:%M:%S')
+    dt = datetime(2021, 4, 26, 10, 27, 16)
     converted = GithubCommits.convert_tz(dt)
-    expected = pytz.timezone('US/Eastern').localize(datetime(2021, 4, 26, 6, 27, 16, 0))
+    expected = pytz.timezone('US/Eastern').localize(datetime(2021, 4, 26, 6, 27, 16))
     assert expected == converted
 
 
