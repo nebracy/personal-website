@@ -11,6 +11,16 @@ def test_commit_class(client):
     assert commit.name == 'nebracy/personal-website'
 
 
+@pytest.mark.parametrize("dt, expected_dt",
+                         [(datetime(2021, 4, 26, 10, 27, 16), datetime(2021, 4, 26, 6, 27, 16)),
+                          (datetime(2022, 1, 2, 0, 0), datetime(2022, 1, 1, 19, 0))])
+def test_convert_tz(dt, expected_dt):
+    """GithubCommits method converts naive utc datetime to aware etc datetime"""
+    converted = GithubCommits.convert_tz(dt)
+    expected = pytz.timezone('US/Eastern').localize(expected_dt)
+    assert expected == converted
+
+
 # def test_query_order_limit(client):       TODO update test, currently fails
 #     """"""
 #     commit = Commit.query.order_by(Commit.date.desc()).limit(3).all()
@@ -36,15 +46,3 @@ def test_b():
 def test_c():
     """test no commits older than 6 months in list"""
     pass
-
-
-@pytest.mark.parametrize("dt, expected_dt",
-                         [(datetime(2021, 4, 26, 10, 27, 16), datetime(2021, 4, 26, 6, 27, 16)),
-                          (datetime(2022, 1, 2, 0, 0), datetime(2022, 1, 1, 19, 0))])
-def test_convert_tz(dt, expected_dt):
-    """GithubCommits method converts naive utc datetime to aware etc datetime"""
-    converted = GithubCommits.convert_tz(dt)
-    expected = pytz.timezone('US/Eastern').localize(expected_dt)
-    assert expected == converted
-
-
