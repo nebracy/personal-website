@@ -1,4 +1,5 @@
 from datetime import datetime
+import pytest
 import pytz
 from nebracy.models import Commit, GithubCommits
 
@@ -36,11 +37,13 @@ def test_c():
     """test no commits older than 6 months in list"""
 
 
-def test_convert_tz():
-    """test GithubCommits method converts naive utc datetime to etc datetime"""
-    dt = datetime(2021, 4, 26, 10, 27, 16)
+@pytest.mark.parametrize("dt, expected_dt",
+                         [(datetime(2021, 4, 26, 10, 27, 16), datetime(2021, 4, 26, 6, 27, 16)),
+                          (datetime(2022, 1, 2, 0, 0), datetime(2022, 1, 1, 19, 0))])
+def test_convert_tz(dt, expected_dt):
+    """GithubCommits method converts naive utc datetime to aware etc datetime"""
     converted = GithubCommits.convert_tz(dt)
-    expected = pytz.timezone('US/Eastern').localize(datetime(2021, 4, 26, 6, 27, 16))
+    expected = pytz.timezone('US/Eastern').localize(expected_dt)
     assert expected == converted
 
 
