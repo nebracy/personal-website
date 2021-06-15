@@ -1,6 +1,7 @@
 from datetime import datetime
 import os
 import pytest
+import pytz
 from nebracy.models import Commit, GithubCommits
 
 
@@ -36,8 +37,10 @@ def test_c():
 
 
 def test_convert_tz():
-    expected = 'todo'
+    """test GithubCommits method converts naive utc datetime to etc datetime"""
     dt = datetime.strptime('2021-04-26 10:27:16', '%Y-%m-%d %H:%M:%S')
     converted = GithubCommits.convert_tz(dt)
-    print(converted)
-    # assert expected == converted
+    expected = pytz.timezone('US/Eastern').localize(datetime(2021, 4, 26, 6, 27, 16, 0))
+    assert expected == converted
+
+
