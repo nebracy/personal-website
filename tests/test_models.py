@@ -35,6 +35,7 @@ def test_b():
 
 def test_c():
     """test no commits older than 6 months in list"""
+    pass
 
 
 @pytest.mark.parametrize("dt, expected_dt",
