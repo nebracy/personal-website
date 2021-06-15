@@ -73,7 +73,7 @@ class GithubCommits:
     @staticmethod
     def convert_tz(unconverted_date: datetime) -> datetime:
         utc_date = pytz.utc.localize(unconverted_date)
-        est_date = utc_date.astimezone(pytz.timezone('America/New_York'))
+        est_date = utc_date.astimezone(pytz.timezone('US/Eastern'))
         return est_date
 
 
