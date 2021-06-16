@@ -21,13 +21,6 @@ def test_convert_tz(dt, expected_dt):
     assert expected == converted
 
 
-# def test_query_order_limit(client):       TODO update test, currently fails
-#     """"""
-#     commit = Commit.query.order_by(Commit.date.desc()).limit(3).all()
-#     assert len(commit) == 3
-#     # check commits from most recent
-
-
 # def test_missing_github_env_except(monkeypatch, client):
 #     """"""
 #     monkeypatch.delenv('GITHUB_TOKEN')
