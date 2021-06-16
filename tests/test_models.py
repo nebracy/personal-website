@@ -16,9 +16,9 @@ def test_commit_class(client):
                           (datetime(2022, 1, 2, 0, 0), datetime(2022, 1, 1, 19, 0))])
 def test_convert_tz(dt, expected_dt):
     """GithubCommits method converts naive utc datetime to aware etc datetime"""
-    converted = GithubCommits.convert_tz(dt)
     expected = pytz.timezone('US/Eastern').localize(expected_dt)
-    assert expected == converted
+    result = GithubCommits.convert_tz(dt)
+    assert result == expected
 
 
 def test_missing_github_env(monkeypatch, client):
