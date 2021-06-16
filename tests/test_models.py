@@ -21,9 +21,10 @@ def test_convert_tz(dt, expected_dt):
     assert expected == converted
 
 
-# def test_missing_github_env_except(monkeypatch, client):
-#     """"""
-#     monkeypatch.delenv('GITHUB_TOKEN')
+def test_missing_github_env(monkeypatch, client):
+    """test website still loads with no github token env"""
+    monkeypatch.delenv('GITHUB_TOKEN')
+    assert b"No recent github activity :(" in client.get('/').data
 
 
 def test_a():
