@@ -3,7 +3,8 @@ FROM python:3.9-slim-buster
 WORKDIR /app
 
 COPY . ./
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt \
+    gunicorn
 
 RUN useradd appuser && chown -R appuser /app
 USER appuser
