@@ -1,5 +1,6 @@
 from flask import url_for
 from nebracy import create_app
+from os import getenv as env
 
 
 def test_config_development(app):
@@ -20,7 +21,7 @@ def test_config_staging():
 
 
 def test_config_production():
-    app = create_app()
+    app = create_app('Production', env("STATIC_PATH", ''), env("DEV_STATIC_FOLDER"))
     app.config["SERVER_NAME"] = 'nebracy.com'
     with app.app_context():
         assert app.config["S3_FOLDER"] == 'static/production'
