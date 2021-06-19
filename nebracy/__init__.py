@@ -7,7 +7,7 @@ db = SQLAlchemy()
 mail = Mail()
 
 
-def create_app(config='Production', static_path='', static_folder=None):     # static_folder must be None for static subdomain
+def create_app(config='Production', static_path='', static_folder=None):
     app = Flask(__name__, static_url_path='', static_folder=static_folder)
     app.config.from_object(f'config.{config.capitalize()}')
     if not static_folder:
