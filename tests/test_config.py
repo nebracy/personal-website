@@ -1,6 +1,5 @@
 from flask import url_for
 from nebracy import create_app
-from os import getenv as env
 
 
 def test_config_development(app):
