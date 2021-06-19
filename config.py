@@ -14,7 +14,6 @@ class Config:
     MAIL_DEFAULT_SENDER = os.getenv('FLASK_MAIL_DEFAULT_SENDER')
     SQLALCHEMY_DATABASE_URI = os.getenv('FLASK_DB_URI', f'sqlite:///{os.path.join(basedir, "github.db")}')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    S3_FOLDER = None
     STATIC_PATH = ''
 
 
@@ -28,6 +27,7 @@ class Staging(Config):
 
 
 class Development(Config):
+    S3_FOLDER = None
     SECRET_KEY = 'default-secret-key'
     MAIL_SERVER = 'smtp.gmail.com'
     SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
