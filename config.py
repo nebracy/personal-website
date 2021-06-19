@@ -23,7 +23,7 @@ class Production(Config):
 
 
 class Staging(Config):
-    S3_FOLDER = 'static/staging'
+    S3_FOLDER = 'static'
     STATIC_PATH = '/staging'
 
 

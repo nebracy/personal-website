@@ -14,7 +14,7 @@ def test_config_staging():
     app = create_app('staging')
     app.config["SERVER_NAME"] = 'test.nebracy.com'
     with app.app_context():
-        assert app.config["S3_FOLDER"] == 'static/staging'
+        assert app.config["S3_FOLDER"] == 'static'
         assert app.config["ENV"] == 'production'
         assert url_for('home.index', _external=True, _scheme='https') == 'https://test.nebracy.com/'
         assert url_for('static', filename='favicon.ico', _external=True, _scheme='https') == 'https://static.test.nebracy.com/staging/favicon.ico'
