@@ -15,6 +15,7 @@ class Config:
     SQLALCHEMY_DATABASE_URI = os.getenv('FLASK_DB_URI', f'sqlite:///{os.path.join(basedir, "github.db")}')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     S3_FOLDER = None
+    STATIC_PATH = ''
 
 
 class Production(Config):
@@ -23,6 +24,7 @@ class Production(Config):
 
 class Staging(Config):
     S3_FOLDER = 'static/staging'
+    STATIC_PATH = '/staging'
 
 
 class Development(Config):

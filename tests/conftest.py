@@ -4,7 +4,7 @@ from nebracy import create_app
 
 @pytest.fixture(scope='module')
 def app():
-    app = create_app('development', '', 'static')
+    app = create_app('development', 'static')
     with app.app_context():
         yield app
 

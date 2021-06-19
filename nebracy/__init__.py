@@ -7,12 +7,12 @@ db = SQLAlchemy()
 mail = Mail()
 
 
-def create_app(config='Production', static_path='', static_folder=None):
+def create_app(config='Production', static_folder=None):
     app = Flask(__name__, static_url_path='', static_folder=static_folder)
     app.config.from_object(f'config.{config.capitalize()}')
     if not static_folder:
         app.static_folder = app.config.get('S3_FOLDER')
-        app.add_url_rule(f'{static_path}/<path:filename>',
+        app.add_url_rule(f'{app.config.get("STATIC_PATH")}/<path:filename>',
                          endpoint='static',
                          view_func=app.send_static_file,
                          subdomain='static')
