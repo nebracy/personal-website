@@ -39,7 +39,7 @@ def index():
 def webhook():
     try:
         if request.headers["X-GitHub-Event"] == 'ping':
-            return jsonify("Ping Successful!"), 200
+            return jsonify(ping="Success"), 200
         elif request.headers["X-GitHub-Event"] != 'push':
             raise KeyError
         signature = request.headers['X-Hub-Signature']

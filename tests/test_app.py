@@ -31,7 +31,7 @@ def test_webhook_ping_header(client):
     headers = {'X-GitHub-Event': 'ping'}
     response = client.post('/webhook', headers=headers)
     assert response.status_code == 200
-    assert b"Ping Successful!" in response.data
+    assert b'{\n  "ping": "Success"\n}' in response.data
 
 
 @pytest.mark.parametrize("headers", [{'': ''}, {'X-GitHub-Event': ''}, {'X-GitHub-Event': 'junk'}, {'X-GitHub-Event': 'push', 'X-Hub-Signature': ''}])
