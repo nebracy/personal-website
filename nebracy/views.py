@@ -1,6 +1,6 @@
 import hashlib
 import hmac
-import os
+from os import getenv
 from flask import (abort, Blueprint, current_app as app, jsonify, render_template,
                    redirect, flash, request, url_for)
 from flask_mail import Message
@@ -17,7 +17,7 @@ errors = Blueprint('errors', __name__)
 
 @home.route('/', methods=['GET', 'POST'])
 def index():
-    config = os.getenv('FLASK_CONFIG')
+    config = getenv('FLASK_CONFIG')
     try:
         db_commits = Commit.query.order_by(Commit.date.desc()).limit(3).all()
     except OperationalError:
@@ -48,7 +48,7 @@ def webhook():
     except (KeyError, ValueError):
         abort(400, "Missing correct headers")
     else:
-        secret = str.encode(os.getenv('GITHUB_HOOK_SECRET'))
+        secret = str.encode(getenv('GITHUB_HOOK_SECRET'))
         hashhex = hmac.new(secret, request.data, hashlib.sha1).hexdigest()
         if not hmac.compare_digest(hashhex, signature):
             abort(400, "Incorrect secret")
