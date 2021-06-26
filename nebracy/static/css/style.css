@@ -1,6 +1,12 @@
+:root {
+  --header-font: 'Bungee Shade', cursive;
+  --subheader-font: 'Give You Glory', cursive;
+  --body-font: 'Open Sans', sans-serif;
+}
+
 body {
   margin: 0 auto;
-  font-family: "Nunito", sans-serif;
+  font-family: var(--body-font);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -24,7 +30,7 @@ a:link, a:visited {
 }
 
 h1 {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--header-font);
   font-size: 5em;
   letter-spacing: 4px;
   color: #ffffff;
@@ -34,7 +40,7 @@ h1 {
 }
 
 h2 {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--subheader-font);
   font-size: 1.5em;
   font-weight: 500;
   margin: 0;
@@ -45,14 +51,14 @@ h2 {
 }
 
 h3 {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--header-font);
   font-size: 1.7em;
   color: #289784;
   margin-top: 13px;
 }
 
 h4 {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--subheader-font);
   font-size: 1.3em;
   color: #289784;
 }
@@ -76,7 +82,7 @@ b.green {
 }
 
 nav, b.green {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--subheader-font);
 }
 
 /* HEADER */
@@ -543,7 +549,7 @@ nav, b.green {
   font-size: 16px;
   border-radius: 3px;
   border: 1px solid #D1D1D1;
-  font-family: "Nunito", sans-serif;
+  font-family: var(--body-font);
 }
 
 .form__field--mask {
@@ -598,7 +604,7 @@ nav, b.green {
   padding: 10px 25px;
   margin: 5px;
   border-radius: 2px;
-  font-family: 'Montserrat', "Font Awesome 5 Free", sans-serif;
+  font-family: var(--body-font);
   font-weight: 600;
   font-size: 80%;
   text-transform: uppercase;
