@@ -70,12 +70,6 @@ h4 {
   color: var(--yellow);
 }
 
-.fa-sm {
-  font-size: 1.7em !important;
-  color: #37c8ab;
-  text-shadow: 0 0.5px 0.5px #289784;
-}
-
 b.boldcolor {
   color: var(--yellow);
   font-size: 1em;
@@ -502,18 +496,6 @@ nav, b.boldcolor {
 
 label {
   display: none;
-}
-
-::-webkit-input-placeholder {
-  color: #289784;
-}
-
-:-ms-input-placeholder {
-  color: #289784;
-}
-
-::-ms-input-placeholder {
-  color: #289784;
 }
 
 ::placeholder {
