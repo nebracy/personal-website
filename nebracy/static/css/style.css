@@ -20,8 +20,8 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   min-height: 100vh;
-  color: #333333;
-  background-color: #ffffff;
+  color: var(--white);
+  background-color: var(--main-bg-color);
 }
 
 *, *:before, *:after {
@@ -31,7 +31,7 @@ body {
 
 a:link, a:visited {
   text-decoration: none;
-  color: #333333;
+  color: var(--white);
 }
 
 h1 {
@@ -48,24 +48,25 @@ h2 {
   font-family: var(--subheader-font);
   font-size: 1.5em;
   font-weight: 500;
+  color: var(--yellow);
   margin: 0;
   padding: 4px 6px;
   height: 45px;
   margin-bottom: 45px;
-  text-shadow: 2px 2px 4px #289784;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 h3 {
   font-family: var(--header-font);
   font-size: 1.7em;
-  color: #289784;
+  color: var(--yellow);
   margin-top: 13px;
 }
 
 h4 {
   font-family: var(--subheader-font);
   font-size: 1.3em;
-  color: #289784;
+  color: var(--yellow);
 }
 
 .fa-sm {
@@ -82,7 +83,7 @@ hr {
 }
 
 b.green {
-  color: #289784;
+  color: var(--yellow);
   font-size: 1em;
 }
 
@@ -322,8 +323,8 @@ nav, b.green {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  background-image: -webkit-gradient(linear, right top, left top, from(#35cece), to(#37c8ab));
-  background-image: linear-gradient(-90deg, #35cece, #37c8ab);
+  /* background-image: -webkit-gradient(linear, right top, left top, from(#35cece), to(#37c8ab)); */
+  background-image: linear-gradient(-180deg, var(--main-bg-color), var(--white));
   padding: 64px 0 0 0;
 }
 
@@ -510,10 +511,6 @@ nav, b.green {
 
 .git-history__msg {
   font-size: 0.9em;
-}
-
-.contact {
-  background-color: #efefef;
 }
 
 .contact__text {
