@@ -60,6 +60,7 @@ h3 {
   background: linear-gradient(to bottom, var(--yellow), var(--white));
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+  background-clip: text;
 }
 
 h4 {
@@ -78,6 +79,11 @@ h4 {
 b.boldcolor {
   color: var(--yellow);
   font-size: 1em;
+  font-weight: 400;
+}
+
+#welcome {
+  font-size: 1.5em;
 }
 
 nav, b.boldcolor {
