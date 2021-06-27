@@ -251,7 +251,7 @@ nav, b.boldcolor {
 .home {
   min-height: 100vh;
   align-items: flex-end;
-  background-image: linear-gradient(-180deg, var(--main-bg-color) 35%, var(--white));
+  background-image: linear-gradient(180deg, var(--main-bg-color) 35%, var(--white));
   padding: 64px 0 0 0;
 }
 
@@ -476,17 +476,17 @@ label {
 /* FOOTER */
 .foot {
   width: 100%;
-  min-height: 65px;
+  min-height: 50px;
   display: flex;
   justify-content: center;
   color: var(--white);
-  background-color: #289784;
+  background-image: linear-gradient(0deg, var(--main-bg-color) 90%, #289784);
 }
 
 .foot__wrap {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* flex-direction: column; */
+  justify-content: space-between;
 }
 
 .foot__links {
