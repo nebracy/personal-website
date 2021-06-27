@@ -35,9 +35,20 @@ h1 {
   font-family: var(--header-font);
   font-size: 7em;
   color: var(--white);
-  text-shadow: 2px 2px 4px #000000;
+  /* text-shadow: 2px 2px 4px #000000; */
   font-weight: 400;
   margin: 0 0;
+}
+
+.first {
+  background: linear-gradient(to bottom, var(--yellow), var(--white) 65%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.last {
+  text-shadow: 2px 2px 6px #000000;
 }
 
 h2 {
