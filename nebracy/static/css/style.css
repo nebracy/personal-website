@@ -17,6 +17,7 @@ body {
   min-height: 100vh;
   color: var(--white);
   background-color: var(--main-bg-color);
+  letter-spacing: 1px;
 }
 
 *, *:before, *:after {
@@ -40,7 +41,7 @@ h1 {
 
 h2 {
   font-family: var(--subheader-font);
-  font-size: 1.5em;
+  font-size: 2em;
   /* font-weight: 500; */
   color: var(--yellow);
   margin: 0;
@@ -48,19 +49,22 @@ h2 {
   height: 45px;
   margin-bottom: 45px;
   text-shadow: 2px 2px 4px #000000;
+  letter-spacing: 2px;
 }
 
 h3 {
   font-family: var(--header-font);
-  font-size: 1.7em;
+  font-size: 3em;
   color: var(--yellow);
   margin-top: 13px;
+  letter-spacing: 3px;
 }
 
 h4 {
   font-family: var(--subheader-font);
-  font-size: 1.3em;
+  font-size: 2em;
   color: var(--yellow);
+  letter-spacing: 2px;
 }
 
 .fa-sm {
