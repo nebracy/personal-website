@@ -69,12 +69,12 @@ h4 {
   text-shadow: 0 0.5px 0.5px #289784;
 }
 
-b.green {
+b.boldcolor {
   color: var(--yellow);
   font-size: 1em;
 }
 
-nav, b.green {
+nav, b.boldcolor {
   font-family: var(--subheader-font);
 }
 
