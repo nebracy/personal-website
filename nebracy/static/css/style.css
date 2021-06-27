@@ -2,6 +2,11 @@
   --header-font: 'Bungee Shade', cursive;
   --subheader-font: 'Give You Glory', cursive;
   --body-font: 'Open Sans', sans-serif;
+  --main-bg-color: #171321;
+  --white: #FFFFFF;
+  --yellow: #FBE415;
+  --placeholder-color: #4F4C57;
+  --min-height: 100vh;
 }
 
 body {
