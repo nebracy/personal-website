@@ -312,40 +312,9 @@ nav, b.boldcolor {
   }
 }
 
-.about__tools {
-  color: #289784;
-  width: 100%;
-  max-width: 400px;
-  align-self: center;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-@media screen and (min-width: 650px) {
-  .about__tools {
-    justify-content: center;
-  }
-}
-
 .about__github {
   text-align: left;
   width: 100%;
-}
-
-.about__icon-set {
-  display: flex;
-  flex-direction: column;
-}
-
-.about__icon {
-  font-size: 3em;
-  padding: 20px 20px 10px 20px;
-}
-
-.about__icon-text {
-  text-align: center;
-  font-size: 80%;
 }
 
 .git-history {
