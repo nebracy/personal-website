@@ -145,11 +145,11 @@ nav, b.boldcolor {
 
 .nav__btn:hover {
   color: var(--white);
-  background-color: #37c8ab;
+  background-color: #289784;
 }
 
 .nav__btn:focus {
-  outline-color: #37c8ab;
+  outline-color: #289784;
 }
 
 .nav__menu {
@@ -205,7 +205,7 @@ nav, b.boldcolor {
 
 .nav__link:hover {
   color: var(--white);
-  background-color: #37c8ab;
+  background-color: #289784;
 }
 
 .nav__link:active {
@@ -224,7 +224,7 @@ nav, b.boldcolor {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 0 1 650px;
+  flex: 0 1 850px;
   text-align: center;
 }
 
@@ -294,7 +294,7 @@ nav, b.boldcolor {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  max-width: 210px;
+  /* max-width: 210px; */
   width: 100%;
 }
 
@@ -352,7 +352,7 @@ nav, b.boldcolor {
 
 .git-history li::before {
   content: "\2022";
-  color: #37c8ab;
+  color: #289784;
   font-weight: bold;
   display: inline-block;
   width: 1em;
@@ -447,7 +447,7 @@ nav, b.boldcolor {
 }
 
 .form__field:focus {
-  border: 1px solid #37c8ab;
+  border: 1px solid #289784;
   outline: none;
 }
 
@@ -487,7 +487,7 @@ nav, b.boldcolor {
 }
 
 .form__submit-btn:hover {
-  background-color: #37c8ab;
+  background-color: #289784;
 }
 
 .form__submit-btn:active {
