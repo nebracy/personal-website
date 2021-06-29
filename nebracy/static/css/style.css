@@ -510,6 +510,6 @@ label {
 }
 
 .foot__links a:hover, .foot__site-github a:hover {
-  color: #333333;
+  color: var(--yellow);
 }
 /*# sourceMappingURL=style.css.map */
