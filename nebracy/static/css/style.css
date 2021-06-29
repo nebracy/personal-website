@@ -80,6 +80,7 @@ h4 {
   font-weight: 400;
   color: var(--yellow);
   margin: 30px 0 22px 0;
+  text-align: center;
 }
 
 b.boldcolor {
