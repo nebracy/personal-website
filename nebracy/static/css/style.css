@@ -491,8 +491,8 @@ label {
 
 .foot__wrap {
   display: flex;
-  /* flex-direction: column; */
   justify-content: space-between;
+  flex: 0 1 40%;
 }
 
 .foot__links {
