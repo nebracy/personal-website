@@ -444,10 +444,6 @@ nav, b.boldcolor {
   border: 1px solid #ff0000;
 }
 
-.form__field:not(:-ms-input-placeholder):invalid {
-  border: 1px solid #ff0000;
-}
-
 .form__alert {
   color: #09c738;
   font-weight: 600;
