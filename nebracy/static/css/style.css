@@ -304,9 +304,9 @@ nav, b.boldcolor {
   padding: 30px 250px 60px 250px;
   justify-content: flex-end;
   background-image: url(../img/python.svg);
-  background-size: 35%;
+  background-size: 45%;
   background-repeat: no-repeat;
-  background-position: left center;
+  background-position: left -15% bottom 140%;
 }
 
 .about__header {
