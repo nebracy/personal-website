@@ -462,24 +462,26 @@ nav, b.boldcolor {
 }
 
 .form__submit-btn {
-  border: none;
-  background-color: #413E49;
+  border: 1px solid var(--yellow);
+  background-color: transparent;
   transition-duration: 0.2s;
   color: var(--white);
-  padding: 10px 25px;
-  border-radius: 2px;
+  padding: 8px 25px;
+  border-radius: 3px;
   font-family: var(--body-font);
-  font-weight: 600;
-  font-size: 80%;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  /* font-weight: 600; */
+  font-size: 85%;
+  /* box-shadow: 0 4px 6px var(--white), 0 1px 3px var(--white); */
 }
 
 .form__submit-btn:hover {
   background-color: var(--green);
+  border: none;
 }
 
 .form__submit-btn:active {
   background-color: #413E49;
+  border: none;
 }
 
 label {
