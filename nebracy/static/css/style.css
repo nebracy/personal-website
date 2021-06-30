@@ -5,6 +5,7 @@
   --main-bg-color: #171321;
   --white: #FFFFFF;
   --yellow: #FBE415;
+  --green: #289784;
   --placeholder-color: #4F4C57;
   --min-height: 100vh;
 }
@@ -340,7 +341,7 @@ nav, b.boldcolor {
 
 .git-history li::before {
   content: "\2022";
-  color: #289784;
+  color: var(--green);
   font-weight: bold;
   display: inline-block;
   width: 1em;
@@ -363,7 +364,7 @@ nav, b.boldcolor {
   margin: 0 25px 3px 0;
   font-weight: 600;
   letter-spacing: 1.4px;
-  border-bottom: 1px dotted #289784;
+  border-bottom: 1px dotted var(--green);
 }
 
 .git-history__link {
@@ -371,11 +372,11 @@ nav, b.boldcolor {
 }
 
 .git-history__link:hover {
-  color: #289784;
+  color: var(--green);
 }
 
 .git-history__link:active {
-  color: #289784;
+  color: var(--green);
 }
 
 .git-history__date {
@@ -442,7 +443,7 @@ nav, b.boldcolor {
 }
 
 .form__field:focus {
-  border: 1px solid #289784;
+  border: 1px solid var(--green);
   outline: none;
 }
 
@@ -470,7 +471,7 @@ nav, b.boldcolor {
 }
 
 .form__submit-btn:hover {
-  background-color: #289784;
+  background-color: var(--green);
 }
 
 .form__submit-btn:active {
@@ -482,7 +483,7 @@ label {
 }
 
 ::placeholder {
-  color: #289784;
+  color: var(--green);
 }
 
 /* FOOTER */
@@ -492,7 +493,7 @@ label {
   display: flex;
   justify-content: center;
   color: var(--white);
-  background-image: linear-gradient(0deg, var(--main-bg-color) 90%, #289784);
+  background-image: linear-gradient(0deg, var(--main-bg-color) 90%, var(--green));
 }
 
 .foot__wrap {
