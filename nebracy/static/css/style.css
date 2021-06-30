@@ -59,7 +59,7 @@ h2 {
   margin: 0;
   padding: 4px 6px;
   height: 45px;
-  margin-bottom: 45px;
+  /* margin-bottom: 45px; */
   text-shadow: 2px 2px 4px #000000;
 }
 
@@ -267,9 +267,9 @@ nav, b.boldcolor {
   padding: 64px 0 0 0;
 }
 
-.home__text {
+/* .home__text {
   margin-bottom: 45px;
-}
+} */
 
 .home__subheaders {
   height: 50px;
