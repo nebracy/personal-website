@@ -387,6 +387,7 @@ nav, b.boldcolor {
 }
 
 .contact {
+  min-height: 95vh;
   background-image: linear-gradient(0deg, var(--main-bg-color) 65%, #413E49);
 }
 
@@ -496,7 +497,7 @@ label {
   display: flex;
   justify-content: center;
   color: var(--white);
-  background-image: linear-gradient(0deg, var(--main-bg-color) 90%, var(--green));
+  background-color: #413E49;
 }
 
 .foot__wrap {
