@@ -6,6 +6,7 @@
   --white: #FFFFFF;
   --yellow: #FBE415;
   --green: #289784;
+  --grey: #413E49;
   --placeholder-color: #4F4C57;
   --min-height: 100vh;
 }
@@ -388,7 +389,7 @@ nav, b.boldcolor {
 
 .contact {
   min-height: 95vh;
-  background-image: linear-gradient(0deg, var(--main-bg-color) 65%, #413E49);
+  background-image: linear-gradient(0deg, var(--main-bg-color) 65%, var(--grey));
 }
 
 .contact__text {
@@ -430,7 +431,7 @@ nav, b.boldcolor {
   padding: 8px 10px;
   font-size: 16px;
   border-radius: 3px;
-  border: 1px solid #D1D1D1;
+  border: 1px solid var(--grey);
   font-family: var(--body-font);
 }
 
@@ -480,7 +481,7 @@ nav, b.boldcolor {
 }
 
 .form__submit-btn:active {
-  background-color: #413E49;
+  background-color: var(--grey);
   border: none;
 }
 
@@ -499,7 +500,7 @@ label {
   display: flex;
   justify-content: center;
   color: var(--white);
-  background-color: #413E49;
+  background-color: var(--grey);
 }
 
 .foot__wrap {
