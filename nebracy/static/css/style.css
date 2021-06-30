@@ -456,7 +456,7 @@ nav, b.boldcolor {
 }
 
 .form__alert {
-  color: #09c738;
+  color: var(--green);
   font-weight: 600;
   margin-right: 30px;
 }
