@@ -300,8 +300,13 @@ nav, b.boldcolor {
 }
 
 .about {
-  padding-right: 20px;
-  padding-left: 20px;
+  padding-right: 250px;
+  padding-left: 250px;
+  justify-content: flex-end;
+  background-image: url(../img/python.svg);
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: left center;
 }
 
 .about__header {
