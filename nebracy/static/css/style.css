@@ -69,7 +69,7 @@ h3 {
   font-size: 3.1em;
   font-weight: 400;
   margin: 10px 0;
-  background: linear-gradient(to bottom, var(--yellow), var(--white));
+  background: linear-gradient(to bottom, var(--yellow), var(--white) 72%);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
