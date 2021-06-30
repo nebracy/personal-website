@@ -301,8 +301,7 @@ nav, b.boldcolor {
 }
 
 .about {
-  padding-right: 250px;
-  padding-left: 250px;
+  padding: 30px 250px 60px 250px;
   justify-content: flex-end;
   background-image: url(../img/python.svg);
   background-size: 40%;
