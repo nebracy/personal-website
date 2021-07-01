@@ -7,7 +7,6 @@
   --yellow: #FBE415;
   --green: #289784;
   --grey: #413E49;
-  --placeholder-color: #4F4C57;
   --min-height: 100vh;
 }
 
@@ -21,7 +20,7 @@ body {
   color: var(--white);
   background-color: var(--main-bg-color);
   letter-spacing: 1px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 *, *:before, *:after {
@@ -259,11 +258,11 @@ nav, b.boldcolor {
 }
 
 .text {
-  line-height: 1.4em;
+  line-height: 1.6em;
 }
 
 .home {
-  min-height: 100vh;
+  min-height: 95vh;
   align-items: flex-end;
   background-image: linear-gradient(180deg, var(--main-bg-color) 35%, #7A7780);
   padding: 64px 0 0 0;
@@ -337,6 +336,7 @@ nav, b.boldcolor {
 
 .git-history {
   list-style: none;
+  line-height: 1.5em;
 }
 
 .git-history li::before {
@@ -470,9 +470,8 @@ nav, b.boldcolor {
   padding: 8px 25px;
   border-radius: 3px;
   font-family: var(--body-font);
-  /* font-weight: 600; */
-  font-size: 85%;
-  /* box-shadow: 0 4px 6px var(--white), 0 1px 3px var(--white); */
+  font-size: 95%;
+  /* box-shadow: 5px 5px hsl(0deg 0% 100% / 20%); */
 }
 
 .form__submit-btn:hover {
@@ -526,4 +525,3 @@ label {
 .foot__links a:hover, .foot__site-github a:hover {
   color: var(--green);
 }
-/*# sourceMappingURL=style.css.map */
