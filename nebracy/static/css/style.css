@@ -309,6 +309,10 @@ nav, b.boldcolor {
   background-position: left -15% bottom 140%;
 }
 
+.about__wrap {
+  margin-left: 200px;
+}
+
 .about__header {
   display: flex;
   justify-content: space-between;
