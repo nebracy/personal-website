@@ -38,6 +38,7 @@ h1 {
   /* text-shadow: 2px 2px 4px #000000; */
   font-weight: 400;
   margin: 0 0;
+  line-height: 135%;
 }
 
 .first {
@@ -49,6 +50,7 @@ h1 {
 
 .last {
   text-shadow: 2px 2px 6px #000000;
+  text-align: right;
 }
 
 h2 {
@@ -264,8 +266,8 @@ nav, b.boldcolor {
 }
 
 .home {
-  min-height: 95vh;
-  align-items: flex-end;
+  min-height: 100vh;
+  align-items: center;
   background-image: linear-gradient(180deg, var(--main-bg-color) 35%, #7A7780);
   padding: 64px 0 0 0;
 }
