@@ -423,7 +423,7 @@ nav, b.boldcolor {
     "submit .";
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 700px) {
   .form {
     grid-template-rows: 1fr 1fr 1fr 7fr 1fr;
     grid-template-areas:
