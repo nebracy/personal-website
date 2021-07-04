@@ -457,6 +457,7 @@ a.git-history__link:link, a:visited {
   border-radius: 3px;
   border: 1px solid var(--grey);
   font-family: var(--body-font);
+  background-color: #dad8de;
 }
 
 .form__field--mask {
