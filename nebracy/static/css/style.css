@@ -147,7 +147,7 @@ nav, b.boldcolor {
 .nav__btn {
   flex: 0 1 70px;
   font-size: 1.5em;
-  color: #000000;
+  color: var(--white);
   background-color: transparent;
   border: none;
 }
