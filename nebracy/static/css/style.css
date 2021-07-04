@@ -423,6 +423,18 @@ nav, b.boldcolor {
     "submit . . .";
 }
 
+@media screen and (max-width: 650px) {
+  .form {
+    grid-template-rows: 1fr 1fr 1fr 7fr 1fr;
+    grid-template-areas:
+      "name name name name"
+      "email email email email"
+      "subj subj subj subj"
+      "msg msg msg msg"
+      "submit . . .";
+  }
+}
+
 .email { grid-area: email; }
 
 .name { grid-area: name; }
