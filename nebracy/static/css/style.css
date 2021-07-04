@@ -379,10 +379,6 @@ nav, b.boldcolor {
   margin-bottom: 3px;
 }
 
-a.git-history__link:link, a:visited {
-  color: #dad8de;
-}
-
 .git-history__link:hover {
   color: var(--green);
 }
@@ -517,7 +513,7 @@ label {
 }
 
 ::placeholder {
-  color: var(--green);
+  color: #24766b;
 }
 
 /* FOOTER */
