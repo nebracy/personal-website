@@ -548,6 +548,10 @@ label {
   padding: 5px 12px;
 }
 
+.foot__link-twitter img {
+  height: 23px;
+}
+
 .foot__copyright {
   align-self: center;
 }
