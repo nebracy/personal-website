@@ -86,12 +86,12 @@ h4 {
 
 b.boldcolor {
   color: var(--yellow);
-  font-size: 1em;
+  font-size: 1.2em;
   font-weight: 400;
 }
 
-#welcome {
-  font-size: 1.5em;
+b.welcome {
+  font-size: 1.7em;
 }
 
 nav, b.boldcolor {
