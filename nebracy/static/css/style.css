@@ -482,10 +482,13 @@ nav, b.boldcolor {
   margin-right: 30px;
 }
 
+.form__submit {
+  text-align: left;
+}
+
 .form__submit-btn {
   border: 1px solid var(--yellow);
   background-color: transparent;
-  transition-duration: 0.2s;
   color: var(--white);
   padding: 8px 25px;
   border-radius: 3px;
