@@ -412,26 +412,26 @@ nav, b.boldcolor {
 .form {
   width: 80%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 7fr 1fr;
   gap: 15px 10px;
   grid-auto-flow: row;
   grid-template-areas:
-    "name name email email"
-    "subj subj subj subj"
-    "msg msg msg msg"
-    "submit . . .";
+    "name email"
+    "subj subj"
+    "msg msg"
+    "submit .";
 }
 
 @media screen and (max-width: 650px) {
   .form {
     grid-template-rows: 1fr 1fr 1fr 7fr 1fr;
     grid-template-areas:
-      "name name name name"
-      "email email email email"
-      "subj subj subj subj"
-      "msg msg msg msg"
-      "submit . . .";
+      "name name"
+      "email email"
+      "subj subj"
+      "msg msg"
+      "submit .";
   }
 }
 
