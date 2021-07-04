@@ -531,6 +531,13 @@ label {
   flex: 0 1 40%;
 }
 
+@media screen and (max-width: 800px) {
+  .foot__wrap {
+    flex: 1 1 auto;
+    justify-content: space-around;
+  }
+}
+
 .foot__links {
   align-self: center;
 }
