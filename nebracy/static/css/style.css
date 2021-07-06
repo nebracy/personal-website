@@ -20,6 +20,8 @@ body {
   color: var(--white);
   background-color: var(--main-bg-color);
   letter-spacing: 1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 *, *:before, *:after {
