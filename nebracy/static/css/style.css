@@ -264,6 +264,7 @@ nav, b.boldcolor {
 @media screen and (min-width: 650px) {
   .section__wrap--center {
     align-items: center;
+    flex: 0 1 725px;
   }
 }
 
@@ -414,7 +415,7 @@ nav, b.boldcolor {
 
 .contact__text {
   text-align: center;
-  width: 80%;
+  width: 95%;
 }
 
 .contact__text p {
@@ -422,7 +423,7 @@ nav, b.boldcolor {
 }
 
 .form {
-  width: 80%;
+  width: 95%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 7fr 1fr;
