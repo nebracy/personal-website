@@ -28,6 +28,10 @@ body {
   box-sizing: border-box;
 }
 
+a, button {
+  touch-action: manipulation;
+}
+
 a:link, a:visited {
   text-decoration: none;
   color: var(--white);
