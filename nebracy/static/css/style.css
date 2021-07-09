@@ -260,7 +260,7 @@ nav, b.boldcolor {
   text-align: center;
 }
 
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 700px) {
   .section__wrap {
     text-align: left;
     align-items: stretch;
