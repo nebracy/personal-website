@@ -152,6 +152,12 @@ nav, b.boldcolor {
   width: 44px;
 }
 
+@media screen and (max-width: 650px) {
+  .logo__img {
+    display: none;
+  }
+}
+
 .nav {
   display: flex;
   flex: 0 1 65px;
