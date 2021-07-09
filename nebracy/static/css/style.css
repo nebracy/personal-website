@@ -219,6 +219,7 @@ nav, b.boldcolor {
 .nav__menu--show {
   display: flex;
   flex-direction: column;
+  background: var(--main-bg-color);
 }
 
 .nav__menu-item {
