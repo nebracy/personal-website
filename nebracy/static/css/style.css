@@ -338,10 +338,16 @@ nav, b.boldcolor {
 
 .about__header {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   flex-wrap: wrap;
   /* max-width: 210px; */
   width: 100%;
+}
+
+@media screen and (max-width: 700px) {
+  .about__header {
+    justify-content: center;
+  }
 }
 
 .about__content {
