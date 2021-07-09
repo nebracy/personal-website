@@ -47,6 +47,12 @@ h1 {
   line-height: 135%;
 }
 
+@media screen and (max-width: 700px) {
+  h1 {
+    font-size: 4rem;
+  }
+}
+
 .first {
   background: linear-gradient(to bottom, var(--yellow), var(--white) 65%);
   -webkit-text-fill-color: transparent;
