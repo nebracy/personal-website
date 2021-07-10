@@ -32,7 +32,7 @@ def index():
         msg.body = contact_form.msg.data
         mail.send(msg)
         flash(f'Email sent, thank you!')
-        return redirect(url_for('home.index', _external=True, _scheme='https'))
+        return redirect(url_for('home.index', _external=True, _scheme='https', _anchor='contact'))
     return render_template('index.html', form=contact_form, title="Home", commits=db_commits, config=config)
 
 
