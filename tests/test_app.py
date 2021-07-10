@@ -3,7 +3,7 @@ from flask import url_for
 
 
 payload = {"ref": "refs/heads/master", "repository": {
-        "name": "personal-website",
+        "full_name": "nebracy/personal-website",
         "url": "https://github.com/nebracy/personal-website"},
         "commits": [{
             "id": "b550065594f767a9275b4c9a18810fd2d1479b74",
@@ -70,7 +70,7 @@ def test_webhook_not_master_branch(client):
 
 def test_webhook_commit(client):
     """"""
-    headers = {'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1=0539ad02fd7789350c31ce70f8991dce735a0c1a'}
+    headers = {'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1=b2f3b3cef75ff72ba41a49175f5b19f400ae2e99'}
     response = client.post('/webhook', headers=headers, json=payload)
     response2 = client.post('/webhook', headers=headers, json=payload)
     assert response.status_code == 200

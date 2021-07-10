@@ -62,7 +62,7 @@ class GithubCommits:
 
     def process_webhook(self, payload: dict) -> None:
         for commit in payload['commits']:
-            self.list.append({'id': commit['id'], 'name': payload['repository']['name'],
+            self.list.append({'id': commit['id'], 'name': payload['repository']['full_name'],
                               'url': payload['repository']['url'],
                               'date': datetime.fromisoformat(commit['timestamp']), 'msg': commit['message']})
 
