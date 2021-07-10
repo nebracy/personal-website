@@ -274,7 +274,7 @@ nav, b.boldcolor {
 .section {
   display: flex;
   justify-content: center;
-  padding: 40px 0;
+  padding: 40px 15px;
 }
 
 .section__wrap {
@@ -445,7 +445,7 @@ nav, b.boldcolor {
 
 .contact__text {
   text-align: center;
-  width: 95%;
+  width: 100%;
 }
 
 .contact__text p {
@@ -453,7 +453,7 @@ nav, b.boldcolor {
 }
 
 .form {
-  width: 95%;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 7fr 1fr;
