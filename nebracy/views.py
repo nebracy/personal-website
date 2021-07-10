@@ -64,7 +64,7 @@ def webhook():
             abort(400, "The environment variable GITHUB_TOKEN is not set")
         return jsonify({}), 200
     else:
-        abort(400, "Commits from this push are from another branch besides master")
+        abort(403, "Commits from this push are from another branch besides master")
 
 
 @errors.app_errorhandler(404)
