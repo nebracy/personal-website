@@ -85,6 +85,13 @@ h2 {
   text-shadow: 2px 2px 4px #000000;
 }
 
+@media screen and (max-width: 475px) {
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+}
+
 h3 {
   font-family: var(--header-font);
   font-size: 5.3rem;
