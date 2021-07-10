@@ -100,6 +100,7 @@ h3 {
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
+  align-self: center;
 }
 
 @media screen and (max-width: 425px) {
@@ -292,10 +293,14 @@ nav, b.boldcolor {
   }
 }
 
+.section__wrap--center {
+  align-items: stretch;
+}
+
 @media screen and (min-width: 650px) {
   .section__wrap--center {
-    align-items: center;
-    flex: 0 1 750px;
+    /* align-items: center; */
+    flex: 0 1 715px;
   }
 }
 
@@ -445,7 +450,7 @@ nav, b.boldcolor {
 
 .contact__text {
   text-align: center;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .contact__text p {
@@ -453,7 +458,7 @@ nav, b.boldcolor {
 }
 
 .form {
-  width: 100%;
+  /* width: 100%; */
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 7fr 1fr;
