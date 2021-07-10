@@ -591,10 +591,11 @@ label {
 }
 
 .foot__links {
-  align-self: center;
+  display: flex;
 }
 
 .foot__links a {
+  display: flex;
   padding: 5px 12px;
 }
 
