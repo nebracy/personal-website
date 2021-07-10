@@ -137,17 +137,18 @@ nav, b.boldcolor {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 5em;
+  height: 4em;
   background-color: transparent;
   position: fixed;
-  /* top: 0; */
-  /* z-index: 99; */
+  z-index: 99;
+   /* top: 0; */
   /* box-shadow: rgba(0, 0, 0, 0.02) 1px 1px 2px 2px; */
 }
 
 @media screen and (min-width: 650px) {
   .header {
     position: absolute;
+    height: 5em;
   }
 }
 
