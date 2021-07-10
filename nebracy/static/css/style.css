@@ -295,7 +295,7 @@ nav, b.boldcolor {
 @media screen and (min-width: 650px) {
   .section__wrap--center {
     align-items: center;
-    flex: 0 1 725px;
+    flex: 0 1 750px;
   }
 }
 
