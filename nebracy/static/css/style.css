@@ -43,10 +43,10 @@ h1 {
   font-family: var(--header-font);
   font-size: 14.4rem;
   color: var(--white);
-  /* text-shadow: 2px 2px 4px #000000; */
   font-weight: 400;
   margin: 0 0;
   line-height: 135%;
+  /* text-shadow: 2px 2px 4px #000000; */
 }
 
 @media screen and (max-width: 700px) {
@@ -81,7 +81,6 @@ h2 {
   margin: 0;
   padding: 4px 6px;
   height: 45px;
-  /* margin-bottom: 45px; */
   text-shadow: 2px 2px 4px #000000;
 }
 
@@ -208,10 +207,6 @@ nav, b.boldcolor {
   color: var(--white);
 }
 
-/* .nav__btn:focus {
-  outline-color: #289784;
-} */
-
 .nav__menu {
   padding: 0;
   margin: 0;
@@ -314,10 +309,6 @@ nav, b.boldcolor {
   padding: 64px 0 0 0;
 }
 
-/* .home__text {
-  margin-bottom: 45px;
-} */
-
 .home__subheaders {
   height: 50px;
   overflow: hidden;
@@ -367,10 +358,7 @@ nav, b.boldcolor {
 
 .about__header {
   display: flex;
-  /* justify-content: space-between; */
   flex-wrap: wrap;
-  /* max-width: 210px; */
-  width: 100%;
 }
 
 @media screen and (max-width: 700px) {
