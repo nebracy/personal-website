@@ -14,7 +14,7 @@
 
 
 {% macro render_submit(field) %}
-    <div class="form__submit">
+    <div class="form__submit submit">
         {{ field(**kwargs)|safe }}
         {% with messages = get_flashed_messages() %}
             {% if messages %}
