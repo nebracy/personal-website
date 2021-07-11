@@ -21,5 +21,7 @@ phases:
       - echo Pushing the Docker image...
       - docker push $REPO_URI
       - printf '[{"name":"flask","imageUri":"%s"}]' $REPO_URI > imagedefinitions.json
+      - echo Syncing static folder
+      - aws s3 sync ./nebracy/static $S3_BUCKET --delete
 artifacts:
   files: imagedefinitions.json
