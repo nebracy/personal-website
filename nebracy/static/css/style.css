@@ -181,7 +181,7 @@ nav, b.boldcolor {
 
 @media screen and (min-width: 650px) {
   .nav {
-    flex: 0 1 30em;
+    flex: 0 1 48rem;
   }
 }
 
