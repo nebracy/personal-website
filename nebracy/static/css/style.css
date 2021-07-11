@@ -103,7 +103,7 @@ h3 {
   align-self: center;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 450px) {
   h3 {
     line-height: 135%;
     margin-bottom: 40px;
