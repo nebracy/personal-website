@@ -1,13 +1,11 @@
 document.addEventListener("click", toggleDropdown)
 
 function toggleDropdown(event) {
-    if (event.target.closest("#dropbtn")) {
-        var width = window.matchMedia("(max-width: 650px)");    // Less than 650px
-        if (width.matches) {
-            document.getElementById("dropdown").classList.toggle("nav__menu--show");
-        }
+    var element = document.getElementById("dropdown");
+    var width = window.matchMedia("(max-width: 650px)");
+    if (event.target.closest("#dropbtn") && width.matches) {    // Screen less than 650px
+        element.classList.toggle("nav__menu--show");
     } else {
-        var element = document.getElementById("dropdown");
         if (element.classList.contains("nav__menu--show")) {
             element.classList.remove("nav__menu--show");
         }
