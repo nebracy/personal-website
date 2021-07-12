@@ -1,4 +1,4 @@
-FROM python:3.9-slim-buster
+FROM public.ecr.aws/m5i9u4o0/python:latest
 
 WORKDIR /app
 
