@@ -227,7 +227,9 @@ nav, b.boldcolor {
 @media screen and (min-width: 650px) {
   .nav__menu {
     display: flex;
-    flex: 0 1 30em;
+    /* flex: 0 1 30em; */
+    flex: 1 1;
+    justify-content: space-around;
     position: static;
     border: none;
     box-shadow: none;
@@ -244,6 +246,12 @@ nav, b.boldcolor {
   display: flex;
   flex: 1 1 50px;
   align-items: flex-end;
+}
+
+@media screen and (min-width: 650px) {
+  .nav__menu-item {
+    flex: 0 1 100px;
+  }
 }
 
 .nav__link {
