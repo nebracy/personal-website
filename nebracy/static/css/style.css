@@ -569,12 +569,14 @@ nav, b.boldcolor {
   font-family: var(--body-font);
   font-size: 1.5rem;
   align-self: flex-start;
+  transition-property: background-color;
+  transition-duration: 0.3s;
   /* box-shadow: 5px 5px hsl(0deg 0% 100% / 20%); */
 }
 
 .form__submit-btn:hover {
   background-color: var(--green);
-  border: none;
+  border: 1px solid var(--green)
 }
 
 .form__submit-btn:active {
