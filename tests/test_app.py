@@ -1,5 +1,6 @@
 import pytest
 from flask import url_for
+from nebracy import mail
 
 
 payload = {"ref": "refs/heads/master", "repository": {
@@ -18,6 +19,17 @@ def test_home_get(client):
     assert client.get(home_url).status_code == 200
     assert b"Welcome!" in client.get(home_url).data
     assert url_for('static', filename='favicon.ico', _external=True, _scheme='https') == 'https://localhost/favicon.ico'
+
+
+def test_send_email(client):
+    """"""
+    with mail.record_messages() as outbox:
+        mail.send_message(subject='Contact Form: Testing',
+                          body='This is a test.',
+                          recipients=['contact@nebracy.com'])
+
+        assert len(outbox) == 1
+        assert outbox[0].subject == 'Contact Form: Testing'
 
 
 def test_webhook_get(client):
