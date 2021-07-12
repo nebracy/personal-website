@@ -243,6 +243,7 @@ nav, b.boldcolor {
   display: flex;
   flex-direction: column;
   background: var(--main-bg-color);
+  border-radius: 5px;
 }
 
 .nav__menu-item {
@@ -284,7 +285,7 @@ nav, b.boldcolor {
     visibility: hidden;
     transition: all 0.3s ease-in-out;
   }
-  
+
   .nav__link:hover:before {
     visibility: visible;
     height: 3px;
