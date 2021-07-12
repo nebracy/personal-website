@@ -270,12 +270,25 @@ nav, b.boldcolor {
   .nav__link {
     justify-content: center;
     padding-left: 0;
+    position: relative;
   }
-}
 
-.nav__link:hover {
-  color: var(--white);
-  border-bottom: 2px solid var(--yellow);
+  .nav__link:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--yellow);
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .nav__link:hover:before {
+    visibility: visible;
+    height: 3px;
+  }
 }
 
 .nav__link:active {
