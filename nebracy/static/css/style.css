@@ -602,6 +602,7 @@ label {
 
 .foot__links a {
   display: flex;
+  align-items: center;
   padding: 5px 15px;
 }
 
