@@ -1,4 +1,6 @@
 document.addEventListener("click", toggleDropdown)
+window.matchMedia("(min-width: 650px)").addEventListener("change", checkScreenSize)
+
 
 function toggleDropdown(event) {
     var element = document.getElementById("dropdown");
@@ -8,15 +10,11 @@ function toggleDropdown(event) {
       }
 }
 
-function checkScreenSize() {
-    var width = window.matchMedia("(min-width: 650px)");
-    width.addEventListener("change", checkScreenSize);
-    if (width.matches) {     // Greater than 650px
+function checkScreenSize(event) {
+    if (event.matches) {     // Screen greater than 650px
         var element = document.getElementById("dropdown");
         if (element.classList.contains("nav__menu--show")) {
             element.classList.remove("nav__menu--show");
         }
     }
 }
-
-checkScreenSize()
