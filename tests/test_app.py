@@ -76,7 +76,7 @@ def test_webhook_not_master_branch(client):
     payload_stub = {'ref': 'refs/heads/staging'}
     headers = {'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1=c7abcc644d90c1a4a3ee67bd0ecf8665ea1d7347'}
     response = client.post('/webhook', headers=headers, json=payload_stub)
-    assert response.status_code == 400
+    assert response.status_code == 403
     assert b"Commits from this push are from another branch besides master" in response.data
 
 
