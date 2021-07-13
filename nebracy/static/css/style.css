@@ -595,19 +595,13 @@ label {
   background-color: var(--grey);
   min-height: 45px;
   padding: 0 15px;
+  justify-content: center;
 }
 
 .foot__wrap {
   display: flex;
-  justify-content: space-around;
-  flex: 1 1;
-}
-
-@media screen and (max-width: 700px) {
-  .foot__wrap {
-    flex: 1 1 auto;
-    justify-content: space-between;
-  }
+  justify-content: space-between;
+  flex: 0 1 800px;
 }
 
 .foot__links {
