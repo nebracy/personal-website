@@ -479,7 +479,7 @@ nav, b.boldcolor {
 .form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr auto 1fr;
+  grid-template-rows: repeat(4, auto);
   gap: 10px 13px;
   grid-auto-flow: row;
   grid-template-areas:
@@ -491,7 +491,7 @@ nav, b.boldcolor {
 
 @media screen and (max-width: 700px) {
   .form {
-    grid-template-rows: 1fr 1fr 1fr 7fr 1fr;
+    grid-template-rows: repeat(5, auto);
     gap: 15px;
     grid-template-areas:
       "name name"
