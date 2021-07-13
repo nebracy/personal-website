@@ -374,6 +374,8 @@ nav, b.boldcolor {
   background-size: 45%;
   background-repeat: no-repeat;
   background-position: left -15% bottom 140%;
+  border-top: 1px solid var(--green);
+  border-bottom: 1px solid var(--green);
 }
 
 .about__wrap {
