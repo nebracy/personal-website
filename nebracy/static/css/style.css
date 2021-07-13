@@ -626,12 +626,14 @@ label {
 }
 
 svg {
-  transition-property: fill;
+  transition-property: fill, filter;
   transition-duration: 0.3s;
+  filter: drop-shadow(4px 4px 1px var(--main-bg-color));
 }
 
 svg:hover {
   fill: var(--green);
+  filter: none;
 }
 
 .foot__copyright {
