@@ -628,6 +628,7 @@ label {
 
 svg.foot__logo {
   fill: var(--white);
+  width: 24px;
   transition-property: fill, filter;
   transition-duration: 0.3s;
   filter: drop-shadow(4px 4px 1px var(--main-bg-color));
