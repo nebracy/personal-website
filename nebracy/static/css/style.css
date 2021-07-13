@@ -479,8 +479,8 @@ nav, b.boldcolor {
 .form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 7fr 1fr;
-  gap: 15px 10px;
+  grid-template-rows: 1fr 1fr auto 1fr;
+  gap: 10px 13px;
   grid-auto-flow: row;
   grid-template-areas:
     "name email"
@@ -492,6 +492,7 @@ nav, b.boldcolor {
 @media screen and (max-width: 700px) {
   .form {
     grid-template-rows: 1fr 1fr 1fr 7fr 1fr;
+    gap: 15px;
     grid-template-areas:
       "name name"
       "email email"
@@ -520,6 +521,7 @@ nav, b.boldcolor {
   border: 1px solid var(--grey);
   font-family: var(--body-font);
   background-color: #dad8de;
+  margin-top: 5px;
 }
 
 .form__field--mask {
@@ -581,11 +583,22 @@ nav, b.boldcolor {
 }
 
 label {
-  display: none;
+  font-weight: 700;
+  color: #dad8de;
 }
 
 ::placeholder {
-  color: #24766b;
+  color: transparent;
+}
+
+@media screen and (max-width: 700px) {
+  label {
+    display: none;
+  }
+
+  ::placeholder {
+    color: #24766b;
+  }
 }
 
 /* FOOTER */
