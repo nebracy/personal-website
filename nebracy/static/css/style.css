@@ -626,13 +626,13 @@ label {
   padding: 5px 15px;
 }
 
-svg {
+svg.foot__logo {
   transition-property: fill, filter;
   transition-duration: 0.3s;
   filter: drop-shadow(4px 4px 1px var(--main-bg-color));
 }
 
-svg:hover {
+svg.foot__logo:hover {
   fill: var(--green);
   filter: none;
 }
