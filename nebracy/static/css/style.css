@@ -453,18 +453,12 @@ nav, b.boldcolor {
   margin-bottom: 3px;
 }
 
-.git-history__link:hover {
-  color: var(--green);
-}
-
+.git-history__link:hover, 
 .git-history__link:active {
   color: var(--green);
 }
 
-.git-history__date {
-  font-size: 1.5rem;
-}
-
+.git-history__date, 
 .git-history__msg {
   font-size: 1.42rem;
 }
