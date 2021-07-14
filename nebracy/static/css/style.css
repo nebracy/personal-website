@@ -212,6 +212,10 @@ nav, b.boldcolor {
   color: var(--white);
 }
 
+.nav__hamburger {
+  stroke: var(--white);
+}
+
 .nav__menu {
   padding: 0;
   margin: 0;
