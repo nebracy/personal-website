@@ -212,8 +212,7 @@ nav, b.boldcolor {
   stroke: var(--white);
 }
 
-.nav__hamburger:hover, 
-.nav__hamburger:active {
+.nav__hamburger--active {
   stroke: var(--green);
 }
 
