@@ -208,10 +208,6 @@ nav, b.boldcolor {
   }
 }
 
-.nav__btn:hover {
-  color: var(--white);
-}
-
 .nav__hamburger {
   stroke: var(--white);
 }
