@@ -216,6 +216,11 @@ nav, b.boldcolor {
   stroke: var(--white);
 }
 
+.nav__hamburger:hover, 
+.nav__hamburger:active {
+  stroke: var(--green);
+}
+
 .nav__menu {
   padding: 0;
   margin: 0;
