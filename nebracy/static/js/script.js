@@ -10,11 +10,9 @@ function toggleDropdown(event) {
 }
 
 function checkScreenSize(event) {
-    if (!event.matches) {     // Screen (greater/not less) than 650px
-        if (navDropdown.classList.contains("nav__menu--show")) {
-            navDropdown.classList.remove("nav__menu--show");
-            navHamburger.classList.remove("nav__hamburger--active");
-        }
+    if (!event.matches && navDropdown.classList.contains("nav__menu--show")) {     // Screen (greater/not less) than 650px
+        navDropdown.classList.remove("nav__menu--show");
+        navHamburger.classList.remove("nav__hamburger--active");
     }
 }
 
