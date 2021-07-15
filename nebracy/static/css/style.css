@@ -201,6 +201,7 @@ nav, b.boldcolor {
   background-color: transparent;
   border: none;
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 5px;
 }
 
