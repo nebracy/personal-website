@@ -200,6 +200,8 @@ nav, b.boldcolor {
   color: var(--white);
   background-color: transparent;
   border: none;
+  backdrop-filter: blur(20px);
+  border-radius: 5px;
 }
 
 @media screen and (min-width: 650px) {
