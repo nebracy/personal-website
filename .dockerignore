@@ -15,4 +15,5 @@ buildspec.yml
 *.css.map
 *.db
 README.md
+LICENSE
 __pycache__
