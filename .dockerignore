@@ -6,6 +6,7 @@ instance/
 tests/
 nebracy/static/
 local/
+.github/
 .git/
 .gitignore
 .dockerignore
