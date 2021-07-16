@@ -20,9 +20,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_HOOK_SECRET: ${{ secrets.WEBHOOK_SECRET }}
           FLASK_SECRET_KEY: ${{ secrets.FLASK_SECRET_KEY }}
-          FLASK_MAIL_USERNAME: ${{ secrets.FLASK_MAIL_USERNAME }}
-          FLASK_MAIL_PASSWORD: ${{ secrets.FLASK_MAIL_PASSWORD }}
-          FLASK_MAIL_DEFAULT_SENDER: ${{ secrets.FLASK_MAIL_DEFAULT_SENDER }}
-          FLASK_MAIL_RECIPIENT: ${{ secrets.FLASK_MAIL_RECIPIENT }}
         run: |
-          pytest
+          pytest -v
