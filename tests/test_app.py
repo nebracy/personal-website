@@ -1,6 +1,7 @@
 import pytest
 from flask import url_for
 from nebracy import mail
+import os
 
 
 payload = {"ref": "refs/heads/master", "repository": {
@@ -86,7 +87,7 @@ def test_webhook_commit(client):
     headers = {'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1=b2f3b3cef75ff72ba41a49175f5b19f400ae2e99'}
     response = client.post('/webhook', headers=headers, json=payload)
     response2 = client.post('/webhook', headers=headers, json=payload)
-    print(response.data)
+    print(os.getenv('TEST'), response.data)
     assert response.status_code == 200
     assert b"" in response.data
     assert response2.status_code == 400
