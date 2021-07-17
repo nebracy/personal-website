@@ -1,7 +1,6 @@
 import pytest
 from flask import url_for
 from nebracy import mail
-import os
 
 
 payload = {"ref": "refs/heads/master", "repository": {
@@ -77,7 +76,6 @@ def test_webhook_not_master_branch(client):
     payload_stub = {'ref': 'refs/heads/staging'}
     headers = {'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1=c7abcc644d90c1a4a3ee67bd0ecf8665ea1d7347'}
     response = client.post('/webhook', headers=headers, json=payload_stub)
-    print(response.data)
     assert response.status_code == 403
     assert b"Commits from this push are from another branch besides master" in response.data
 
@@ -87,7 +85,6 @@ def test_webhook_commit(client):
     headers = {'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1=b2f3b3cef75ff72ba41a49175f5b19f400ae2e99'}
     response = client.post('/webhook', headers=headers, json=payload)
     response2 = client.post('/webhook', headers=headers, json=payload)
-    print(os.getenv('TEST'), response.data)
     assert response.status_code == 200
     assert b"" in response.data
     assert response2.status_code == 400
