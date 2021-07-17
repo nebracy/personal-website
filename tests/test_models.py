@@ -27,16 +27,16 @@ def test_convert_tz(dt, expected_dt):
 #     assert b"No recent github activity :(" in client.get('/').data
 
 
-def test_a():
+def test_commits_per_repo():
     """test fill empty list with 3 commits per repo from github - MOCK: github api RETURN repo"""
     pass
 
 
-def test_b():
+def test_limit_most_recent_commits():
     """test narrow list to most recent 3"""
     pass
 
 
-def test_c():
+def test_commits_per_repo_age():
     """test no commits older than 6 months in list"""
     pass
