@@ -67,8 +67,6 @@ nav, b.boldcolor {
   background-color: transparent;
   position: fixed;
   z-index: 99;
-   /* top: 0; */
-  /* box-shadow: rgba(0, 0, 0, 0.02) 1px 1px 2px 2px; */
 }
 
 @media screen and (min-width: 650px) {
@@ -127,6 +125,7 @@ nav, b.boldcolor {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.02) 1px 1px 2px 2px;
 }
 
 @media screen and (min-width: 650px) {
@@ -161,7 +160,6 @@ nav, b.boldcolor {
 @media screen and (min-width: 650px) {
   .nav__menu {
     display: flex;
-    /* flex: 0 1 30em; */
     flex: 1 1;
     justify-content: space-around;
     position: static;
