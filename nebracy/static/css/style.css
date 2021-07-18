@@ -39,6 +39,10 @@ a:link, a:visited {
   color: var(--white);
 }
 
+p {
+  line-height: 1.6em;
+}
+
 b.boldcolor {
   color: var(--yellow);
   font-size: 2rem;
@@ -272,10 +276,6 @@ h3 {
     line-height: 135%;
     margin-bottom: 40px;
   }
-}
-
-.text {
-  line-height: 1.6em;
 }
 
 .home {
