@@ -1,4 +1,4 @@
-FROM public.ecr.aws/m5i9u4o0/python:latest
+FROM public.ecr.aws/starcat/python:latest
 
 WORKDIR /app
 

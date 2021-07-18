@@ -1,0 +1,18 @@
+name: Pull Request On Push
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create pull request
+        uses: repo-sync/pull-request@v2
+        with:
+          source_branch: staging
+          destination_branch: master
+          pr_label: auto-pr
+          github_token: ${{ secrets.GITHUB_TOKEN }}
