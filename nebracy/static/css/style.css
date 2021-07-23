@@ -257,7 +257,7 @@ nav, b.boldcolor {
 
 .screen-overlay--dim {
   display: block;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.4);
 }
 
 /* MAIN */
