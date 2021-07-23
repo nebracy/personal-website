@@ -191,6 +191,7 @@ nav, b.boldcolor {
   border-radius: 5px;
   width: 90vw;
   bottom: -212px;
+  box-shadow: -6px 16px 17px hsl(0deg 0% 0% / 20%);
 }
 
 .nav__menu-item {
