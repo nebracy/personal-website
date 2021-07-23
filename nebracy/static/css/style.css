@@ -142,6 +142,22 @@ nav, b.boldcolor {
   stroke: var(--green);
 }
 
+.line {
+  transition: all .2s ease-in-out;
+}
+
+.nav__hamburger--active .line1 {
+  transform: translateY(7px) translateX(24px) rotate(135deg);
+}
+
+.nav__hamburger--active .line2 {
+  transform: scale(0);
+}
+
+.nav__hamburger--active .line3 {
+  transform: translateY(34px) translateX(7px) rotate(-135deg);
+}
+
 .nav__menu {
   padding: 0;
   margin: 0;
