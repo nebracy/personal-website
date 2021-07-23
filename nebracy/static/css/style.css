@@ -147,7 +147,7 @@ nav, b.boldcolor {
 }
 
 .nav__hamburger--active .line1 {
-  transform: translateY(7px) translateX(24px) rotate(135deg);
+  transform: translateX(24px) translateY(7px) rotate(135deg);
 }
 
 .nav__hamburger--active .line2 {
@@ -155,7 +155,7 @@ nav, b.boldcolor {
 }
 
 .nav__hamburger--active .line3 {
-  transform: translateY(34px) translateX(7px) rotate(-135deg);
+  transform: translateX(7px) translateY(34px) rotate(-135deg);
 }
 
 .nav__menu {
