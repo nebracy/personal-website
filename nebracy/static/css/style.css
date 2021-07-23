@@ -187,7 +187,7 @@ nav, b.boldcolor {
 .nav__menu--show {
   display: flex;
   flex-direction: column;
-  background: var(--main-bg-color);
+  background: #231d31;
   border-radius: 5px;
   width: 90vw;
   bottom: -212px;
