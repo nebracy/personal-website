@@ -138,7 +138,7 @@ nav, b.boldcolor {
   stroke: var(--white);
 }
 
-.nav__hamburger--active {
+.nav__hamburger--x {
   stroke: var(--green);
 }
 
@@ -146,15 +146,15 @@ nav, b.boldcolor {
   transition: all .2s ease-in-out;
 }
 
-.nav__hamburger--active .line1 {
+.nav__hamburger--x .line1 {
   transform: translateX(24px) translateY(7px) rotate(135deg);
 }
 
-.nav__hamburger--active .line2 {
+.nav__hamburger--x .line2 {
   transform: scale(0);
 }
 
-.nav__hamburger--active .line3 {
+.nav__hamburger--x .line3 {
   transform: translateX(7px) translateY(34px) rotate(-135deg);
 }
 
