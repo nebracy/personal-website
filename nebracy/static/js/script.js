@@ -11,7 +11,7 @@ function checkScreenSize() {
     }
 }
 
-function toggleDropdown(event) {
+document.addEventListener("click", function(event) {
     if (event.target.closest("#dropbtn") && maxWidth.matches) {    // Screen less than 650px
         navDropdown.classList.toggle("nav__menu--show");
         navHamburger.classList.toggle("nav__hamburger--x");
@@ -19,7 +19,6 @@ function toggleDropdown(event) {
       } else if (maxWidth.matches) {
             checkScreenSize();
       }
-}
+});
 
-document.addEventListener("click", toggleDropdown);
 maxWidth.addEventListener("change", checkScreenSize);
