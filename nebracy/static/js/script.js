@@ -17,9 +17,9 @@ function toggleDropdown(event) {
         navHamburger.classList.toggle("nav__hamburger--x");
         screenOverlay.classList.toggle("screen-overlay--dim");
       } else if (maxWidth.matches) {
-            checkScreenSize()
+            checkScreenSize();
       }
 }
 
-document.addEventListener("click", toggleDropdown)
-maxWidth.addEventListener("change", checkScreenSize)
+document.addEventListener("click", toggleDropdown);
+maxWidth.addEventListener("change", checkScreenSize);
