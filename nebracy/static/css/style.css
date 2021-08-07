@@ -2,12 +2,14 @@
   --header-font: 'Bungee Shade', cursive;
   --subheader-font: 'Give You Glory', cursive;
   --body-font: 'Open Sans', sans-serif;
-  --main-bg-color: #171321;
+  --min-height: 100vh;
   --white: #FFFFFF;
   --yellow: #FBE415;
   --green: #289784;
   --grey: #3d394a;
-  --min-height: 100vh;
+
+  --main-bg-color: #171321;
+  --font-color: var(--white);
   font-size: 62.5%;
 }
 
@@ -19,7 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  color: var(--white);
+  color: var(--font-color);
   background-color: var(--main-bg-color);
   letter-spacing: 1px;
   -webkit-font-smoothing: antialiased;
@@ -36,7 +38,7 @@ a, button {
 
 a:link, a:visited {
   text-decoration: none;
-  color: var(--white);
+  color: var(--font-color);
 }
 
 p {
@@ -119,7 +121,6 @@ nav, b.boldcolor {
 .nav__btn {
   flex: 0 1 100%;
   font-size: 2.4rem;
-  color: var(--white);
   background-color: transparent;
   border: none;
   backdrop-filter: blur(20px);

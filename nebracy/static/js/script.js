@@ -11,15 +11,14 @@ function checkScreenSize() {
     }
 }
 
-function toggleDropdown(event) {
-    if (event.target.closest("#dropbtn") && maxWidth.matches) {    // Screen less than 650px
+document.addEventListener("click", e => {
+    if (e.target.closest("#dropbtn") && maxWidth.matches) {    // Screen less than 650px
         navDropdown.classList.toggle("nav__menu--show");
         navHamburger.classList.toggle("nav__hamburger--x");
         screenOverlay.classList.toggle("screen-overlay--dim");
       } else if (maxWidth.matches) {
-            checkScreenSize()
+            checkScreenSize();
       }
-}
+});
 
-document.addEventListener("click", toggleDropdown)
-maxWidth.addEventListener("change", checkScreenSize)
+maxWidth.addEventListener("change", checkScreenSize);
