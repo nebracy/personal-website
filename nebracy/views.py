@@ -61,9 +61,7 @@ def webhook():
         if request.headers.get("X-GitHub-Event") == 'ping':
             return jsonify(ping="Success"), 200
         validate_github_headers()
-    except IncorrectGithubHeaderError:
-        abort(400, "Missing correct headers")
-    except IncorrectGithubSecretError as e:
+    except (IncorrectGithubSecretError, IncorrectGithubHeaderError) as e:
         abort(400, e)
 
     payload = request.get_json()
