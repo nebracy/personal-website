@@ -17,7 +17,6 @@ errors = Blueprint('errors', __name__)
 
 @home.route('/', methods=['GET', 'POST'])
 def index():
-    config = getenv('FLASK_CONFIG')
     try:
         db_commits = Commit.query.order_by(Commit.date.desc()).limit(3).all()
     except OperationalError:
@@ -33,6 +32,7 @@ def index():
         mail.send(msg)
         flash(f'Email sent, thank you!')
         return redirect(url_for('home.index', _external=True, _scheme='https', _anchor='contact'))
+    config = getenv('FLASK_CONFIG')
     return render_template('index.html', form=contact_form, title="Home", commits=db_commits, config=config)
 
 
