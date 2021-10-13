@@ -2,12 +2,11 @@ import hashlib
 import hmac
 from os import getenv
 from flask import (abort, Blueprint, current_app as app, jsonify, render_template,
-                   redirect, flash, request, url_for)
-from flask_mail import Message
+                   redirect, request, url_for)
 from sqlalchemy.exc import IntegrityError, OperationalError
-from nebracy import mail
 from nebracy.forms import ContactForm
 from nebracy.models import Commit, GithubCommits, GithubTokenNotFoundError
+from nebracy.utils import send_email
 
 
 home = Blueprint('home', __name__)
@@ -21,18 +20,11 @@ def index():
     except OperationalError:
         print('Missing commit table')
         db_commits = []
-    contact_form = ContactForm()
-    if contact_form.validate_on_submit():
-        msg = Message(f'Contact Form: {contact_form.subj.data}',
-                      sender=(contact_form.name.data, app.config['MAIL_DEFAULT_SENDER']),
-                      recipients=[app.config['MAIL_RECIPIENT']],
-                      reply_to=contact_form.email.data)
-        msg.body = contact_form.msg.data
-        mail.send(msg)
-        flash(f'Email sent, thank you!')
+    if ContactForm().validate_on_submit():
+        send_email(app, ContactForm())
         return redirect(url_for('home.index', _external=True, _scheme='https', _anchor='contact'))
     config = getenv('FLASK_CONFIG')
-    return render_template('index.html', form=contact_form, title="Home", commits=db_commits, config=config)
+    return render_template('index.html', form=ContactForm(), title="Home", commits=db_commits, config=config)
 
 
 @home.post('/webhook')
