@@ -52,6 +52,10 @@ class GithubCommits:
                     self.list.append({'id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
                                       'date': self.convert_tz(c.commit.committer.date), 'msg': c.commit.message})
 
+    def sort_list(self) -> None:
+        final_list = sorted(self.list, key=lambda commit: commit['date'], reverse=True)[:3]
+        self.list = final_list[:self.commit_num]
+
     def add_to_db(self, payload: Optional[dict] = None) -> None:
         if payload is not None:
             self.process_webhook(payload)
@@ -65,10 +69,6 @@ class GithubCommits:
             self.list.append({'id': commit['id'], 'name': payload['repository']['full_name'],
                               'url': payload['repository']['url'],
                               'date': datetime.fromisoformat(commit['timestamp']), 'msg': commit['message']})
-
-    def sort_list(self) -> None:
-        final_list = sorted(self.list, key=lambda commit: commit['date'], reverse=True)[:3]
-        self.list = final_list[:self.commit_num]
 
     @staticmethod
     def convert_tz(unconverted_date: datetime) -> datetime:
