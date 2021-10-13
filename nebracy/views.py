@@ -72,8 +72,8 @@ def webhook():
         GithubCommits().add_to_db(payload)
     except IntegrityError:
         abort(400, "Database is already up to date")
-    except GithubTokenNotFoundError:
-        abort(400, "The environment variable GITHUB_TOKEN is not set")
+    except GithubTokenNotFoundError as e:
+        abort(400, e)
     return jsonify({}), 200
 
 

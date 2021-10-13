@@ -1,4 +1,4 @@
-from flask import flash, jsonify, request
+from flask import flash, request
 from flask_mail import Message
 import hashlib
 import hmac
