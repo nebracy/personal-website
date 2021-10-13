@@ -55,9 +55,7 @@ class GithubCommits:
         final_list = sorted(self.list, key=lambda commit: commit['date'], reverse=True)[:3]
         self.list = final_list[:self.commit_num]
 
-    def add_to_db(self, payload: Optional[dict] = None) -> None:
-        if payload is not None:
-            self.process_webhook(payload)
+    def add_to_db(self) -> None:
         for commit in self.list:
             c = self.commit(commit['id'], commit['name'], commit['url'], commit['date'], commit['msg'])
             db.session.add(c)

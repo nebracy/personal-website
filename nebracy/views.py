@@ -39,7 +39,9 @@ def webhook():
         abort(403, "Commits from this push are from another branch besides master")
 
     try:
-        GithubCommits().add_to_db(payload)
+        github = GithubCommits()
+        github.process_webhook(payload)
+        github.add_to_db()
     except IntegrityError:
         abort(400, "Database is already up to date")
     except GithubTokenNotFoundError as e:
