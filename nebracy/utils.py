@@ -16,16 +16,27 @@ def send_email(app, contact_form):
     flash(f'Email sent, thank you!')
 
 
+# def validate_github_headers():
+#     try:
+#         if request.headers["X-GitHub-Event"] != 'push':
+#             raise KeyError("Missing correct headers")
+#         signature = request.headers['X-Hub-Signature']
+#         # sha, signature = signature.split('sha1=')
+#         signature = signature.removeprefix('sha1=')
+#     except ValueError:
+#         raise ValueError("Missing correct headers")
+#     else:
+#         secret = str.encode(getenv('GITHUB_HOOK_SECRET'))
+#         hashhex = hmac.new(secret, request.data, hashlib.sha1).hexdigest()
+#         if not hmac.compare_digest(hashhex, signature):
+#             raise ValueError("Incorrect secret")
+
 def validate_github_headers():
-    try:
-        if request.headers["X-GitHub-Event"] != 'push':
-            raise KeyError("Missing correct headers")
-        signature = request.headers['X-Hub-Signature']
-        sha, signature = signature.split('sha1=')
-    except ValueError:
-        raise ValueError("Missing correct headers")
-    else:
-        secret = str.encode(getenv('GITHUB_HOOK_SECRET'))
-        hashhex = hmac.new(secret, request.data, hashlib.sha1).hexdigest()
-        if not hmac.compare_digest(hashhex, signature):
-            raise ValueError("Incorrect secret")
+    if request.headers["X-GitHub-Event"] != 'push':
+        raise KeyError("Missing correct headers")
+
+    signature = request.headers['X-Hub-Signature']
+    secret = str.encode(getenv('GITHUB_HOOK_SECRET'))
+    hashhex = hmac.new(secret, request.data, hashlib.sha1).hexdigest()
+    if not hmac.compare_digest(hashhex, signature.removeprefix('sha1=')):
+        raise ValueError("Incorrect secret")
