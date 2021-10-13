@@ -4,11 +4,10 @@ from os import getenv
 from flask import (abort, Blueprint, current_app as app, jsonify, render_template,
                    redirect, flash, request, url_for)
 from flask_mail import Message
-from github import GithubException
 from sqlalchemy.exc import IntegrityError, OperationalError
 from nebracy import mail
 from nebracy.forms import ContactForm
-from nebracy.models import Commit, GithubCommits
+from nebracy.models import Commit, GithubCommits, GithubTokenNotFoundError
 
 
 home = Blueprint('home', __name__)
@@ -60,7 +59,7 @@ def webhook():
             github_commits.add_to_db(payload)
         except IntegrityError:
             abort(400, "Database is already up to date")
-        except GithubException:
+        except GithubTokenNotFoundError:
             abort(400, "The environment variable GITHUB_TOKEN is not set")
         return jsonify({}), 200
     else:

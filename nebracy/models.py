@@ -77,13 +77,18 @@ class GithubCommits:
         return est_date
 
 
+class GithubTokenNotFoundError(Exception):
+    pass
+
+
 @event.listens_for(Commit.__table__, 'after_create')
 def autofill_table(*args, **kwargs) -> None:
     github_commits = GithubCommits()
     try:
         github_commits.get_commits_per_repo()
-    except GithubException:
-        print("The environment variable GITHUB_TOKEN is not set")
+    except GithubException as e:
+        print(e)
+        raise GithubTokenNotFoundError("The environment variable GITHUB_TOKEN is not set")
     else:
         github_commits.sort_list()
         github_commits.add_to_db()
