@@ -36,7 +36,7 @@ def index():
     return render_template('index.html', form=contact_form, title="Home", commits=db_commits, config=config)
 
 
-@home.route('/webhook', methods=['POST'])
+@home.post('/webhook')
 def webhook():
     try:
         if request.headers["X-GitHub-Event"] == 'ping':
