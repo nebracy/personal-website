@@ -17,14 +17,16 @@ def send_email(app, contact_form):
 
 
 class IncorrectGithubHeaderError(Exception):
+    """Raised when one or more Github headers are missing or incorrect."""
     pass
 
 
 class IncorrectGithubSecretError(Exception):
+    """Raised when the Github secret is incorrect."""
     pass
 
 
-def validate_github_headers():
+def validate_github_headers() -> None:
     if request.headers.get("X-GitHub-Event") != 'push':
         raise IncorrectGithubHeaderError("Missing correct headers")
 
