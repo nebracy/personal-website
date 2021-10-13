@@ -40,7 +40,7 @@ class IncorrectGithubSecretError(Exception):
 
 
 def validate_github_headers():
-    if request.headers["X-GitHub-Event"] != 'push':
+    if request.headers.get("X-GitHub-Event") != 'push':
         raise IncorrectGithubHeaderError("Missing correct headers")
 
     signature = request.headers['X-Hub-Signature']

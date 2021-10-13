@@ -58,10 +58,10 @@ def index():
 @home.post('/webhook')
 def webhook():
     try:
-        if request.headers["X-GitHub-Event"] == 'ping':
+        if request.headers.get("X-GitHub-Event") == 'ping':
             return jsonify(ping="Success"), 200
         validate_github_headers()
-    except (IncorrectGithubHeaderError, KeyError):
+    except IncorrectGithubHeaderError:
         abort(400, "Missing correct headers")
     except IncorrectGithubSecretError as e:
         abort(400, e)
