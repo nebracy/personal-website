@@ -65,17 +65,16 @@ def webhook():
         abort(400, e)
 
     payload = request.get_json()
-    if payload['ref'] == 'refs/heads/master':
-        github_commits = GithubCommits()
-        try:
-            github_commits.add_to_db(payload)
-        except IntegrityError:
-            abort(400, "Database is already up to date")
-        except GithubTokenNotFoundError:
-            abort(400, "The environment variable GITHUB_TOKEN is not set")
-        return jsonify({}), 200
-    else:
+    if payload['ref'] != 'refs/heads/master':
         abort(403, "Commits from this push are from another branch besides master")
+
+    try:
+        GithubCommits().add_to_db(payload)
+    except IntegrityError:
+        abort(400, "Database is already up to date")
+    except GithubTokenNotFoundError:
+        abort(400, "The environment variable GITHUB_TOKEN is not set")
+    return jsonify({}), 200
 
 
 @errors.app_errorhandler(404)
