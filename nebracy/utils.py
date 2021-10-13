@@ -1,5 +1,8 @@
-from flask import flash
+from flask import flash, jsonify, request
 from flask_mail import Message
+import hashlib
+import hmac
+from os import getenv
 from nebracy import mail
 
 
@@ -11,3 +14,18 @@ def send_email(app, contact_form):
     msg.body = contact_form.msg.data
     mail.send(msg)
     flash(f'Email sent, thank you!')
+
+
+def validate_github_headers():
+    try:
+        if request.headers["X-GitHub-Event"] != 'push':
+            raise KeyError("Missing correct headers")
+        signature = request.headers['X-Hub-Signature']
+        sha, signature = signature.split('sha1=')
+    except ValueError:
+        raise ValueError("Missing correct headers")
+    else:
+        secret = str.encode(getenv('GITHUB_HOOK_SECRET'))
+        hashhex = hmac.new(secret, request.data, hashlib.sha1).hexdigest()
+        if not hmac.compare_digest(hashhex, signature):
+            raise ValueError("Incorrect secret")
