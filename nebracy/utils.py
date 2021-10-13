@@ -31,12 +31,20 @@ def send_email(app, contact_form):
 #         if not hmac.compare_digest(hashhex, signature):
 #             raise ValueError("Incorrect secret")
 
+class IncorrectGithubHeaderError(Exception):
+    pass
+
+
+class IncorrectGithubSecretError(Exception):
+    pass
+
+
 def validate_github_headers():
     if request.headers["X-GitHub-Event"] != 'push':
-        raise KeyError("Missing correct headers")
+        raise IncorrectGithubHeaderError("Missing correct headers")
 
     signature = request.headers['X-Hub-Signature']
     secret = str.encode(getenv('GITHUB_HOOK_SECRET'))
     hashhex = hmac.new(secret, request.data, hashlib.sha1).hexdigest()
     if not hmac.compare_digest(hashhex, signature.removeprefix('sha1=')):
-        raise ValueError("Incorrect secret")
+        raise IncorrectGithubSecretError("Incorrect secret")

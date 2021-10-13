@@ -4,7 +4,7 @@ from flask import (abort, Blueprint, current_app as app, jsonify, render_templat
 from sqlalchemy.exc import IntegrityError, OperationalError
 from nebracy.forms import ContactForm
 from nebracy.models import Commit, GithubCommits, GithubTokenNotFoundError
-from nebracy.utils import validate_github_headers, send_email
+from nebracy.utils import validate_github_headers, send_email, IncorrectGithubHeaderError, IncorrectGithubSecretError
 
 
 home = Blueprint('home', __name__)
@@ -61,9 +61,9 @@ def webhook():
         if request.headers["X-GitHub-Event"] == 'ping':
             return jsonify(ping="Success"), 200
         validate_github_headers()
-    except KeyError:
+    except (IncorrectGithubHeaderError, KeyError):
         abort(400, "Missing correct headers")
-    except ValueError as e:
+    except IncorrectGithubSecretError as e:
         abort(400, e)
 
     payload = request.get_json()
