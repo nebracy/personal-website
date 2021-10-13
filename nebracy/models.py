@@ -30,7 +30,6 @@ class Commit(db.Model):
 
 class GithubCommits:
     __tablename__ = 'github commits'
-    github = Github(os.getenv('GITHUB_TOKEN'))
 
     def __init__(self, commit_num: int = 3) -> None:
         self.commit_num = commit_num
@@ -43,8 +42,8 @@ class GithubCommits:
     def __len__(self) -> int:
         return len(self.list)
 
-    def get_commits_per_repo(self, months_ago: int = 6) -> None:
-        for repo in GithubCommits.github.get_user().get_repos():
+    def get_commits_per_repo(self, github_token, months_ago: int = 6) -> None:
+        for repo in github_token.get_user().get_repos():
             commits = repo.get_commits()[:self.commit_num]
             for c in commits:
                 num_months_ago = datetime.today() - relativedelta(months=months_ago)
@@ -85,7 +84,7 @@ class GithubTokenNotFoundError(Exception):
 def autofill_table(*args, **kwargs) -> None:
     github_commits = GithubCommits()
     try:
-        github_commits.get_commits_per_repo()
+        github_commits.get_commits_per_repo(Github(os.getenv('GITHUB_TOKEN')))
     except GithubException as e:
         print(e)
         raise GithubTokenNotFoundError("The environment variable GITHUB_TOKEN is not set")
