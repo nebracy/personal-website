@@ -43,10 +43,10 @@ class GithubCommits:
         return len(self.list)
 
     def get_commits_per_repo(self, github_token, months_ago: int = 6) -> None:
+        num_months_ago = datetime.today() - relativedelta(months=months_ago)
         for repo in github_token.get_user().get_repos():
             commits = repo.get_commits()[:self.commit_num]
             for c in commits:
-                num_months_ago = datetime.today() - relativedelta(months=months_ago)
                 if c.commit.committer.date > num_months_ago:
                     self.list.append({'id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
                                       'date': self.convert_tz(c.commit.committer.date), 'msg': c.commit.message})
