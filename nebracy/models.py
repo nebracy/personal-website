@@ -4,7 +4,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from github import Github, GithubException
 from sqlalchemy import event
-from typing import Optional, Union, Any
+from typing import Any, Optional, Union
 from nebracy import db
 
 
@@ -42,6 +42,12 @@ class GithubCommits:
     def __len__(self) -> int:
         return len(self.list)
 
+    def get_commits_from_payload(self, payload: dict[str, Any]) -> None:
+        for commit in payload['commits']:
+            self.list.append({'id': commit['id'], 'name': payload['repository']['full_name'],
+                              'url': payload['repository']['url'],
+                              'date': datetime.fromisoformat(commit['timestamp']), 'msg': commit['message']})
+
     def get_commits_per_repo(self, github_token: Github, months_ago: int = 6) -> None:
         num_months_ago = datetime.today() - relativedelta(months=months_ago)
         for repo in github_token.get_user().get_repos():
@@ -60,12 +66,6 @@ class GithubCommits:
             c = self.commit(commit['id'], commit['name'], commit['url'], commit['date'], commit['msg'])
             db.session.add(c)
         db.session.commit()
-
-    def process_webhook(self, payload: dict[str, Any]) -> None:
-        for commit in payload['commits']:
-            self.list.append({'id': commit['id'], 'name': payload['repository']['full_name'],
-                              'url': payload['repository']['url'],
-                              'date': datetime.fromisoformat(commit['timestamp']), 'msg': commit['message']})
 
     @staticmethod
     def convert_tz(unconverted_date: datetime) -> datetime:

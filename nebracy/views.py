@@ -40,7 +40,7 @@ def webhook():
 
     try:
         github = GithubCommits()
-        github.process_webhook(payload)
+        github.get_commits_from_payload(payload)
         github.add_to_db()
     except IntegrityError:
         abort(400, "Database is already up to date")
