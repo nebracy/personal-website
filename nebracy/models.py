@@ -4,7 +4,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from github import Github, GithubException
 from sqlalchemy import event
-from typing import Optional
+from typing import Optional, Union, Any
 from nebracy import db
 
 
@@ -42,7 +42,7 @@ class GithubCommits:
     def __len__(self) -> int:
         return len(self.list)
 
-    def get_commits_per_repo(self, github_token, months_ago: int = 6) -> None:
+    def get_commits_per_repo(self, github_token: Github, months_ago: int = 6) -> None:
         num_months_ago = datetime.today() - relativedelta(months=months_ago)
         for repo in github_token.get_user().get_repos():
             commits = repo.get_commits()[:self.commit_num]
@@ -61,7 +61,7 @@ class GithubCommits:
             db.session.add(c)
         db.session.commit()
 
-    def process_webhook(self, payload: dict) -> None:
+    def process_webhook(self, payload: dict[str, Any]) -> None:
         for commit in payload['commits']:
             self.list.append({'id': commit['id'], 'name': payload['repository']['full_name'],
                               'url': payload['repository']['url'],
