@@ -4,7 +4,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from github import Github, GithubException
 from sqlalchemy import event
-from typing import Any, Optional, Union
+from typing import Any
 from nebracy import db
 
 
