@@ -46,7 +46,7 @@ def test_webhook_ping_header(client):
     assert b'{\n  "ping": "Success"\n}' in response.data
 
 
-@pytest.mark.parametrize("headers", [{'': ''}, {'X-GitHub-Event': ''}, {'X-GitHub-Event': 'junk'}, {'X-GitHub-Event': 'push', 'X-Hub-Signature': ''}])
+@pytest.mark.parametrize("headers", [{'': ''}, {'X-GitHub-Event': ''}, {'X-GitHub-Event': 'junk'}])
 def test_webhook_wrong_headers(client, headers):
     """"""
     response = client.post('/webhook', headers=headers)
@@ -54,9 +54,10 @@ def test_webhook_wrong_headers(client, headers):
     assert b"Missing correct headers" in response.data
 
 
-def test_webhook_wrong_github_secret(client):
+@pytest.mark.parametrize("headers", [{'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1='},
+                                     {'X-GitHub-Event': 'push', 'X-Hub-Signature': ''}])
+def test_webhook_wrong_github_secret(client, headers):
     """"""
-    headers = {'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1='}
     response = client.post('/webhook', headers=headers)
     assert response.status_code == 400
     assert b"Incorrect secret" in response.data

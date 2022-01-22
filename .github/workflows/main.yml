@@ -24,7 +24,7 @@ jobs:
       - name: Run Pytest
         env:
           FLASK_CONFIG: Development
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT}}
           GITHUB_HOOK_SECRET: ${{ secrets.WEBHOOK_SECRET }}
           FLASK_SECRET_KEY: ${{ secrets.FLASK_SECRET_KEY }}
         run: |
