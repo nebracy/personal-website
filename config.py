@@ -1,17 +1,17 @@
-import os
+from os import getenv
 from pathlib import Path
 
 
 class Config:
-    SECRET_KEY = os.getenv('FLASK_SECRET_KEY')
+    SECRET_KEY = getenv('FLASK_SECRET_KEY')
     MAIL_PORT = 587
     MAIL_USE_TLS = True
-    MAIL_SERVER = os.getenv('FLASK_MAIL_SERVER', 'smtp.gmail.com')
-    MAIL_USERNAME = os.getenv('FLASK_MAIL_USERNAME')
-    MAIL_PASSWORD = os.getenv('FLASK_MAIL_PASSWORD')
-    MAIL_DEFAULT_SENDER = os.getenv('FLASK_MAIL_DEFAULT_SENDER', 'contact@nicolebracy.com')
-    MAIL_RECIPIENT = os.getenv('FLASK_MAIL_RECIPIENT')
-    SQLALCHEMY_DATABASE_URI = os.getenv('FLASK_DB_URI', f'sqlite:///{Path(__file__).parent.parent / "github.db"}')
+    MAIL_SERVER = getenv('FLASK_MAIL_SERVER', 'smtp.gmail.com')
+    MAIL_USERNAME = getenv('FLASK_MAIL_USERNAME')
+    MAIL_PASSWORD = getenv('FLASK_MAIL_PASSWORD')
+    MAIL_DEFAULT_SENDER = getenv('FLASK_MAIL_DEFAULT_SENDER', 'contact@nicolebracy.com')
+    MAIL_RECIPIENT = getenv('FLASK_MAIL_RECIPIENT')
+    SQLALCHEMY_DATABASE_URI = getenv('FLASK_DB_URI', f'sqlite:///{Path(__file__).parent.parent / "github.db"}')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     STATIC_PATH = ''
 
