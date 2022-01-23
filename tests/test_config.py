@@ -11,20 +11,20 @@ def test_config_development(app):
 
 def test_config_staging():
     app = create_app('staging')
-    app.config["SERVER_NAME"] = 'test.nebracy.com'
+    app.config["SERVER_NAME"] = 'test.nicolebracy.com'
     with app.app_context():
         assert app.config["S3_FOLDER"] == 'static'
         assert app.config["ENV"] == 'production'
-        assert url_for('home.index', _external=True, _scheme='https') == 'https://test.nebracy.com/'
-        assert url_for('static', filename='favicon.ico', _external=True, _scheme='https') == 'https://static.test.nebracy.com/staging/favicon.ico'
+        assert url_for('home.index', _external=True, _scheme='https') == 'https://test.nicolebracy.com/'
+        assert url_for('static', filename='favicon.ico', _external=True, _scheme='https') == 'https://static.test.nicolebracy.com/staging/favicon.ico'
 
 
 def test_config_production():
     app = create_app('production')
-    app.config["SERVER_NAME"] = 'nebracy.com'
+    app.config["SERVER_NAME"] = 'nicolebracy.com'
     with app.app_context():
         assert app.config["S3_FOLDER"] == 'static/production'
         assert app.config["ENV"] == 'production'
-        assert url_for('home.index', _external=True, _scheme='https') == 'https://nebracy.com/'
-        assert url_for('static', filename='favicon.ico', _external=True, _scheme='https') == 'https://static.nebracy.com/favicon.ico'
+        assert url_for('home.index', _external=True, _scheme='https') == 'https://nicolebracy.com/'
+        assert url_for('static', filename='favicon.ico', _external=True, _scheme='https') == 'https://static.nicolebracy.com/favicon.ico'
 
