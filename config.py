@@ -11,7 +11,7 @@ class Config:
     MAIL_PASSWORD = getenv('FLASK_MAIL_PASSWORD')
     MAIL_DEFAULT_SENDER = getenv('FLASK_MAIL_DEFAULT_SENDER', 'contact@nicolebracy.com')
     MAIL_RECIPIENT = getenv('FLASK_MAIL_RECIPIENT')
-    SQLALCHEMY_DATABASE_URI = getenv('FLASK_DB_URI', f'sqlite:///{Path(__file__).parent.parent / "github.db"}')
+    SQLALCHEMY_DATABASE_URI = getenv('FLASK_DB_URI', f'sqlite:///{Path(__file__).parent / "github.db"}')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     STATIC_PATH = ''
 
