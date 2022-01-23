@@ -26,7 +26,7 @@ def test_send_email(client):
     with mail.record_messages() as outbox:
         mail.send_message(subject='Contact Form: Testing',
                           body='This is a test.',
-                          recipients=['contact@nebracy.com'])
+                          recipients=['contact@nicolebracy.com'])
 
         assert len(outbox) == 1
         assert outbox[0].subject == 'Contact Form: Testing'
