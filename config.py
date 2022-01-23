@@ -11,7 +11,7 @@ class Config:
     MAIL_SERVER = os.getenv('FLASK_MAIL_SERVER', 'smtp.gmail.com')
     MAIL_USERNAME = os.getenv('FLASK_MAIL_USERNAME')
     MAIL_PASSWORD = os.getenv('FLASK_MAIL_PASSWORD')
-    MAIL_DEFAULT_SENDER = os.getenv('FLASK_MAIL_DEFAULT_SENDER', 'contact@nebracy.com')
+    MAIL_DEFAULT_SENDER = os.getenv('FLASK_MAIL_DEFAULT_SENDER', 'contact@nicolebracy.com')
     MAIL_RECIPIENT = os.getenv('FLASK_MAIL_RECIPIENT')
     SQLALCHEMY_DATABASE_URI = os.getenv('FLASK_DB_URI', f'sqlite:///{os.path.join(basedir, "github.db")}')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -35,4 +35,4 @@ class Development(Config):
     PRESERVE_CONTEXT_ON_EXCEPTION = False
     DEBUG = True
     ENV = 'development'
-    # SERVER_NAME = 'local.nebracy.com:443'
+    # SERVER_NAME = 'local.nicolebracy.com:443'
