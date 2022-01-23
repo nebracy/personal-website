@@ -1,7 +1,5 @@
 import os
-
-
-basedir = os.path.dirname(__file__)
+from pathlib import Path
 
 
 class Config:
@@ -13,7 +11,7 @@ class Config:
     MAIL_PASSWORD = os.getenv('FLASK_MAIL_PASSWORD')
     MAIL_DEFAULT_SENDER = os.getenv('FLASK_MAIL_DEFAULT_SENDER', 'contact@nicolebracy.com')
     MAIL_RECIPIENT = os.getenv('FLASK_MAIL_RECIPIENT')
-    SQLALCHEMY_DATABASE_URI = os.getenv('FLASK_DB_URI', f'sqlite:///{os.path.join(basedir, "github.db")}')
+    SQLALCHEMY_DATABASE_URI = os.getenv('FLASK_DB_URI', f'sqlite:///{Path(__file__).parent.parent / "github.db"}')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     STATIC_PATH = ''
 
