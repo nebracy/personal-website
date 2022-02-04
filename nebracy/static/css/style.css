@@ -597,14 +597,14 @@ h4 {
 .form__alert {
   color: var(--green);
   font-weight: 600;
-  margin-right: 35px;
+  margin-left: 17px;
   align-self: center;
 }
 
 .form__submit {
   text-align: left;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .form__submit-btn {
@@ -647,10 +647,6 @@ label {
 
   ::placeholder {
     color: #24766b;
-  }
-
-  .form__alert {
-    margin-right: 0;
   }
 
   .g-recaptcha {
