@@ -529,18 +529,19 @@ h4 {
     "name email"
     "subj subj"
     "msg msg"
-    "submit .";
+    "submit captcha";
 }
 
 @media screen and (max-width: 700px) {
   .form {
-    grid-template-rows: repeat(5, auto);
+    grid-template-rows: repeat(6, auto);
     gap: 15px;
     grid-template-areas:
       "name name"
       "email email"
       "subj subj"
       "msg msg"
+      "captcha captcha"
       "submit submit";
   }
 }
@@ -555,6 +556,11 @@ h4 {
 
 .submit { grid-area: submit; }
 
+.g-recaptcha {
+  grid-area: captcha;
+  display: flex;
+  justify-content: end;
+}
 
 .form__field {
   width: 100%;
@@ -586,11 +592,6 @@ h4 {
 
 .form__field:not(:placeholder-shown):invalid {
   border: 1px solid #ff0000;
-}
-
-.g-recaptcha {
-  display: flex;
-  justify-content: end;
 }
 
 .form__alert {
