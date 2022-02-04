@@ -588,6 +588,11 @@ h4 {
   border: 1px solid #ff0000;
 }
 
+.g-recaptcha {
+  display: flex;
+  justify-content: end;
+}
+
 .form__alert {
   color: var(--green);
   font-weight: 600;
@@ -641,6 +646,10 @@ label {
 
   ::placeholder {
     color: #24766b;
+  }
+
+  .g-recaptcha {
+    display: block;
   }
 }
 
