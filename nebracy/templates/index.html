@@ -43,6 +43,7 @@
                     {{ render_field(form.email, class="form__field", placeholder="Email", type="email", maxlength="255") }}
                     {{ render_field(form.subj, class="form__field", placeholder="Subject", maxlength="75") }}
                     {{ render_field(form.msg, class="form__field", placeholder="Message", rows="13", maxlength="2000") }}
+                    {{ form.recaptcha }}
                     {{ render_submit(form.submit, class="form__submit-btn") }}
                 </form>
             </div>

@@ -13,6 +13,8 @@ class Config:
     MAIL_RECIPIENT = getenv('FLASK_MAIL_RECIPIENT')
     SQLALCHEMY_DATABASE_URI = getenv('FLASK_DB_URI', f'sqlite:///{Path(__file__).parent / "github.db"}')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    RECAPTCHA_PUBLIC_KEY = getenv('RECAPTCHA_PUBLIC_KEY')
+    RECAPTCHA_PRIVATE_KEY = getenv('RECAPTCHA_PRIVATE_KEY')
     STATIC_PATH = ''
 
 
