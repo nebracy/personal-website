@@ -597,7 +597,7 @@ h4 {
 .form__alert {
   color: var(--green);
   font-weight: 600;
-  margin-right: 30px;
+  margin-right: 35px;
   align-self: center;
 }
 
@@ -647,6 +647,10 @@ label {
 
   ::placeholder {
     color: #24766b;
+  }
+
+  .form__alert {
+    margin-right: 0;
   }
 
   .g-recaptcha {
