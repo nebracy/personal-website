@@ -529,18 +529,19 @@ h4 {
     "name email"
     "subj subj"
     "msg msg"
-    "submit .";
+    "submit captcha";
 }
 
 @media screen and (max-width: 700px) {
   .form {
-    grid-template-rows: repeat(5, auto);
+    grid-template-rows: repeat(6, auto);
     gap: 15px;
     grid-template-areas:
       "name name"
       "email email"
       "subj subj"
       "msg msg"
+      "captcha captcha"
       "submit submit";
   }
 }
@@ -555,6 +556,11 @@ h4 {
 
 .submit { grid-area: submit; }
 
+.g-recaptcha {
+  grid-area: captcha;
+  display: flex;
+  justify-content: end;
+}
 
 .form__field {
   width: 100%;
@@ -591,14 +597,14 @@ h4 {
 .form__alert {
   color: var(--green);
   font-weight: 600;
-  margin-right: 30px;
+  margin-left: 17px;
   align-self: center;
 }
 
 .form__submit {
   text-align: left;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .form__submit-btn {
@@ -609,7 +615,7 @@ h4 {
   border-radius: 3px;
   font-family: var(--body-font);
   font-size: 1.5rem;
-  align-self: flex-start;
+  align-self: center;
   transition-property: background-color;
   transition-duration: 0.3s;
   /* box-shadow: 5px 5px hsl(0deg 0% 100% / 20%); */
@@ -641,6 +647,10 @@ label {
 
   ::placeholder {
     color: #24766b;
+  }
+
+  .g-recaptcha {
+    display: block;
   }
 }
 
