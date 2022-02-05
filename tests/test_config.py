@@ -5,8 +5,8 @@ from nebracy import create_app
 def test_config_development(app):
     assert app.config["SQLALCHEMY_DATABASE_URI"] == 'sqlite:///:memory:'
     assert not app.config["S3_FOLDER"]
-    assert not app.config["SERVER_NAME"]
     assert app.static_url_path == ""
+    assert url_for('home.index', _external=True, _scheme='https') == 'https://local.nicolebracy.com:443/'
 
 
 def test_config_staging():
