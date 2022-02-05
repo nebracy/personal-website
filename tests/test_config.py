@@ -11,7 +11,6 @@ def test_config_development(app):
 
 def test_config_staging():
     app = create_app('staging')
-    app.config["SERVER_NAME"] = 'test.nicolebracy.com'
     with app.app_context():
         assert app.config["S3_FOLDER"] == 'static'
         assert app.config["ENV"] == 'production'
@@ -21,7 +20,6 @@ def test_config_staging():
 
 def test_config_production():
     app = create_app('production')
-    app.config["SERVER_NAME"] = 'nicolebracy.com'
     with app.app_context():
         assert app.config["S3_FOLDER"] == 'static/production'
         assert app.config["ENV"] == 'production'
