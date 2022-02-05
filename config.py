@@ -21,11 +21,13 @@ class Config:
 
 class Production(Config):
     S3_FOLDER = 'static/production'
+    SERVER_NAME = 'nicolebracy.com'
 
 
 class Staging(Config):
     S3_FOLDER = 'static'
     STATIC_PATH = '/staging'
+    SERVER_NAME = 'test.nicolebracy.com'
 
 
 class Development(Config):
@@ -36,4 +38,4 @@ class Development(Config):
     PRESERVE_CONTEXT_ON_EXCEPTION = False
     DEBUG = True
     ENV = 'development'
-    # SERVER_NAME = 'local.nicolebracy.com:443'
+    SERVER_NAME = 'local.nicolebracy.com:443'
