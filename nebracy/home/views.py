@@ -17,11 +17,12 @@ def index():
     except OperationalError:
         print('Missing commit table')
         db_commits = []
-    if ContactForm().validate_on_submit():
-        send_email(app, ContactForm())
+    form = ContactForm()
+    if form.validate_on_submit():
+        send_email(app, form)
         return redirect(url_for('home.index', _external=True, _scheme='https', _anchor='contact'))
     config = getenv('FLASK_CONFIG')
-    return render_template('index.html', form=ContactForm(), title="Home", commits=db_commits, config=config)
+    return render_template('index.html', form=form, title="Home", commits=db_commits, config=config)
 
 
 @home.post('/webhook')
