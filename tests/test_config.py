@@ -5,13 +5,12 @@ from nebracy import create_app
 def test_config_development(app):
     assert app.config["SQLALCHEMY_DATABASE_URI"] == 'sqlite:///:memory:'
     assert not app.config["S3_FOLDER"]
-    assert not app.config["SERVER_NAME"]
     assert app.static_url_path == ""
+    assert url_for('home.index', _external=True, _scheme='https') == 'https://local.nicolebracy.com:443/'
 
 
 def test_config_staging():
     app = create_app('staging')
-    app.config["SERVER_NAME"] = 'test.nicolebracy.com'
     with app.app_context():
         assert app.config["S3_FOLDER"] == 'static'
         assert app.config["ENV"] == 'production'
@@ -21,7 +20,6 @@ def test_config_staging():
 
 def test_config_production():
     app = create_app('production')
-    app.config["SERVER_NAME"] = 'nicolebracy.com'
     with app.app_context():
         assert app.config["S3_FOLDER"] == 'static/production'
         assert app.config["ENV"] == 'production'

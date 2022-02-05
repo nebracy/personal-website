@@ -15,10 +15,9 @@ payload = {"ref": "refs/heads/master", "repository": {
 def test_home_get(client):
     """Given When Then"""
     home_url = url_for('home.index', _external=True, _scheme='https')
-    assert home_url == 'https://localhost/'
     assert client.get(home_url).status_code == 200
     assert b"Welcome!" in client.get(home_url).data
-    assert url_for('static', filename='favicon.ico', _external=True, _scheme='https') == 'https://localhost/favicon.ico'
+    assert url_for('static', filename='favicon.ico', _external=True, _scheme='https') == 'https://local.nicolebracy.com:443/favicon.ico'
 
 
 def test_send_email(client):
