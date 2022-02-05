@@ -1,7 +1,7 @@
 from datetime import datetime
 import pytest
 import pytz
-from nebracy.models import Commit, GithubCommits
+from nebracy.home.models import Commit, GithubCommits
 
 
 def test_commit_class(client):

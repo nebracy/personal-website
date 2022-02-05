@@ -3,7 +3,7 @@ from flask import (abort, Blueprint, current_app as app, jsonify, render_templat
                    redirect, request, url_for)
 from sqlalchemy.exc import IntegrityError, OperationalError
 from nebracy.home.forms import ContactForm
-from nebracy.models import Commit, GithubCommits, GithubTokenNotFoundError
+from nebracy.home.models import Commit, GithubCommits, GithubTokenNotFoundError
 from nebracy.home.utils import validate_github_headers, send_email, IncorrectGithubHeaderError, IncorrectGithubSecretError
 
 
