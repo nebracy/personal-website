@@ -26,6 +26,7 @@ def create_app(config: str = 'Production') -> Flask:
         from nebracy.home.views import home
         from nebracy.apps.views import apps
         from nebracy.errors.handlers import errors
+
         app.register_blueprint(home)
         app.register_blueprint(apps)
         app.register_blueprint(errors)
