@@ -36,6 +36,7 @@ class Development(Config):
     SECRET_KEY = 'default-secret-key'
     SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
     ENV = 'development'
+    SESSION_COOKIE_NAME = 'dev-session'
     TESTING = True
     DEBUG = True
     PRESERVE_CONTEXT_ON_EXCEPTION = False
