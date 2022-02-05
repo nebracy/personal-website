@@ -23,9 +23,9 @@ def create_app(config: str = 'Production') -> Flask:
     mail.init_app(app)
 
     with app.app_context():
-        from nebracy import views
+        from nebracy.home.views import home
         from nebracy.errors.handlers import errors
-        app.register_blueprint(views.home)
+        app.register_blueprint(home)
         app.register_blueprint(errors)
 
         db.create_all()

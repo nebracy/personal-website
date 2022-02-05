@@ -2,9 +2,9 @@ from os import getenv
 from flask import (abort, Blueprint, current_app as app, jsonify, render_template,
                    redirect, request, url_for)
 from sqlalchemy.exc import IntegrityError, OperationalError
-from nebracy.forms import ContactForm
+from nebracy.home.forms import ContactForm
 from nebracy.models import Commit, GithubCommits, GithubTokenNotFoundError
-from nebracy.utils import validate_github_headers, send_email, IncorrectGithubHeaderError, IncorrectGithubSecretError
+from nebracy.home.utils import validate_github_headers, send_email, IncorrectGithubHeaderError, IncorrectGithubSecretError
 
 
 home = Blueprint('home', __name__)
