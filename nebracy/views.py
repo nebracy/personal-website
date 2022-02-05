@@ -8,7 +8,6 @@ from nebracy.utils import validate_github_headers, send_email, IncorrectGithubHe
 
 
 home = Blueprint('home', __name__)
-errors = Blueprint('errors', __name__)
 
 
 @home.route('/', methods=['GET', 'POST'])
@@ -47,14 +46,3 @@ def webhook():
     except GithubTokenNotFoundError as e:
         abort(400, e)
     return jsonify({}), 200
-
-
-@errors.app_errorhandler(404)
-def page_not_found(error):
-    return render_template('errors/404.html', title="Page Not Found"), 404
-
-
-@errors.app_errorhandler(500)
-def internal_server_error(error):
-    return render_template('errors/500.html', title="Internal Server Error"), 500
-
