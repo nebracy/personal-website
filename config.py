@@ -26,16 +26,16 @@ class Production(Config):
 
 class Staging(Config):
     S3_FOLDER = 'static'
-    STATIC_PATH = '/staging'
     SERVER_NAME = 'test.nicolebracy.com'
+    STATIC_PATH = '/staging'
 
 
 class Development(Config):
     S3_FOLDER = None
+    SERVER_NAME = 'local.nicolebracy.com:443'
     SECRET_KEY = 'default-secret-key'
     SQLALCHEMY_DATABASE_URI = 'sqlite:///:memory:'
-    TESTING = True
-    PRESERVE_CONTEXT_ON_EXCEPTION = False
-    DEBUG = True
     ENV = 'development'
-    SERVER_NAME = 'local.nicolebracy.com:443'
+    TESTING = True
+    DEBUG = True
+    PRESERVE_CONTEXT_ON_EXCEPTION = False
