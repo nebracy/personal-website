@@ -20,15 +20,16 @@ def test_home_get(client):
     assert url_for('static', filename='favicon.ico', _external=True, _scheme='https') == 'https://local.nicolebracy.com:443/favicon.ico'
 
 
-def test_send_email(client):
-    """"""
-    with mail.record_messages() as outbox:
-        mail.send_message(subject='Contact Form: Testing',
-                          body='This is a test.',
-                          recipients=['contact@nicolebracy.com'])
-
-        assert len(outbox) == 1
-        assert outbox[0].subject == 'Contact Form: Testing'
+# TODO
+# def test_send_email():
+#     """"""
+#     with mail.record_messages() as outbox:
+#         mail.send_message(subject='Contact Form: Testing',
+#                           body='This is a test.',
+#                           recipients=['contact@nicolebracy.com'])
+#
+#         assert len(outbox) == 1
+#         assert outbox[0].subject == 'Contact Form: Testing'
 
 
 def test_webhook_get(client):
