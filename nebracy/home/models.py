@@ -58,7 +58,7 @@ class GithubCommits:
                                       'date': self.convert_tz(c.commit.committer.date), 'msg': c.commit.message})
 
     def sort_list(self) -> None:
-        final_list = sorted(self.list, key=lambda commit: commit['date'], reverse=True)[:3]
+        final_list = sorted(self.list, key=lambda commit: commit['date'], reverse=True)
         self.list = final_list[:self.commit_num]
 
     def add_to_db(self) -> None:
