@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from nebracy.apps.forms import DoughCalculatorForm
 
 
 apps = Blueprint('apps', __name__, subdomain='app')
@@ -11,4 +12,5 @@ def index():
 
 @apps.route('/pizza', methods=['GET', 'POST'])
 def pizza():
-    return render_template('apps/pizza.html', title="NY Pizza Dough Calculator")
+    form = DoughCalculatorForm()
+    return render_template('apps/pizza.html', title="NY Pizza Dough Calculator", form=form)
