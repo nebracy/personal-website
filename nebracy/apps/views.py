@@ -12,7 +12,9 @@ def index():
 
 @apps.route('/pizza', methods=['GET', 'POST'])
 def pizza():
+    dough = {'Flour': {'Percent': 100}}
     form = DoughCalculatorForm()
     if form.validate_on_submit():
-        return redirect(url_for('apps.pizza', _external=True, _scheme='https'))
-    return render_template('apps/pizza.html', title="NY Pizza Dough Calculator", form=form)
+        dough |= {x.name: {'Percent': float(x.data)} for x in form if x.description}
+
+    return render_template('apps/pizza.html', title="NY Pizza Dough Calculator", form=form, dough=dough)
