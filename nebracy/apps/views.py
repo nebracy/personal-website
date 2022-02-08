@@ -11,4 +11,4 @@ def index():
 
 @apps.route('/pizza', methods=['GET', 'POST'])
 def pizza():
-    return render_template('pizza.html', title="NY Pizza Dough Calculator")
+    return render_template('apps/pizza.html', title="NY Pizza Dough Calculator")
