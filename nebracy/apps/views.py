@@ -19,4 +19,12 @@ def pizza():
 
         total_percent = sum(v['Percent'] for v in dough.values())
         flour_weight = float(form.dough_weight.data) * form.pizza_num.data / (total_percent / 100)
+
+        for kv in dough.values():
+            weight = flour_weight * (kv['Percent']) / 100
+            kv['Grams'] = kv['Ounces'] = weight
+            if form.g_oz.data == 'grams':
+                kv.update({'Ounces': weight * 0.03527396195})
+            else:
+                kv.update({'Grams': weight * 28.349523125})
     return render_template('apps/pizza.html', title="NY Pizza Dough Calculator", form=form, dough=dough)
