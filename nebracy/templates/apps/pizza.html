@@ -11,6 +11,8 @@
                 {{ form.hidden_tag() }}
                 <div class="">{{ form.choice.label(class='col-form-label') }} {{ form.choice(class="") }}</div>
                 <div class="">{{ form.dough_weight.label(class='col-form-label') }} {{ form.dough_weight(class='form-control') }} {{ form.g_oz(class='') }}</div>
+                <div class="">{{ form.thickness_factor.label(class='col-form-label') }} {{ form.thickness_factor(class='form-range', value=0.09, step=0.005) }} <output name="tf" for="thickness_factor">0.09</output></div>
+                <div class="">{{ form.pizza_size.label(class='col-form-label') }} {{ form.pizza_size(class='form-control', value=16, step=1) }}</div>
                 <div class="">{{ form.pizza_num.label(class='col-form-label') }} {{ form.pizza_num(class='form-control', value=1, step=1) }}</div>
                 <div class="">{{ form.water.label(class='col-form-label') }} {{ form.water(class='form-range', value=61, step=1) }} <output name="hydration" for="water">61</output></div>
                 <div class="">{{ form.yeast.label(class='col-form-label') }} {{ form.yeast(class='form-control', value=0.5, step=0.1) }}</div>

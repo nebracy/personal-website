@@ -21,4 +21,16 @@ document.addEventListener("click", e => {
       }
 });
 
+
+const slider = document.getElementById('thickness_factor');
+
+//Display the slider value
+function updateSliderValue() {
+
+    var sliderValue  = slider.value;
+    document.getElementsByName("tf")[0].textContent = (sliderValue);
+}
+
+slider.addEventListener("change", updateSliderValue);
+
 maxWidth.addEventListener("change", checkScreenSize);
