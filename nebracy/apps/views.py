@@ -29,9 +29,9 @@ def pizza():
             weight = flour_weight * (kv['Percent']) / 100
             kv['Grams'] = kv['Ounces'] = weight
             if form.g_oz.data == 'grams':
-                kv.update({'Ounces': weight * 0.03527396195})
+                kv |= {'Ounces': weight * 0.03527396195}
             else:
-                kv.update({'Grams': weight * 28.349523125})
+                kv |= {'Grams': weight * 28.349523125}
         session['recipe'] = dough
         return redirect(url_for('apps.pizza', _external=True, _scheme='https'))
     return render_template('apps/pizza.html', title="NY Pizza Dough Calculator", form=form, dough=session.get('recipe'))
