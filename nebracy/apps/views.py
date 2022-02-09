@@ -22,7 +22,7 @@ def pizza():
             dough_weight = form.dough_weight.data
         else:
             radius2 = (form.pizza_size.data / 2) ** 2
-            dough_weight = form.thickness_factor.data * (math.pi * radius2)
+            dough_weight = float(form.thickness_factor.data) * (math.pi * radius2)
         total_percent = sum(v['Percent'] for v in dough.values())
         flour_weight = float(dough_weight) * form.pizza_num.data / (total_percent / 100)
 
