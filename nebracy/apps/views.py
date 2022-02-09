@@ -25,6 +25,7 @@ def pizza():
         total_percent = sum(v['Percent'] for v in dough.values())
         flour_weight = float(dough_weight) * form.pizza_num.data / (total_percent / 100)
 
+        dough |= {'Total': {'Percent': total_percent}}
         for kv in dough.values():
             weight = flour_weight * (kv['Percent']) / 100
             kv['Grams'] = kv['Ounces'] = weight
