@@ -18,7 +18,7 @@ def pizza():
         dough = {'Flour': {'Percent': 100}}
         dough |= {x.name: {'Percent': float(x.data)} for x in form if x.description}
 
-        if form.dough_weight.data:
+        if form.dough_weight.data and form.choice.data == 'Dough Weight':
             dough_weight = form.dough_weight.data
         else:
             radius2 = (form.pizza_size.data / 2) ** 2
