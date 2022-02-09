@@ -35,4 +35,7 @@ def pizza():
                 kv |= {'Grams': weight * 28.349523125}
         session['recipe'] = dough
         return redirect(url_for('apps.pizza', _external=True, _scheme='https'))
-    return render_template('apps/pizza.html', title="NY Pizza Dough Calculator", form=form, dough=session.get('recipe'))
+    dough = {}
+    if session.get('recipe'):
+        dough = {k: session.get('recipe')[k] for k in ['Flour', 'water', 'yeast', 'salt', 'oil', 'sugar', 'Total']}
+    return render_template('apps/pizza.html', title="NY Pizza Dough Calculator", form=form, dough=dough)
