@@ -15,8 +15,7 @@ def index():
 def pizza():
     form = DoughCalculatorForm()
     if form.validate_on_submit():
-        dough = {'Flour': {'Percent': 100}}
-        dough |= {x.name: {'Percent': float(x.data)} for x in form if x.description}
+        dough = {x.name: {'Percent': float(x.data)} for x in form if x.description} | {'Flour': {'Percent': 100}}
 
         if form.dough_weight.data and form.choice.data == 'Dough Weight':
             dough_weight = form.dough_weight.data
