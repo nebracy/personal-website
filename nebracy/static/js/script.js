@@ -44,6 +44,8 @@ function tfWeight() {
     }
 }
 
+tfWeight();
+
 radioChoice.addEventListener("change", tfWeight);
 
 slider.addEventListener("change", updateSliderValue);
