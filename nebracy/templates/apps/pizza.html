@@ -26,20 +26,24 @@
         </div>
         {% if dough %}
         <table class="table">
-            <tr>
-                <th></th>
-                <th>Percent</th>
-                <th>Grams</th>
-                <th>Ounces</th>
-            </tr>
-            {% for k, v in dough.items() %}
-            <tr>
-                <td>{{ k.capitalize() }}</td>
-                <td>{{ v['Percent'] }}</td>
-                <td>{{ v['Grams'] | round(2) }}</td>
-                <td>{{ v['Ounces'] | round(2) }}</td>
-            </tr>
-            {% endfor %}
+            <thead class="table-light">
+                <tr>
+                    <th></th>
+                    <th>Percent</th>
+                    <th>Grams</th>
+                    <th>Ounces</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for k, v in dough.items() %}
+                <tr>
+                    <th>{{ k.capitalize() }}</th>
+                    <td>{{ v['Percent'] }}</td>
+                    <td>{{ v['Grams'] | round(2) }}</td>
+                    <td>{{ v['Ounces'] | round(2) }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
         {% endif %}
         <!-- Bootstrap JavaScript Bundle with Popper -->
