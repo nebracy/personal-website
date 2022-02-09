@@ -7,20 +7,20 @@
     <div class="container-md">
         <h1>NY Pizza Dough Calculator</h1>
         <div class="">
-            <form action="" method="post" id="dough_calc" oninput="hydration.value=parseInt(water.value)">
+            <form action="" method="post" id="dough_calc" class="form-horizontal" oninput="hydration.value=parseInt(water.value)">
                 {{ form.hidden_tag() }}
-                <div class="">{{ form.choice.label(class='col-form-label') }} {{ form.choice(class="") }}</div>
-                <div id="choice-weight">{{ form.dough_weight.label(class='col-form-label') }} {{ form.dough_weight(class='form-control form-control-sm') }} {{ form.g_oz(class='') }}</div>
-                <div id="choice-tf">
-                    <div class="">{{ form.thickness_factor.label(class='col-form-label') }} {{ form.thickness_factor(class='form-range', value=0.09, step=0.005) }} <output name="tf" for="thickness_factor">0.09</output></div>
-                    <div class="">{{ form.pizza_size.label(class='col-form-label') }} {{ form.pizza_size(class='form-control form-control-sm', step=1) }}</div>
+                <div class="form-group">{{ form.choice.label(class='') }} {{ form.choice(class="") }}</div>
+                <div id="choice-weight" class="form-group">{{ form.dough_weight.label(class='control-label') }} {{ form.dough_weight(class='form-control form-control-sm') }} {{ form.g_oz(class='') }}</div>
+                <div id="choice-tf" class="form-group">
+                    <div class="form-group">{{ form.thickness_factor.label(class='control-label') }} {{ form.thickness_factor(class='form-range', value=0.09, step=0.005) }} <output name="tf" for="thickness_factor">0.09</output></div>
+                    <div class="form-group">{{ form.pizza_size.label(class='control-label') }} {{ form.pizza_size(class='form-control form-control-sm', step=1) }}</div>
                 </div>
-                <div class="">{{ form.pizza_num.label(class='col-form-label') }} {{ form.pizza_num(class='form-control form-control-sm', value=1, step=1) }}</div>
-                <div class="">{{ form.water.label(class='col-form-label') }} {{ form.water(class='form-range', value=61, step=1) }} <output name="hydration" for="water">61</output></div>
-                <div class="">{{ form.yeast.label(class='col-form-label') }} {{ form.yeast(class='form-control form-control-sm', value=0.5, step=0.1) }}</div>
-                <div class="">{{ form.salt.label(class='col-form-label') }} {{ form.salt(class='form-control form-control-sm', value=1.5, step=0.1, class='') }}</div>
-                <div class="">{{ form.oil.label(class='col-form-label') }} {{ form.oil(class='form-control form-control-sm', value=3, step=0.1) }}</div>
-                <div class="">{{ form.sugar.label(class='col-form-label') }} {{ form.sugar(class='form-control form-control-sm', value=1.5, step=0.1) }}</div>
+                <div class="form-group">{{ form.pizza_num.label(class='control-label') }} {{ form.pizza_num(class='form-control form-control-sm', value=1, step=1) }}</div>
+                <div class="form-group">{{ form.water.label(class='control-label') }} {{ form.water(class='form-range', value=61, step=1) }} <output name="hydration" for="water">61</output></div>
+                <div class="form-group">{{ form.yeast.label(class='control-label') }} {{ form.yeast(class='form-control form-control-sm', value=0.5, step=0.1) }}</div>
+                <div class="form-group">{{ form.salt.label(class='control-label') }} {{ form.salt(class='form-control form-control-sm', value=1.5, step=0.1, class='') }}</div>
+                <div class="form-group">{{ form.oil.label(class='control-label') }} {{ form.oil(class='form-control form-control-sm', value=3, step=0.1) }}</div>
+                <div class="form-group">{{ form.sugar.label(class='control-label') }} {{ form.sugar(class='form-control form-control-sm', value=1.5, step=0.1) }}</div>
                 <div class="btn btn-lg">{{ form.submit() }}</div>
             </form>
         </div>
