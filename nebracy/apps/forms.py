@@ -16,3 +16,13 @@ class DoughCalculatorForm(FlaskForm):
     oil = DecimalField('Oil %', description='Ingredient', validators=[Optional(), NumberRange(0, 8)])
     sugar = DecimalField('Sugar %', description='Ingredient', validators=[Optional(), NumberRange(0, 4)])
     submit = SubmitField('Send')
+
+    def validate(self, extra_validators=None):
+        if super().validate(extra_validators):
+
+            if not (self.dough_weight.data and self.g_oz.data or self.thickness_factor.data and self.pizza_size.data):
+                return False
+            else:
+                return True
+
+        return False
