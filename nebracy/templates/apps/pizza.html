@@ -36,8 +36,8 @@
             <tr>
                 <td>{{ k.capitalize() }}</td>
                 <td>{{ v['Percent'] }}</td>
-                <td>{{ v['Grams'] }}</td>
-                <td>{{ v['Ounces'] }}</td>
+                <td>{{ v['Grams'] | round(2) }}</td>
+                <td>{{ v['Ounces'] | round(2) }}</td>
             </tr>
             {% endfor %}
         </table>
