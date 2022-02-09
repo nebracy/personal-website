@@ -12,7 +12,16 @@
             <div class="col-6">
                 <form action="" method="post" id="dough_calc" class="form-horizontal" oninput="hydration.value=parseInt(water.value)">
                     {{ form.hidden_tag() }}
-                    <div class="form-group mb-3">{{ form.choice.label(class='') }} {{ form.choice(class="") }}</div>
+                    <div class="form-group text-center mb-3">
+                        <ul id="choice" class="p-0">
+                            {% for subfield in form.choice %}
+                            <li class="form-check form-check-inline">
+                                {{ subfield(class="form-check-input") }}
+                                {{ subfield.label(class="form-check-label") }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                     <div id="choice-weight" class="form-group mb-3">{{ form.dough_weight.label(class='control-label') }} {{ form.dough_weight(class='form-control form-control-sm') }} {{ form.g_oz(class='') }}</div>
                     <div id="choice-tf" class="form-group mb-3">
                         <div class="form-group mb-3">{{ form.thickness_factor.label(class='control-label') }} {{ form.thickness_factor(class='form-range', value=0.09, step=0.005) }} <output name="tf" for="thickness_factor">0.09</output></div>
