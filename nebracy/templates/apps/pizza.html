@@ -21,7 +21,7 @@
                 <div class="">{{ form.salt.label(class='col-form-label') }} {{ form.salt(class='form-control form-control-sm', value=1.5, step=0.1, class='') }}</div>
                 <div class="">{{ form.oil.label(class='col-form-label') }} {{ form.oil(class='form-control form-control-sm', value=3, step=0.1) }}</div>
                 <div class="">{{ form.sugar.label(class='col-form-label') }} {{ form.sugar(class='form-control form-control-sm', value=1.5, step=0.1) }}</div>
-                <div class="">{{ form.submit() }}</div>
+                <div class="btn btn-lg">{{ form.submit() }}</div>
             </form>
         </div>
         {% if dough %}
@@ -44,6 +44,12 @@
                 </tr>
                 {% endfor %}
             </tbody>
+            <tfoot>
+                <tr>
+                    <th>{{ 'Total' }}</th>
+                    <td>{{ percent }}</td>
+                </tr>
+            </tfoot>
         </table>
         {% endif %}
         <!-- Bootstrap JavaScript Bundle with Popper -->
