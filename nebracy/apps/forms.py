@@ -6,7 +6,7 @@ from wtforms.validators import InputRequired, NumberRange, Optional
 class DoughCalculatorForm(FlaskForm):
     choice = RadioField('TF/Weight', choices=['Dough Weight', 'Thickness Factor'], validators=[InputRequired()])
     dough_weight = DecimalField('Dough Weight', validators=[Optional(), NumberRange(0)])
-    g_oz = RadioField('Grams/Ounces', choices=['grams', 'ounces'], validators=[InputRequired()])
+    g_oz = RadioField('Grams/Ounces', choices=['grams', 'ounces'], validators=[Optional()])
     thickness_factor = DecimalRangeField('Thickness Factor', validators=[Optional(), NumberRange(0.07, 0.1)])
     pizza_size = IntegerField('Pizza Size (in)', validators=[Optional(), NumberRange(12, 22)])
     pizza_num = IntegerField('Pizza(s)', validators=[InputRequired(), NumberRange(1, 25)])
