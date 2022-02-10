@@ -15,7 +15,7 @@ class DoughCalculatorForm(FlaskForm):
     salt = DecimalField('Salt %', description='Ingredient', validators=[InputRequired(), NumberRange(0, 4)])
     oil = DecimalField('Oil %', description='Ingredient', validators=[Optional(), NumberRange(0, 8)])
     sugar = DecimalField('Sugar %', description='Ingredient', validators=[Optional(), NumberRange(0, 4)])
-    submit = SubmitField('Send')
+    calculate = SubmitField('Calculate')
 
     def validate(self, extra_validators=None):
         if super().validate(extra_validators):
