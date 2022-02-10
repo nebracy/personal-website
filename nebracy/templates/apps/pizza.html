@@ -50,27 +50,29 @@
             </div>
         </div>
         {% if dough %}
-        <div class="table-responsive mb-5">
-            <table class="table">
-                <thead class="table-light">
-                    <tr>
-                        <th></th>
-                        <th>Percent</th>
-                        <th>Grams</th>
-                        <th>Ounces</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for k, v in dough.items() %}
-                    <tr>
-                        <th>{{ k.capitalize() }}</th>
-                        <td>{{ v['Percent'] }}{{ '%' }}</td>
-                        <td>{{ v['Grams'] | round(2) }}</td>
-                        <td>{{ v['Ounces'] | round(2) }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+        <div class="row justify-content-center">
+            <div class="table-responsive col-lg-6 mb-5">
+                <table class="table">
+                    <thead class="table-light">
+                        <tr>
+                            <th></th>
+                            <th>Percent</th>
+                            <th>Grams</th>
+                            <th>Ounces</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for k, v in dough.items() %}
+                        <tr>
+                            <th>{{ k.capitalize() }}</th>
+                            <td>{{ v['Percent'] }}{{ '%' }}</td>
+                            <td>{{ v['Grams'] | round(2) }}</td>
+                            <td>{{ v['Ounces'] | round(2) }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
         </div>
         {% endif %}
         <div class="">
