@@ -46,6 +46,18 @@ function tfWeight() {
 
 tfWeight();
 
+
+function printTable() {
+     var divToPrint=document.getElementById("recipe");
+        newWin= window.open("", "", 'height=500, width=750');
+        newWin.document.write(divToPrint.outerHTML);
+        newWin.print();
+        newWin.close();
+}
+
+
+document.getElementById("print").addEventListener("click", printTable);
+
 radioChoice.addEventListener("change", tfWeight);
 
 slider.addEventListener("input", updateSliderValue);
