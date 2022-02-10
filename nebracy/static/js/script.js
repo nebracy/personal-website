@@ -48,6 +48,6 @@ tfWeight();
 
 radioChoice.addEventListener("change", tfWeight);
 
-slider.addEventListener("change", updateSliderValue);
+slider.addEventListener("input", updateSliderValue);
 
 maxWidth.addEventListener("change", checkScreenSize);
