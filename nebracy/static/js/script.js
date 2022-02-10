@@ -4,7 +4,6 @@ const screenOverlay = document.getElementById("overlay");
 const maxWidth = window.matchMedia("(max-width: 650px)");
 
 const slider = document.getElementById('thickness_factor');
-const radioChoice = document.getElementById('choice');
 
 
 function checkScreenSize() {
@@ -27,7 +26,6 @@ document.addEventListener("click", e => {
 
 
 function updateSliderValue() {
-
     var sliderValue  = slider.value;
     document.getElementsByName("tf")[0].textContent = (sliderValue);
 }
@@ -58,7 +56,7 @@ function printTable() {
 
 document.getElementById("print").addEventListener("click", printTable);
 
-radioChoice.addEventListener("change", tfWeight);
+document.getElementById('choice').addEventListener("change", tfWeight);
 
 slider.addEventListener("input", updateSliderValue);
 
