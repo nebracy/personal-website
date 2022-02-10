@@ -54,6 +54,18 @@ function printTable() {
 }
 
 
+function hideShowPrint() {
+    if (document.getElementById('recipe')) {
+        document.getElementById('print').hidden = false;
+    }
+    else {
+        document.getElementById('print').hidden = true;
+    }
+}
+
+hideShowPrint();
+
+
 document.getElementById("print").addEventListener("click", printTable);
 
 document.getElementById('choice').addEventListener("change", tfWeight);
