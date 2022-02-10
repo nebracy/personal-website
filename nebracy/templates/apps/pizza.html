@@ -27,11 +27,11 @@
                         {{ form.g_oz(class='') }}
                     </div>
                     <div id="choice-tf" class="mb-3">
-                        <div class="form-group row mb-3">{{ form.thickness_factor.label(class='control-label col-sm-3') }}<div class="col-sm-8">{{ form.thickness_factor(class='form-range', value=0.09, step=0.005) }}<output name="tf" for="thickness_factor">0.09</output></div></div>
+                        <div class="form-group row mb-3">{{ form.thickness_factor.label(class='control-label col-sm-3') }}<div class="col-sm-8">{{ form.thickness_factor(class='form-range', value=0.09, step=0.005) }}</div><div class="col-sm-1"><output name="tf" for="thickness_factor">0.09</output></div></div>
                         <div class="form-group row mb-3">{{ form.pizza_size.label(class='control-label col-sm-3') }}<div class="col-sm-9">{{ form.pizza_size(class='form-control form-control-sm', step=1) }}</div></div>
                     </div>
                     <div class="form-group row mb-3">{{ form.pizza_num.label(class='control-label col-sm-3') }}<div class="col-sm-9">{{ form.pizza_num(class='form-control form-control-sm', value=1, step=1) }}</div></div>
-                    <div class="form-group row mb-3">{{ form.water.label(class='control-label col-sm-3') }}<div class="col-sm-8">{{ form.water(class='form-range', value=61, step=1) }}<output name="hydration" for="water">61</output></div></div>
+                    <div class="row mb-3">{{ form.water.label(class='control-label col-sm-3') }}<div class="col-sm-8">{{ form.water(class='form-range', value=61, step=1) }}</div><div class="col-sm-1"><output name="hydration" for="water">61</output></div></div>
                     <div class="form-group row mb-3">{{ form.yeast.label(class='control-label col-sm-3') }}<div class="col-sm-9">{{ form.yeast(class='form-control form-control-sm', value=0.5, step=0.1) }}</div></div>
                     <div class="form-group row mb-3">{{ form.salt.label(class='control-label col-sm-3') }}<div class="col-sm-9">{{ form.salt(class='form-control form-control-sm', value=1.5, step=0.1) }}</div></div>
                     <div class="form-group row mb-3">{{ form.oil.label(class='control-label col-sm-3') }}<div class="col-sm-9">{{ form.oil(class='form-control form-control-sm', value=3, step=0.1) }}</div></div>
