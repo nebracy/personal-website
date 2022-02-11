@@ -32,7 +32,7 @@ function updateSliderValue() {
 
 
 function tfWeight() {
-    doughWt = document.getElementById('dough_weight');
+    doughWt = document.getElementById('dough_wt');
     pizzaSz = document.getElementById('pizza_size');
 
     if (document.getElementById('choice-0').checked) {
