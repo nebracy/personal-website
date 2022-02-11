@@ -21,13 +21,13 @@ def pizza():
             dough_wt = form.dough_wt.data
         else:
             radius2 = (form.pizza_size.data / 2) ** 2
-            dough_wt = float(form.thickness_factor.data) * (math.pi * radius2)
-        total_percent = sum(v['Percent'] for v in dough.values())
-        flour_weight = float(dough_wt) * form.pizza_num.data / (total_percent / 100)
+            dough_wt = float(form.thk_factor.data) * (math.pi * radius2)
+        total_pct = sum(v['Percent'] for v in dough.values())
+        flour_wt = float(dough_wt) * form.pizza_num.data / (total_pct / 100)
 
-        dough |= {'Total': {'Percent': total_percent}}
+        dough |= {'Total': {'Percent': total_pct}}
         for kv in dough.values():
-            weight = flour_weight * (kv['Percent']) / 100
+            weight = flour_wt * (kv['Percent']) / 100
             kv['Grams'] = kv['Ounces'] = weight
             if form.g_oz.data == 'grams' and form.choice.data == 'Dough Weight':
                 kv |= {'Ounces': weight * 0.03527396195}

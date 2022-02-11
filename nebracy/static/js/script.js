@@ -3,7 +3,7 @@ const navHamburger = document.getElementById("hamburger");
 const screenOverlay = document.getElementById("overlay");
 const maxWidth = window.matchMedia("(max-width: 650px)");
 
-const slider = document.getElementById('thickness_factor');
+const slider = document.getElementById('thk_factor');
 
 
 function checkScreenSize() {
