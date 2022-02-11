@@ -32,13 +32,23 @@ function updateSliderValue() {
 
 
 function tfWeight() {
+    doughWt = document.getElementById('dough_weight');
+    pizzaSz = document.getElementById('pizza_size');
+
     if (document.getElementById('choice-0').checked) {
         document.getElementById('choice-weight').style.display = "block";
         document.getElementById('choice-tf').style.display = "none";
+        pizzaSz.required = false;
+        doughWt.required = true;
+        pizzaSz.value = 16;
+
     }
     else {
         document.getElementById('choice-weight').style.display = "none";
         document.getElementById('choice-tf').style.display = "block";
+        pizzaSz.required = true;
+        doughWt.required = false;
+        doughWt.value = "";
     }
 }
 
