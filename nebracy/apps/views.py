@@ -19,8 +19,9 @@ def pizza():
         dough = {ing.name: {'Percent': ing.data} for ing in form if ing.description} | {'flour': {'Percent': 100}}
 
         for ing in form.opt.data:
-            dough[ing['opt_name']] = {}
-            dough[ing['opt_name']]['Percent'] = ing['opt_num']
+            if ing['opt_name']:
+                dough[ing['opt_name']] = {}
+                dough[ing['opt_name']]['Percent'] = ing['opt_num']
 
         if form.dough_wt.data and form.choice.data == 'Dough Weight':
             dough_wt = form.dough_wt.data
@@ -44,6 +45,6 @@ def pizza():
     if recipe := session.get('recipe'):
         total = recipe.pop('total')
         list_order = ['flour', 'water', 'yeast', 'salt', 'oil', 'sugar']
-        list_order[:-1] = {k.lower() for k in recipe.keys() - list_order}
+        list_order.extend({k.lower() for k in recipe.keys() - list_order})
         dough = {k: recipe[k] for k in list_order}
     return render_template('apps/pizza.html', title="NY Pizza Dough Calculator", form=form, dough=dough, total=total)

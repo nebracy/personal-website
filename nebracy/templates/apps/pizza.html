@@ -74,14 +74,12 @@
                     </thead>
                     <tbody>
                         {% for k, v in dough.items() %}
-                            {% if k.capitalize() %}
-                            <tr>
-                                <th>{{ k.capitalize() }}</th>
-                                <td>{{ v['Percent'] | float | round(1) }}{{ '%' }}</td>
-                                <td>{{ v['Grams'] | float | round(2) }}</td>
-                                <td>{{ v['Ounces'] | float | round(2) }}</td>
-                            </tr>
-                            {% endif %}
+                        <tr>
+                            <th>{{ k.capitalize() }}</th>
+                            <td>{{ v['Percent'] | float | round(1) }}{{ '%' }}</td>
+                            <td>{{ v['Grams'] | float | round(2) }}</td>
+                            <td>{{ v['Ounces'] | float | round(2) }}</td>
+                        </tr>
                         {% endfor %}
                     </tbody>
                     <tfoot>
