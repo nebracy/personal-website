@@ -16,18 +16,18 @@ def index():
 def pizza():
     form = DoughCalculatorForm()
     if form.validate_on_submit():
-        dough = {x.name: {'Percent': x.data} for x in form if x.description} | {'flour': {'Percent': 100}}
+        dough = {ing.name: {'Percent': ing.data} for ing in form if ing.description} | {'flour': {'Percent': 100}}
 
-        for a in form.opt.data:
-            dough[a['opt_name']] = {}
-            dough[a['opt_name']]['Percent'] = a['opt_num']
+        for ing in form.opt.data:
+            dough[ing['opt_name']] = {}
+            dough[ing['opt_name']]['Percent'] = ing['opt_num']
 
         if form.dough_wt.data and form.choice.data == 'Dough Weight':
             dough_wt = form.dough_wt.data
         else:
             radius2 = (form.pizza_size.data / 2) ** 2
             dough_wt = form.thk_factor.data * Decimal(math.pi * radius2)
-        total_pct = sum(v['Percent'] for v in dough.values())
+        total_pct = sum(val['Percent'] for val in dough.values())
         flour_wt = dough_wt * form.pizza_num.data / (total_pct / 100)
 
         dough |= {'total': {'Percent': total_pct}}
