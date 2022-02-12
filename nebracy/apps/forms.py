@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import DecimalField, DecimalRangeField, FieldList, IntegerField, IntegerRangeField, RadioField, StringField, SubmitField
-from wtforms.validators import InputRequired, NumberRange, Optional
+from wtforms import DecimalField, DecimalRangeField, FieldList, FormField, IntegerField, IntegerRangeField, RadioField, StringField, SubmitField
+from wtforms.validators import InputRequired, NumberRange, Optional, Length
 
 
 class RequiredIf:
@@ -17,6 +17,11 @@ class RequiredIf:
             Optional().__call__(form, field)
 
 
+class OptionalForm(FlaskForm):
+    opt_name = StringField('Ingredient', description='Ingredient', validators=[Optional(), Length(0, 50)])
+    opt_num = DecimalField('Percent', description='Ingredient', validators=[Optional(), NumberRange(0, 50)])
+
+
 class DoughCalculatorForm(FlaskForm):
     choice = RadioField('TF/Weight', choices=['Dough Weight', 'Thickness Factor'], default='Thickness Factor', validators=[InputRequired()])
     dough_wt = DecimalField('Dough Weight', validators=[RequiredIf(), NumberRange(1, 20000)])
@@ -29,4 +34,5 @@ class DoughCalculatorForm(FlaskForm):
     salt = DecimalField('Salt %', description='Ingredient', validators=[InputRequired(), NumberRange(0, 4)])
     oil = DecimalField('Oil %', description='Ingredient', validators=[Optional(), NumberRange(0, 8)])
     sugar = DecimalField('Sugar %', description='Ingredient', validators=[Optional(), NumberRange(0, 4)])
+    opt = FieldList(FormField(OptionalForm), min_entries=3, max_entries=3)
     calculate = SubmitField('Calculate')
