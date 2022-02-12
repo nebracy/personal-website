@@ -40,10 +40,10 @@ def pizza():
                 kv |= {'Grams': weight * Decimal(28.349523125)}
         session['recipe'] = dough
         return redirect(url_for('apps.pizza', _external=True, _scheme='https'))
-
-    dough = {}
+    dough, total = None, None
     if recipe := session.get('recipe'):
-        list_order = ['flour', 'water', 'yeast', 'salt', 'oil', 'sugar', 'total']
-        list_order[-1:-1] = {k.lower() for k in recipe.keys() - list_order}
+        total = recipe.pop('total')
+        list_order = ['flour', 'water', 'yeast', 'salt', 'oil', 'sugar']
+        list_order[:-1] = {k.lower() for k in recipe.keys() - list_order}
         dough = {k: recipe[k] for k in list_order}
-    return render_template('apps/pizza.html', title="NY Pizza Dough Calculator", form=form, dough=dough)
+    return render_template('apps/pizza.html', title="NY Pizza Dough Calculator", form=form, dough=dough, total=total)

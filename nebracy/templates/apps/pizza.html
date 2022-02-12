@@ -84,6 +84,14 @@
                             {% endif %}
                         {% endfor %}
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>{{ 'Total' }}</th>
+                            <td>{{ total['Percent'] | float | round(1) }}{{ '%' }}</td>
+                            <td>{{ total['Grams'] | float | round(2) }}</td>
+                            <td>{{ total['Ounces'] | float | round(2) }}</td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>

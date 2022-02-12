@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import DecimalField, DecimalRangeField, FieldList, FormField, IntegerField, IntegerRangeField, RadioField, StringField, SubmitField
 from wtforms.validators import InputRequired, NumberRange, Optional, Length, NoneOf
 
-ingredients = ['flour', 'water', 'yeast', 'salt', 'oil', 'sugar', 'total']
+ingredients = ['flour', 'water', 'yeast', 'salt', 'oil', 'sugar']
 
 
 class RequiredIf:
