@@ -16,7 +16,7 @@ def index():
 def pizza():
     form = DoughCalculatorForm()
     if form.validate_on_submit():
-        dough = {x.name: {'Percent': x.data} for x in form if x.description} | {'Flour': {'Percent': 100}}
+        dough = {x.name: {'Percent': x.data} for x in form if x.description} | {'flour': {'Percent': 100}}
 
         for a in form.opt.data:
             dough[a['opt_name']] = {}
@@ -30,7 +30,7 @@ def pizza():
         total_pct = sum(v['Percent'] for v in dough.values())
         flour_wt = dough_wt * form.pizza_num.data / (total_pct / 100)
 
-        dough |= {'Total': {'Percent': total_pct}}
+        dough |= {'total': {'Percent': total_pct}}
         for kv in dough.values():
             weight = flour_wt * (kv['Percent']) / 100
             kv['Grams'] = kv['Ounces'] = weight
@@ -43,7 +43,7 @@ def pizza():
 
     dough = {}
     if recipe := session.get('recipe'):
-        list_order = ['Flour', 'water', 'yeast', 'salt', 'oil', 'sugar', 'Total']
-        list_order[-1:-1] = set(i for i in recipe.keys()) - set(list_order)
+        list_order = ['flour', 'water', 'yeast', 'salt', 'oil', 'sugar', 'total']
+        list_order[-1:-1] = set(i.lower() for i in recipe.keys()) - set(list_order)
         dough = {k: recipe[k] for k in list_order}
     return render_template('apps/pizza.html', title="NY Pizza Dough Calculator", form=form, dough=dough)
