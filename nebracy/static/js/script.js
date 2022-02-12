@@ -36,7 +36,7 @@ function tfWeight() {
     pizzaSz = document.getElementById('pizza_size');
 
     if (document.getElementById('choice-0').checked) {
-        document.getElementById('choice-weight').style.display = "block";
+        document.getElementById('choice-wt').style.display = "block";
         document.getElementById('choice-tf').style.display = "none";
         pizzaSz.required = false;
         doughWt.required = true;
@@ -44,7 +44,7 @@ function tfWeight() {
 
     }
     else {
-        document.getElementById('choice-weight').style.display = "none";
+        document.getElementById('choice-wt').style.display = "none";
         document.getElementById('choice-tf').style.display = "block";
         pizzaSz.required = true;
         doughWt.required = false;
