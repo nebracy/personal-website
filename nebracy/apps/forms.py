@@ -1,6 +1,8 @@
 from flask_wtf import FlaskForm
 from wtforms import DecimalField, DecimalRangeField, FieldList, FormField, IntegerField, IntegerRangeField, RadioField, StringField, SubmitField
-from wtforms.validators import InputRequired, NumberRange, Optional, Length
+from wtforms.validators import InputRequired, NumberRange, Optional, Length, NoneOf
+
+ingredients = ['flour', 'water', 'yeast', 'salt', 'oil', 'sugar', 'total']
 
 
 class RequiredIf:
@@ -18,7 +20,7 @@ class RequiredIf:
 
 
 class OptionalForm(FlaskForm):
-    opt_name = StringField('Ingredient', description='Ingredient', validators=[Optional(), Length(0, 50)])
+    opt_name = StringField('Ingredient', description='Ingredient', validators=[NoneOf(ingredients), Optional(), Length(0, 50)])
     opt_num = DecimalField('Percent', description='Ingredient', validators=[NumberRange(0, 50)])
 
 
