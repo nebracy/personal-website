@@ -19,7 +19,7 @@ class RequiredIf:
 
 class OptionalForm(FlaskForm):
     opt_name = StringField('Ingredient', description='Ingredient', validators=[Optional(), Length(0, 50)])
-    opt_num = DecimalField('Percent', description='Ingredient', validators=[Optional(), NumberRange(0, 50)])
+    opt_num = DecimalField('Percent', description='Ingredient', validators=[NumberRange(0, 50)])
 
 
 class DoughCalculatorForm(FlaskForm):
