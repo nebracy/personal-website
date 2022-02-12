@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
+import re
 from wtforms import DecimalField, DecimalRangeField, FieldList, FormField, IntegerField, IntegerRangeField, RadioField, StringField, SubmitField
-from wtforms.validators import InputRequired, NumberRange, Optional, Length, NoneOf
+from wtforms.validators import InputRequired, NumberRange, Optional, Length, NoneOf, ValidationError
 
 ingredients = ['flour', 'water', 'yeast', 'salt', 'oil', 'sugar']
 
@@ -19,8 +20,23 @@ class RequiredIf:
             Optional().__call__(form, field)
 
 
+class NoneOfRegexp(NoneOf):
+    def __init__(self, values, message=None, values_formatter=None):
+        super().__init__(values, message, values_formatter)
+
+    def __call__(self, form, field):
+        regex = re.compile(f'({field.data})', re.IGNORECASE)
+        for list_item in self.values:
+            match = regex.match(list_item or "")
+            if match:
+                message = self.message
+                if message is None:
+                    message = field.gettext("Invalid value, can't be any of: %(values)s.")
+                raise ValidationError(message % dict(values=self.values_formatter(self.values)))
+
+
 class OptionalForm(FlaskForm):
-    opt_name = StringField('Ingredient', description='Ingredient', validators=[NoneOf(ingredients), Optional(), Length(0, 50)])
+    opt_name = StringField('Ingredient', description='Ingredient', validators=[NoneOfRegexp(ingredients), Optional(), Length(0, 50)])
     opt_num = DecimalField('Percent', description='Ingredient', validators=[NumberRange(0, 50)])
 
 
