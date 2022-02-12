@@ -44,6 +44,6 @@ def pizza():
     dough = {}
     if recipe := session.get('recipe'):
         list_order = ['flour', 'water', 'yeast', 'salt', 'oil', 'sugar', 'total']
-        list_order[-1:-1] = set(i.lower() for i in recipe.keys()) - set(list_order)
+        list_order[-1:-1] = {k.lower() for k in recipe.keys() - list_order}
         dough = {k: recipe[k] for k in list_order}
     return render_template('apps/pizza.html', title="NY Pizza Dough Calculator", form=form, dough=dough)
