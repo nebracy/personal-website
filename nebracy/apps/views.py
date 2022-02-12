@@ -45,6 +45,6 @@ def pizza():
     if recipe := session.get('recipe'):
         total = recipe.pop('total')
         list_order = ['flour', 'water', 'yeast', 'salt', 'oil', 'sugar']
-        list_order.extend({k for k in recipe.keys() - list_order})
+        list_order.extend(k for k in recipe.keys() - list_order)
         dough = {k: recipe[k] for k in list_order}
     return render_template('apps/pizza.html', title="NY Pizza Dough Calculator", form=form, dough=dough, total=total)
