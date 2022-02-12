@@ -18,6 +18,10 @@ def pizza():
     if form.validate_on_submit():
         dough = {x.name: {'Percent': x.data} for x in form if x.description} | {'Flour': {'Percent': 100}}
 
+        for a in form.opt.data:
+            dough[a['opt_name']] = {}
+            dough[a['opt_name']]['Percent'] = a['opt_num']
+
         if form.dough_wt.data and form.choice.data == 'Dough Weight':
             dough_wt = form.dough_wt.data
         else:
@@ -36,7 +40,10 @@ def pizza():
                 kv |= {'Grams': weight * Decimal(28.349523125)}
         session['recipe'] = dough
         return redirect(url_for('apps.pizza', _external=True, _scheme='https'))
+
     dough = {}
-    if session.get('recipe'):
-        dough = {k: session.get('recipe')[k] for k in ['Flour', 'water', 'yeast', 'salt', 'oil', 'sugar', 'Total']}
+    if recipe := session.get('recipe'):
+        list_order = ['Flour', 'water', 'yeast', 'salt', 'oil', 'sugar', 'Total']
+        list_order[-1:-1] = set(i for i in recipe.keys()) - set(list_order)
+        dough = {k: recipe[k] for k in list_order}
     return render_template('apps/pizza.html', title="NY Pizza Dough Calculator", form=form, dough=dough)
