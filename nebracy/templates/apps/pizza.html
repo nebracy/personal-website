@@ -66,9 +66,9 @@
                         {% for k, v in dough.items() %}
                         <tr>
                             <th>{{ k.capitalize() }}</th>
-                            <td>{{ v['Percent'] | round(1) }}{{ '%' }}</td>
-                            <td>{{ v['Grams'] | round(2) }}</td>
-                            <td>{{ v['Ounces'] | round(2) }}</td>
+                            <td>{{ v['Percent'] | float | round(1) }}{{ '%' }}</td>
+                            <td>{{ v['Grams'] | float | round(2) }}</td>
+                            <td>{{ v['Ounces'] | float | round(2) }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
