@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 import re
 from wtforms import DecimalField, DecimalRangeField, FieldList, FormField, IntegerField, IntegerRangeField, RadioField, StringField, SubmitField
-from wtforms.validators import InputRequired, NumberRange, Optional, Length, NoneOf, ValidationError
+from wtforms.validators import InputRequired, NumberRange, Optional, Length, NoneOf, ValidationError, Regexp
 
 ingredients = ['flour', 'water', 'yeast', 'salt', 'oil', 'sugar']
 
@@ -37,7 +37,7 @@ class NoneOfRegexp(NoneOf):
 
 
 class OptionalForm(FlaskForm):
-    opt_name = StringField('Ingredient', description='Ingredient', validators=[NoneOfRegexp(ingredients), Optional(), Length(0, 50)])
+    opt_name = StringField('Ingredient', description='Ingredient', validators=[Regexp("^[a-zA-Z\-( )'&]*$"), NoneOfRegexp(ingredients), Optional(), Length(0, 50)])
     opt_num = DecimalField('Percent', description='Ingredient', validators=[NumberRange(0, 50)])
 
 
