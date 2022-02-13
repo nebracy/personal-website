@@ -70,12 +70,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for k, v in dough.items() %}
+                        {% for ingredient, amounts in dough.items() %}
                         <tr>
-                            <th>{{ k | title }}</th>
-                            <td>{{ v['Percent'] | float | round(1) }}{{ '%' }}</td>
-                            <td>{{ v['Grams'] | float | round(2) }}</td>
-                            <td>{{ v['Ounces'] | float | round(2) }}</td>
+                            <th>{{ ingredient | title }}</th>
+                            <td>{{ amounts['Percent'] | float | round(1) }}{{ '%' }}</td>
+                            <td>{{ amounts['Grams'] | float | round(2) }}</td>
+                            <td>{{ amounts['Ounces'] | float | round(2) }}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
