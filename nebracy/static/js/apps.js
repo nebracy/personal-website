@@ -1,10 +1,14 @@
-const slider = document.getElementById('thk_factor');
 
-
-function updateSliderValue() {
-    var sliderValue  = slider.value;
-    document.getElementsByName("tf")[0].textContent = (sliderValue);
-}
+document.querySelectorAll('.slider').forEach(slider => {
+    slider.addEventListener('input', function(e) {
+         if (this.id == 'thk_factor') {
+            document.getElementsByName("tf")[0].textContent = this.value;
+        }
+        else if (this.id == 'water') {
+            document.getElementsByName("hydration")[0].textContent = this.value;
+        }
+    })
+})
 
 
 function tfWeight() {
@@ -55,5 +59,3 @@ hideShowPrint();
 document.getElementById("print").addEventListener("click", printTable);
 
 document.getElementById('choice').addEventListener("change", tfWeight);
-
-slider.addEventListener("input", updateSliderValue);
