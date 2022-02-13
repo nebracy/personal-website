@@ -25,14 +25,15 @@ class NoneOfRegexp(NoneOf):
         super().__init__(values, message, values_formatter)
 
     def __call__(self, form, field):
-        regex = re.compile(f'({field.data})', re.IGNORECASE)
         for list_item in self.values:
-            match = regex.match(list_item or "")
+            regex = re.compile(f'({list_item})$', re.IGNORECASE)
+            match = regex.match(field.data or "")
             if match:
                 message = self.message
                 if message is None:
                     message = field.gettext("Ingredient is already included.")
                 raise ValidationError(message % dict(values=self.values_formatter(self.values)))
+        return
 
 
 class OptionalForm(FlaskForm):
