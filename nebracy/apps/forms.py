@@ -31,7 +31,7 @@ class NoneOfRegexp(NoneOf):
             if match:
                 message = self.message
                 if message is None:
-                    message = field.gettext("Invalid value, can't be any of: %(values)s.")
+                    message = field.gettext("Ingredient is already included.")
                 raise ValidationError(message % dict(values=self.values_formatter(self.values)))
 
 
