@@ -3,6 +3,7 @@ const navHamburger = document.getElementById("hamburger");
 const screenOverlay = document.getElementById("overlay");
 const maxWidth = window.matchMedia("(max-width: 650px)");
 
+
 function checkScreenSize() {
     if (navDropdown.classList.contains("nav__menu--show")) {
         navDropdown.classList.remove("nav__menu--show");

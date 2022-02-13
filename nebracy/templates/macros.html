@@ -48,3 +48,42 @@
     <li class="git-history__commit"><em>No recent GitHub activity :(</em></li>
     {% endfor %}
 {% endmacro %}
+
+
+
+{%- macro app_field(field) -%}
+<div class="form-group row mb-3">
+    {{ field.label(class='control-label col-sm-3') }}
+    <div class="col-sm-9">
+        {{ field(**kwargs)|safe }}
+    </div>
+</div>
+{%- endmacro -%}
+
+{%- macro app_opt_field(field) -%}
+<div class="form-group row mb-3">
+    <div class="col-sm-3 p-0 mb-1 px-1">
+        {{ field.opt_name(class='form-control form-control-sm p-1') }}
+        {% if field.errors %}
+            {% for msg in field.errors.opt_name %}
+                <small class="text-danger">
+                    {{ msg }}
+                </small>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="col-sm-9 px-1">
+        {{ field.opt_num(**kwargs)|safe }}
+        <div class="invalid-feedback">
+            {% if field.errors %}
+                {% for msg in field.errors.opt_num %}
+                    <small class="text-danger">
+                        {{ msg }}
+                    </small>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+    {{ field.csrf_token }}
+</div>
+{%- endmacro -%}
