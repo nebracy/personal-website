@@ -12,7 +12,7 @@
         <div class="text-center mb-4">
             <h1>NY Pizza Dough Calculator</h1>
         </div>
-        <div class="row justify-content-center mb-5">
+        <section class="row justify-content-center mb-5">
             <div class="col-md-6">
                 <form action="" method="post" id="dough_calc" class="form-horizontal" oninput="hydration.value=parseInt(water.value)">
                     {{ form.hidden_tag() }}
@@ -55,9 +55,9 @@
                     <div class="btn d-grid col-2 mx-auto p-0">{{ form.calculate() }}</div>
                 </form>
             </div>
-        </div>
+        </section>
         {% if dough %}
-        <div class="row justify-content-center">
+        <section class="row justify-content-center">
             <div class="table-responsive col-lg-6 mb-4" id="recipe">
                 <table class="table">
                     <caption>New York-Style Pizza Recipe</caption>
@@ -89,7 +89,7 @@
                     </tfoot>
                 </table>
             </div>
-        </div>
+        </section>
         {% else %}
         <div class="text-center mb-2">
             <img src="{{ url_for('static', filename='img/doughball.jpeg', _external=True, _scheme='https') }}" alt="pizza doughball" width="300" height="230">
