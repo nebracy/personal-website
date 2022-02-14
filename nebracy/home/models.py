@@ -43,12 +43,6 @@ class GithubCommits:
     def __len__(self) -> int:
         return len(self.list)
 
-    def get_commits_from_payload(self, payload: dict[str, Any]) -> None:
-        for commit in payload['commits']:
-            self.list.append({'id': commit['id'], 'name': payload['repository']['full_name'],
-                              'url': payload['repository']['url'],
-                              'date': datetime.fromisoformat(commit['timestamp']), 'msg': commit['message']})
-
     def get_commits_per_repo(self, github_token: Github, months_ago: int = 6) -> None:
         num_months_ago = datetime.today() - relativedelta(months=months_ago)
         for repo in github_token.get_user().get_repos():
