@@ -63,30 +63,18 @@ def test_webhook_wrong_github_secret(client, headers):
     assert b"Incorrect secret" in response.data
 
 
-@pytest.mark.parametrize("signature, mock_payload",
-                         [('sha1=309013598748f3c03458df4c8e8e4e28415140d6', {}),
-                          ('sha1=59b4d890f67dc3d7e5ad534dbab78081696dd759', {'ref': 'refs/heads/master'})])
-def test_webhook_missing_commit_payload(client, signature, mock_payload):
-    """May add try except to code later"""
-    with pytest.raises(KeyError):
-        client.post('/webhook', headers={'X-GitHub-Event': 'push', 'X-Hub-Signature': signature}, json=mock_payload)
-
-
 def test_webhook_not_master_branch(client):
     """"""
     payload_stub = {'ref': 'refs/heads/staging'}
     headers = {'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1=c7abcc644d90c1a4a3ee67bd0ecf8665ea1d7347'}
     response = client.post('/webhook', headers=headers, json=payload_stub)
     assert response.status_code == 403
-    assert b"Commits from this push are from another branch besides master" in response.data
+    assert b"Push was not to the master branch." in response.data
 
 
 def test_webhook_commit(client):
     """"""
     headers = {'X-GitHub-Event': 'push', 'X-Hub-Signature': 'sha1=b2f3b3cef75ff72ba41a49175f5b19f400ae2e99'}
     response = client.post('/webhook', headers=headers, json=payload)
-    response2 = client.post('/webhook', headers=headers, json=payload)
     assert response.status_code == 200
     assert b"" in response.data
-    assert response2.status_code == 400
-    assert b"Database is already up to date" in response2.data
