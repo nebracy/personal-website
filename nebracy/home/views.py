@@ -35,7 +35,7 @@ def webhook():
 
     payload = request.get_json()
     if payload['ref'] != 'refs/heads/master':
-        abort(403, "Commits from this push are from another branch besides master")
+        abort(403, "Push was not to the master branch.")
 
     update_table()
     return jsonify({}), 200
