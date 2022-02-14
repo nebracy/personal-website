@@ -1,9 +1,9 @@
 from os import getenv
 from flask import (abort, Blueprint, current_app as app, jsonify, render_template,
                    redirect, request, url_for)
-from sqlalchemy.exc import IntegrityError, OperationalError
+from sqlalchemy.exc import OperationalError
 from nebracy.home.forms import ContactForm
-from nebracy.home.models import Commit, GithubCommits, GithubTokenNotFoundError, update_table
+from nebracy.home.models import Commit, update_table
 from nebracy.home.utils import validate_github_headers, send_email, IncorrectGithubHeaderError, IncorrectGithubSecretError
 
 
@@ -38,13 +38,4 @@ def webhook():
         abort(403, "Commits from this push are from another branch besides master")
 
     update_table()
-
-    # try:
-    #     github = GithubCommits()
-    #     github.get_commits_from_payload(payload)
-    #     github.add_to_db()
-    # except IntegrityError:
-    #     abort(400, "Database is already up to date")
-    # except GithubTokenNotFoundError as e:
-    #     abort(400, e)
     return jsonify({}), 200
