@@ -4,8 +4,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from github import Github, GithubException
 from sqlalchemy import event
-from sqlalchemy.exc import IntegrityError
-from typing import Any
+from sqlalchemy.dialects.sqlite import insert
 from nebracy import db
 
 
@@ -49,7 +48,7 @@ class GithubCommits:
             commits = repo.get_commits()[:self.commit_num]
             for c in commits:
                 if c.commit.committer.date > num_months_ago:
-                    self.list.append({'id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
+                    self.list.append({'commit_id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
                                       'date': self.convert_tz(c.commit.committer.date), 'msg': c.commit.message})
 
     def sort_list(self) -> None:
@@ -58,12 +57,9 @@ class GithubCommits:
 
     def add_to_db(self) -> None:
         for commit in self.list:
-            c = self.commit(commit['id'], commit['name'], commit['url'], commit['date'], commit['msg'])
-            db.session.add(c)
-        try:
-            db.session.commit()
-        except IntegrityError:
-            db.session.rollback()
+            c = insert(self.commit).values(commit).on_conflict_do_nothing(index_elements=[self.commit.commit_id])
+            db.session.execute(c)
+        db.session.commit()
 
     @staticmethod
     def convert_tz(unconverted_date: datetime) -> datetime:
