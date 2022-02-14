@@ -4,6 +4,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from github import Github, GithubException
 from sqlalchemy import event
+from sqlalchemy.exc import IntegrityError
 from typing import Any
 from nebracy import db
 
@@ -65,7 +66,10 @@ class GithubCommits:
         for commit in self.list:
             c = self.commit(commit['id'], commit['name'], commit['url'], commit['date'], commit['msg'])
             db.session.add(c)
-        db.session.commit()
+        try:
+            db.session.commit()
+        except IntegrityError:
+            db.session.rollback()
 
     @staticmethod
     def convert_tz(unconverted_date: datetime) -> datetime:
@@ -79,7 +83,7 @@ class GithubTokenNotFoundError(Exception):
 
 
 @event.listens_for(Commit.__table__, 'after_create')
-def autofill_table(*args, **kwargs) -> None:
+def update_table(*args, **kwargs) -> None:
     github = GithubCommits()
     try:
         github.get_commits_per_repo(Github(os.getenv('GITHUB_TOKEN')))
