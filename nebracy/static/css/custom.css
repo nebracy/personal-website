@@ -4,14 +4,10 @@ body {
 }
 
 h1 {
-    font-family: 'Chathura', sans-serif;
-    font-weight: 400;
-    font-size: 32px;
-}
-
-.h1-2 {
     font-family: 'Averia Serif Libre', cursive;
     font-style: italic;
     font-weight: 400;
     font-size: 50px;
+    color: #DB301D;
+    text-shadow: 3px 3px 2px rgba(0,0,0,0.15);
 }
