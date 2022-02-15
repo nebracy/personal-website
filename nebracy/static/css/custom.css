@@ -1,16 +1,17 @@
 body {
-    font-family: 'Zen Kaku Gothic Antique', sans-serif;
-    font-weight: 500;
+
+    font-weight: 400;
 }
 
 h1 {
-    font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    font-family: 'Chathura', sans-serif;
     font-weight: 400;
-    font-size: 33px;
+    font-size: 32px;
 }
 
 .h1-2 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: 45px;
+    font-family: 'Averia Serif Libre', cursive;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 50px;
 }
