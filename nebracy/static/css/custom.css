@@ -70,3 +70,7 @@ input[type=range]::-moz-range-track {
 input[type=range]::-ms-track {
     background: #f7e4c4;
 }
+
+.optname {
+
+}
