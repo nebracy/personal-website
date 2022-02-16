@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:ital@1&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
 {% endblock styles %}
-{% from "macros.html" import app_field, app_opt_field %}
+{% from "macros.html" import app_field, app_opt_field, app_yeast_field %}
 {% block body %}
 <main>
     <div class="container-sm my-3">
@@ -50,7 +50,9 @@
                     </div>
                     {{ app_field(form.pizza_num, class='form-control form-control-sm', value=1, step=1) }}
                     <div class="form-group row mb-3">{{ form.water.label(class='control-label col-sm-4') }}<div class="col-sm-1 p-0 text-center"><output name="hydration" for="water">61</output>%</div><div class="col-sm-7">{{ form.water(class='form-range slider', value=61, step=1) }}</div></div>
-                    {{ app_field(form.yeast, class='form-control form-control-sm', value=0.5, step=0.05) }}
+                    {% for yeast in form.yeast %}
+                        {{ app_yeast_field(yeast, class='form-control form-control-sm', value=0.5, step=0.05) }}
+                    {% endfor %}
                     {{ app_field(form.salt, class='form-control form-control-sm', value=1.5, step=0.05) }}
                     {{ app_field(form.olive_oil, class='form-control form-control-sm', value=3, step=0.05) }}
                     {{ app_field(form.sugar, class='form-control form-control-sm', value=1.5, step=0.05) }}
