@@ -97,3 +97,7 @@ input.btn {
 input.btn:focus {
     box-shadow: none;
 }
+
+a.btn, button.btn {
+    font-size: 19px;
+}
