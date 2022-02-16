@@ -3,7 +3,7 @@ import re
 from wtforms import DecimalField, DecimalRangeField, FieldList, FormField, IntegerField, IntegerRangeField, RadioField, StringField, SubmitField
 from wtforms.validators import InputRequired, NumberRange, Optional, Length, NoneOf, ValidationError, Regexp
 
-ingredients = ['flour', 'water', 'yeast', 'salt', 'oil', 'sugar']
+ingredients = ['flour', 'water', 'yeast', 'salt', 'olive oil', 'sugar']
 
 
 class RequiredIf:
@@ -51,7 +51,7 @@ class DoughCalculatorForm(FlaskForm):
     water = IntegerRangeField('Hydration', description='Ingredient', validators=[InputRequired(), NumberRange(55, 70)])
     yeast = DecimalField('Yeast %', description='Ingredient', validators=[InputRequired(), NumberRange(0, 3)])
     salt = DecimalField('Salt %', description='Ingredient', validators=[InputRequired(), NumberRange(0, 4)])
-    oil = DecimalField('Oil %', description='Ingredient', validators=[NumberRange(0, 8)])
+    olive_oil = DecimalField('Olive Oil %', description='Ingredient', validators=[NumberRange(0, 8)])
     sugar = DecimalField('Sugar %', description='Ingredient', validators=[NumberRange(0, 4)])
     opt = FieldList(FormField(OptionalForm), min_entries=3, max_entries=3)
     calculate = SubmitField('Calculate')
