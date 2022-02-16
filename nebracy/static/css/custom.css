@@ -23,7 +23,7 @@ input[type="radio"]:focus {
     box-shadow: 0 0 0 .25rem #ffe2e2;
 }
 
-/* Input Thumb */
+/* Slider Thumb */
 #thk_factor::-webkit-slider-thumb {
     background: #DF4534;
 }
@@ -36,7 +36,7 @@ input[type="radio"]:focus {
     background: #DF4534;
 }
 
-/* Input Thumb Focus*/
+/* Slider Thumb Focus*/
 input[type=range]:focus::-webkit-slider-thumb {
     box-shadow: none;
 }
@@ -58,7 +58,7 @@ input[type=range]:focus::-ms-thumb {
     background: #ed8378;
 }
 
-/* Input Track */
+/* Slider Track */
 input[type=range]::-webkit-slider-runnable-track  {
     background: #f7e4c4;
 }
