@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 import re
-from wtforms import DecimalField, DecimalRangeField, FieldList, FormField, IntegerField, IntegerRangeField, RadioField, StringField, SubmitField
+from wtforms import DecimalField, DecimalRangeField, FieldList, FormField, IntegerField, IntegerRangeField, RadioField, StringField, SubmitField, SelectField
 from wtforms.validators import InputRequired, NumberRange, Optional, Length, NoneOf, ValidationError, Regexp
 
 ingredients = ['flour', 'water', 'yeast', 'salt', 'olive oil', 'sugar']
@@ -41,6 +41,11 @@ class OptionalForm(FlaskForm):
     opt_num = DecimalField('Percent', description='Ingredient', validators=[NumberRange(0, 50)])
 
 
+class YeastForm(FlaskForm):
+    yeast_name = SelectField('IDY', description='Ingredient', choices=[('IDY', 'Instant Dry Yeast'), ('ADY', 'Active Dry Yeast')], validators=[InputRequired()])
+    yeast_num = DecimalField('Yeast %', description='Ingredient', validators=[InputRequired(), NumberRange(0, 3)])
+
+
 class DoughCalculatorForm(FlaskForm):
     choice = RadioField('TF/Weight', choices=['Dough Weight', 'Thickness Factor'], default='Thickness Factor', validators=[InputRequired()])
     dough_wt = DecimalField('Dough Weight', validators=[RequiredIf(), NumberRange(1, 20000)])
@@ -49,7 +54,7 @@ class DoughCalculatorForm(FlaskForm):
     pizza_size = IntegerField('Pizza Size (in)', validators=[RequiredIf(), NumberRange(12, 22)])
     pizza_num = IntegerField('Pizza(s)', validators=[InputRequired(), NumberRange(1, 25)])
     water = IntegerRangeField('Hydration', description='Ingredient', validators=[InputRequired(), NumberRange(55, 70)])
-    yeast = DecimalField('Yeast %', description='Ingredient', validators=[InputRequired(), NumberRange(0, 3)])
+    yeast = FieldList(FormField(YeastForm), min_entries=1, max_entries=1)
     salt = DecimalField('Salt %', description='Ingredient', validators=[InputRequired(), NumberRange(0, 4)])
     olive_oil = DecimalField('Olive Oil %', description='Ingredient', validators=[NumberRange(0, 8)])
     sugar = DecimalField('Sugar %', description='Ingredient', validators=[NumberRange(0, 4)])
