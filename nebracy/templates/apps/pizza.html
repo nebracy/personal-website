@@ -57,7 +57,7 @@
                     {% for ingredient in form.opt %}
                         {{ app_opt_field(ingredient, class='form-control form-control-sm', value=0, step=0.05) }}
                     {% endfor %}
-                    <div class="btn d-grid col-2 mx-auto p-0">{{ form.calculate() }}</div>
+                    <div class="row justify-content-center">{{ form.calculate(class='btn col-auto') }}</div>
                 </form>
             </div>
         </section>
