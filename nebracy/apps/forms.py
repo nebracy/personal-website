@@ -3,7 +3,7 @@ import re
 from wtforms import DecimalField, DecimalRangeField, FieldList, FormField, IntegerField, IntegerRangeField, RadioField, StringField, SubmitField, SelectField
 from wtforms.validators import InputRequired, NumberRange, Optional, Length, NoneOf, ValidationError, Regexp
 
-ingredients = ['flour', 'water', 'yeast', 'salt', 'olive oil', 'sugar']
+ingredients = ['flour', 'water', 'idy', 'ady', 'salt', 'olive oil', 'sugar']
 
 
 class RequiredIf:
