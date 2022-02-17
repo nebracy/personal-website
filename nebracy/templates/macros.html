@@ -60,12 +60,12 @@
 </div>
 {%- endmacro -%}
 
-{%- macro app_opt_field(field) -%}
+{%- macro app_fieldlist(field) -%}
 <div class="form-group row mb-4">
     <div class="col-sm-4 mb-1">
-        {{ field.opt_name(class='form-control p-0 optname', placeholder='Other %') }}
+        {{ field.iname(class='form-control p-0 optname', placeholder='Other %') }}
         {% if field.errors %}
-            {% for msg in field.errors.opt_name %}
+            {% for msg in field.errors.iname %}
                 <small class="text-danger">
                     {{ msg }}
                 </small>
@@ -73,43 +73,14 @@
         {% endif %}
     </div>
     <div class="col-sm-8">
-        {{ field.opt_num(**kwargs)|safe }}
+        {{ field.num(**kwargs)|safe }}
         <div class="invalid-feedback">
             {% if field.errors %}
-                {% for msg in field.errors.opt_num %}
+                {% for msg in field.errors.num %}
                     <small class="text-danger">
                         {{ msg }}
                     </small>
                 {% endfor %}
-            {% endif %}
-        </div>
-    </div>
-    {{ field.csrf_token }}
-</div>
-{%- endmacro -%}
-
-
-{%- macro app_yeast_field(field) -%}
-<div class="form-group row mb-4">
-    <div class="col-sm-4 mb-1">
-        {{ field.yeast_name(class='form-control p-0 optname') }}
-        {% if field.errors %}
-        {% for msg in field.errors.yeast_name %}
-        <small class="text-danger">
-            {{ msg }}
-        </small>
-        {% endfor %}
-        {% endif %}
-    </div>
-    <div class="col-sm-8">
-        {{ field.yeast_num(**kwargs)|safe }}
-        <div class="invalid-feedback">
-            {% if field.errors %}
-            {% for msg in field.errors.yeast_num %}
-            <small class="text-danger">
-                {{ msg }}
-            </small>
-            {% endfor %}
             {% endif %}
         </div>
     </div>

@@ -37,13 +37,13 @@ class NoneOfRegexp(NoneOf):
 
 
 class OptionalForm(FlaskForm):
-    opt_name = StringField('Ingredient', description='Ingredient', validators=[Regexp("^[a-zA-Z\-( )'&]*$"), NoneOfRegexp(ingredients), Optional(), Length(0, 50)])
-    opt_num = DecimalField('Percent', description='Ingredient', validators=[NumberRange(0, 50)])
+    iname = StringField('Ingredient', description='Ingredient', validators=[Regexp("^[a-zA-Z\-( )'&]*$"), NoneOfRegexp(ingredients), Optional(), Length(0, 50)])
+    num = DecimalField('Percent', description='Ingredient', validators=[NumberRange(0, 50)])
 
 
 class YeastForm(FlaskForm):
-    yeast_name = SelectField('IDY', description='Ingredient', choices=[('IDY', 'Instant Dry Yeast'), ('ADY', 'Active Dry Yeast')], validators=[InputRequired()])
-    yeast_num = DecimalField('Yeast %', description='Ingredient', validators=[InputRequired(), NumberRange(0, 3)])
+    iname = SelectField('IDY', description='Ingredient', choices=[('IDY', 'Instant Dry Yeast'), ('ADY', 'Active Dry Yeast')], validators=[InputRequired()])
+    num = DecimalField('Yeast %', description='Ingredient', validators=[InputRequired(), NumberRange(0, 3)])
 
 
 class DoughCalculatorForm(FlaskForm):
