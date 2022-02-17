@@ -79,7 +79,11 @@
                     <tbody>
                         {% for ingredient, amounts in dough.items() %}
                         <tr>
-                            <th>{{ ingredient.replace('_', ' ') | title }}</th>
+                            {% if ingredient in ('IDY', 'ADY') %}
+                                <th>{{ ingredient }}</th>
+                            {% else %}
+                                <th>{{ ingredient.replace('_', ' ') | title }}</th>
+                            {% endif %}
                             <td>{{ amounts['Percent'] | float | round(2) }}{{ '%' }}</td>
                             <td>{{ amounts['Grams'] | float | round(2) }}</td>
                             <td>{{ amounts['Ounces'] | float | round(2) }}</td>
