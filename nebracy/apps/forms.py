@@ -42,7 +42,7 @@ class OptionalForm(FlaskForm):
 
 
 class YeastForm(FlaskForm):
-    iname = SelectField('IDY', description='Ingredient', choices=[('IDY', 'Instant Dry Yeast'), ('ADY', 'Active Dry Yeast')], validators=[InputRequired()])
+    iname = SelectField('IDY', description='Ingredient', choices=[('IDY', 'Instant Dry Yeast %'), ('ADY', 'Active Dry Yeast %')], validators=[InputRequired()])
     num = DecimalField('Yeast %', description='Ingredient', validators=[InputRequired(), NumberRange(0, 3)])
 
 
