@@ -52,7 +52,7 @@
 
 
 {%- macro app_field(field) -%}
-<div class="form-group row mb-4">
+<div class="form-group row align-items-end mb-4">
     {{ field.label(class='control-label col-sm-4') }}
     <div class="col-sm-8">
         {{ field(**kwargs)|safe }}
@@ -61,7 +61,7 @@
 {%- endmacro -%}
 
 {%- macro app_fieldlist(field) -%}
-<div class="form-group row mb-4">
+<div class="form-group row align-items-end mb-4">
     <div class="col-sm-4 mb-1">
         {{ field.iname(class='form-control p-0 optname', placeholder='Other %') }}
         {% if field.errors %}
