@@ -34,9 +34,9 @@
                     <div id="choice-wt" class="mb-0">
                         <div class="form-group row">
                             <div class="col-sm-4">
-                                {{ form.dough_wt.label(class='control-label') }}
-                                <div>
-                                    <ul class="p-0">
+                                {{ form.dough_wt.label(class='control-label me-2') }}
+                                <div class="d-inline-flex">
+                                    <ul class="p-0 mb-0">
                                         {% for subfield in form.g_oz %}
                                         <li class="form-check form-check-inline">
                                             {{ subfield(class="form-check-input") }}
@@ -46,7 +46,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-sm-8 mb-4">
                                 {{ form.dough_wt(class='form-control') }}
                             </div>
                         </div>
