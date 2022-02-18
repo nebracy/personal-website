@@ -101,3 +101,7 @@ input.btn:focus {
 a.btn, button.btn {
     font-size: 19px;
 }
+
+label.oz-g {
+    font-size: 0.9rem;
+}
