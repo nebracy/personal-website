@@ -35,7 +35,7 @@ def pizza():
         for kv in dough.values():
             weight = flour_wt * (kv['Percent']) / 100
             kv['Grams'] = kv['Ounces'] = weight
-            if form.g_oz.data == 'grams' and form.choice.data == 'Dough Weight':
+            if form.g_oz.data == 'g' and form.choice.data == 'Dough Weight':
                 kv |= {'Ounces': weight * Decimal(0.03527396195)}
             else:
                 kv |= {'Grams': weight * Decimal(28.349523125)}
