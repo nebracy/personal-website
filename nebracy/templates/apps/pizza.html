@@ -31,17 +31,24 @@
                             {% endfor %}
                         </ul>
                     </div>
-                    <div id="choice-wt" class="mb-3">
-                        <div class="form-group row">{{ form.dough_wt.label(class='control-label col-sm-4') }}<div class="col-sm-8">{{ form.dough_wt(class='form-control') }}</div></div>
-                        <div class="mb-4">
-                            <ul class="p-0">
-                                {% for subfield in form.g_oz %}
-                                <li class="form-check form-check-inline">
-                                    {{ subfield(class="form-check-input") }}
-                                    {{ subfield.label(class="form-check-label") }}
-                                </li>
-                                {% endfor %}
-                            </ul>
+                    <div id="choice-wt" class="mb-0">
+                        <div class="form-group row">
+                            <div class="col-sm-4">
+                                {{ form.dough_wt.label(class='control-label') }}
+                                <div>
+                                    <ul class="p-0">
+                                        {% for subfield in form.g_oz %}
+                                        <li class="form-check form-check-inline">
+                                            {{ subfield(class="form-check-input") }}
+                                            {{ subfield.label(class="form-check-label") }}
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                {{ form.dough_wt(class='form-control') }}
+                            </div>
                         </div>
                     </div>
                     <div id="choice-tf" class="mb-3">
