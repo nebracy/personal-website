@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% block head %}
+{% block head %}
     {% if config == 'Production' %}
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-200018834-1"></script>
@@ -13,12 +13,9 @@
       gtag('config', 'UA-200018834-1');
     </script>
     {% endif %}
-    {% block script %}
-    <script defer src="{{ url_for('static', filename='js/script.js', _external=True, _scheme='https') }}"></script>
-    {% endblock script %}
     <meta charset="UTF-8">
-    <title>Nicole Bracy | {{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Nicole Bracy | {{ title }}</title>
     <meta name="description" content="Nicole Bracy's personal website and sandbox showcasing a portfolio of mostly Python web apps and other projects.">
     <meta name="author" content="Nicole Bracy">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico', _external=True, _scheme='https') }}">
@@ -28,7 +25,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Give+You+Glory&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     {% endblock styles %}
-    {% endblock head %}
+    {% block script %}
+    <script defer src="{{ url_for('static', filename='js/script.js', _external=True, _scheme='https') }}"></script>
+    {% endblock script %}
+{% endblock head %}
 </head>
 <body>
     {% block body %}{% endblock body %}
