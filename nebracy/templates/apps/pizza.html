@@ -1,4 +1,7 @@
 {% extends "layout.html" %}
+{% block desc %}
+<meta name="description" content="This pizza dough calculator will help you make the perfect dough for a homemade New York-Style pizza.">
+{% endblock desc %}
 {% block script %}
 <script defer src="{{ url_for('static', filename='js/apps.js', _external=True, _scheme='https') }}"></script>
 {% endblock script %}
