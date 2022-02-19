@@ -15,7 +15,7 @@
     {% endif %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nicole Bracy | {{ title }}</title>
+    <title>{% block title %}Nicole Bracy | {{ title }}{% endblock title %}</title>
     {% block desc %}
     <meta name="description" content="Nicole Bracy's personal website and sandbox showcasing a portfolio of mostly Python web apps and other projects.">
     {% endblock desc %}
