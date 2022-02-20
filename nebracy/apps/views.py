@@ -10,9 +10,9 @@ apps = Blueprint('apps', __name__, subdomain='app')
 @apps.route('/', methods=['GET', 'POST'])
 @apps.route('/pizza', methods=['GET', 'POST'])
 def pizza():
-    form = DoughCalculatorForm()
+    form = DoughCalculatorForm(flour=100)
     if form.validate_on_submit():
-        dough = {ing.name: {'Percent': ing.data} for ing in form if ing.description} | {'flour': {'Percent': 100}}
+        dough = {ing.name: {'Percent': ing.data} for ing in form if ing.description}
 
         for ing in form.yeast.data + form.opt.data:
             if ing['iname']:
