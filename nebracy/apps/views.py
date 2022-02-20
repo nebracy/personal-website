@@ -36,7 +36,7 @@ def pizza():
             else:
                 kv |= {'Grams': weight * Decimal(28.349523125)}
         session['recipe'] = dough
-        return redirect(url_for('apps.pizza', _external=True, _scheme='https'))
+        return redirect(url_for('apps.pizza', _external=True, _scheme='https', _anchor='recipe'))
     dough, total = None, None
     if recipe := session.get('recipe'):
         total = recipe.pop('total')
