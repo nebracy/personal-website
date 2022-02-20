@@ -35,15 +35,6 @@ function tfWeight() {
 tfWeight();
 
 
-function printTable() {
-     var divToPrint=document.getElementById("recipe");
-        newWin= window.open("", "", 'height=500, width=750');
-        newWin.document.write(divToPrint.outerHTML);
-        newWin.print();
-        newWin.close();
-}
-
-
 function hideShowPrint() {
     if (document.getElementById('recipe')) {
         document.getElementById('print').hidden = false;
@@ -56,6 +47,6 @@ function hideShowPrint() {
 hideShowPrint();
 
 
-document.getElementById("print").addEventListener("click", printTable);
+document.getElementById("print").addEventListener("click", () => { window.print(); });
 
 document.getElementById('choice').addEventListener("change", tfWeight);
