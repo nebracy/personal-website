@@ -1,3 +1,5 @@
+const printBtn = document.getElementById("print")
+
 
 document.querySelectorAll('.slider').forEach(slider => {
     slider.addEventListener('input', function(e) {
@@ -37,10 +39,10 @@ tfWeight();
 
 function hideShowPrint() {
     if (document.getElementById('recipe')) {
-        document.getElementById('print').hidden = false;
+        printBtn.hidden = false;
     }
     else {
-        document.getElementById('print').hidden = true;
+        printBtn.hidden = true;
     }
 }
 
