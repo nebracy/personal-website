@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 import re
 from wtforms import DecimalField, DecimalRangeField, FieldList, FormField, IntegerField, IntegerRangeField, RadioField, StringField, SubmitField, SelectField
-from wtforms.validators import DataRequired, InputRequired, NumberRange, Optional, Length, NoneOf, ValidationError, Regexp
+from wtforms.validators import InputRequired, NumberRange, Optional, Length, NoneOf, ValidationError, Regexp
 from wtforms.widgets import HiddenInput
 
 ingredients = ['flour', 'water', 'idy', 'ady', 'salt', 'olive oil', 'sugar']
@@ -49,7 +49,7 @@ class YeastForm(FlaskForm):
 
 class DoughCalculatorForm(FlaskForm):
     choice = RadioField('TF/Weight', choices=['Dough Weight', 'Thickness Factor'], default='Thickness Factor', validators=[InputRequired()])
-    flour = IntegerField('Flour', description='Ingredient', validators=[DataRequired(), NumberRange(100, 100)], widget=HiddenInput())
+    flour = IntegerField('Flour', description='Ingredient', validators=[InputRequired(), NumberRange(100, 100)], widget=HiddenInput())
     dough_wt = DecimalField('Dough Weight', validators=[RequiredIf(), NumberRange(1, 20000)])
     g_oz = RadioField('Grams/Ounces', choices=['oz', 'g'], default='g', validators=[RequiredIf()])
     thk_factor = DecimalRangeField('Thickness Factor', validators=[RequiredIf(), NumberRange(0.07, 0.1)])
