@@ -5,7 +5,7 @@ document.querySelectorAll('.slider').forEach(slider => {
             document.getElementsByName("tf")[0].textContent = this.value;
         }
         else if (this.id == 'water') {
-            document.getElementsByName("hydration")[0].textContent = this.value;
+            document.getElementsByName("hydration")[0].textContent = this.value + "%";
         }
     })
 })
