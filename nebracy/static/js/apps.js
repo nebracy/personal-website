@@ -12,8 +12,8 @@ document.querySelectorAll('.slider').forEach(slider => {
 
 
 function tfWeight() {
-    doughWt = document.getElementById('dough_wt');
-    pizzaSz = document.getElementById('pizza_size');
+    const doughWt = document.getElementById('dough_wt');
+    const pizzaSz = document.getElementById('pizza_size');
 
     if (document.getElementById('choice-0').checked) {
         document.getElementById('choice-wt').style.display = "block";
@@ -47,6 +47,6 @@ function hideShowPrint() {
 hideShowPrint();
 
 
-document.getElementById("print").addEventListener("click", () => { window.print(); });
+printBtn.addEventListener("click", () => { window.print(); });
 
 document.getElementById('choice').addEventListener("change", tfWeight);
