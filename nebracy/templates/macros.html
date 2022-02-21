@@ -52,7 +52,7 @@
 
 
 {%- macro app_field(field) -%}
-<div class="form-group row align-items-end mb-4">
+<div id="{{ field.id }}-grp" class="form-group row align-items-end mb-4">
     {{ field.label(class='control-label col-sm-4') }}
     <div class="col-sm-8">
         {{ field(**kwargs)|safe }}

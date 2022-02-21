@@ -37,7 +37,7 @@ def pizza():
                 kv |= {'Grams': weight * Decimal(28.349523125)}
         session['recipe'] = dough
         return redirect(url_for('apps.pizza', _external=True, _scheme='https', _anchor='recipe'))
-    dough, total = None, None
+    dough = total = None
     if recipe := session.get('recipe'):
         total = recipe.pop('total')
         list_order = ['flour', 'water', 'IDY', 'ADY', 'salt', 'olive_oil', 'sugar']
