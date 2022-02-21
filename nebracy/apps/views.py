@@ -14,7 +14,7 @@ def pizza():
     if form.validate_on_submit():
         dough = {ing.name: {'Percent': ing.data} for ing in form if ing.description}
 
-        for ing in form.yeast.data + form.opt.data:
+        for ing in form.opt.data + [form.yeast.data]:
             if ing['iname']:
                 dough[ing['iname']] = {}
                 dough[ing['iname']]['Percent'] = ing['num']
