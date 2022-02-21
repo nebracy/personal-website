@@ -56,7 +56,7 @@ class DoughCalculatorForm(FlaskForm):
     pizza_size = IntegerField('Pizza Size (in)', validators=[RequiredIf(), NumberRange(12, 22)])
     pizza_num = IntegerField('Pizza(s)', validators=[InputRequired(), NumberRange(1, 25)])
     water = IntegerRangeField('Hydration', description='Ingredient', validators=[InputRequired(), NumberRange(55, 70)])
-    yeast = FieldList(FormField(YeastForm), min_entries=1, max_entries=1)
+    yeast = FormField(YeastForm)
     salt = DecimalField('Salt %', description='Ingredient', validators=[InputRequired(), NumberRange(0, 4)])
     olive_oil = DecimalField('Olive Oil %', description='Ingredient', validators=[NumberRange(0, 8)])
     sugar = DecimalField('Sugar %', description='Ingredient', validators=[NumberRange(0, 4)])
