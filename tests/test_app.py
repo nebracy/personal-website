@@ -50,7 +50,7 @@ def test_webhook_ping_header(client):
 def test_webhook_wrong_headers(client, headers):
     """"""
     response = client.post('/webhook', headers=headers)
-    assert response.status_code == 400
+    assert response.status_code == 401
     assert b"Missing correct headers" in response.data
 
 
@@ -59,7 +59,7 @@ def test_webhook_wrong_headers(client, headers):
 def test_webhook_wrong_github_secret(client, headers):
     """"""
     response = client.post('/webhook', headers=headers)
-    assert response.status_code == 400
+    assert response.status_code == 401
     assert b"Incorrect secret" in response.data
 
 
