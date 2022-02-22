@@ -103,6 +103,11 @@ a.btn, button#print {
     text-shadow: none;
 }
 
+button#hx-add {
+    font-weight: 500;
+    text-shadow: none;
+}
+
 label.oz-g {
     font-size: 0.9rem;
 }
