@@ -2,9 +2,9 @@
 
 {{ app_formfield(opt, class='form-control', value=0, step=0.05) }}
 {% if opt_entry < max_opt %}
-    <div class="col-sm-4 d-inline-flex" hx-target="this" hx-swap="outerHTML" hx-vals='{"opt_entry": {{ opt_entry }}}'>
+    <div class="col-sm-4 d-inline-flex" hx-target="this" hx-swap="outerHTML">
         <button id="hx-add" class="btn btn-sm btn-outline-secondary col-auto my-1"
-                hx-get="{{ url_for('apps.add_ingredient', _external=True, _scheme='https') }}"
+                hx-get="{{ url_for('apps.add_ingredient', opt_entry=opt_entry, _external=True, _scheme='https') }}"
                 hx-trigger="click">Add Ingredient
         </button>
     </div>
