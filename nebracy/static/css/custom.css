@@ -98,8 +98,9 @@ input.btn:focus {
     box-shadow: none;
 }
 
-a.btn, button.btn {
+a.btn, button#print {
     font-size: 19px;
+    text-shadow: none;
 }
 
 label.oz-g {
