@@ -50,4 +50,9 @@ def pizza():
 def add_ingredient():
     if 'HX_request' not in request.headers:
         abort(400)
-    return render_template('apps/add.html')
+
+    form = DoughCalculatorForm()
+    opt_entry = int(request.args.get('opt_entry', 0))
+    opt = form.opt.entries.pop(opt_entry)
+    opt_entry += 1
+    return render_template('apps/add.html', opt=opt, opt_entry=opt_entry)
