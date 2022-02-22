@@ -1,5 +1,5 @@
 from decimal import Decimal
-from flask import Blueprint, render_template, redirect, session, url_for
+from flask import Blueprint, render_template, redirect, session, url_for, request, abort
 import math
 from nebracy.apps.forms import DoughCalculatorForm
 
@@ -44,3 +44,10 @@ def pizza():
         list_order.extend(k for k in recipe.keys() - list_order)
         dough = {k: recipe[k] for k in list_order if recipe.get(k)}
     return render_template('apps/pizza.html', title="NY Pizza Dough Calculator", form=form, dough=dough, total=total)
+
+
+@apps.get('/pizza/add-ingredient')
+def add_ingredient():
+    if 'HX_request' not in request.headers:
+        abort(400)
+    return render_template('apps/add.html')
