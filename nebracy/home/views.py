@@ -31,7 +31,7 @@ def webhook():
             return jsonify(ping="Success"), 200
         validate_github_headers()
     except (IncorrectGithubSecretError, IncorrectGithubHeaderError) as e:
-        abort(400, e)
+        abort(401, e)
 
     payload = request.get_json()
     if payload['ref'] != 'refs/heads/master':
