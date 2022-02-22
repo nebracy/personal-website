@@ -59,4 +59,4 @@ def add_ingredient():
         abort(400, "Not a valid entry number.")
     else:
         opt_entry += 1
-        return render_template('apps/add.html', opt=opt, opt_entry=opt_entry)
+        return render_template('apps/add.html', opt=opt, opt_entry=opt_entry, max_opt=form.opt.max_entries)
