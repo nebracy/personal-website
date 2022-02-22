@@ -55,8 +55,8 @@ def add_ingredient(opt_entry=0):
     form = DoughCalculatorForm()
     try:
         opt = form.opt.entries.pop(opt_entry)
-    except (ValueError, IndexError):
-        abort(400, "Not a valid entry number.")
+    except IndexError:
+        abort(404)
     else:
         opt_entry += 1
         return render_template('apps/add.html', opt=opt, opt_entry=opt_entry, max_opt=form.opt.max_entries)
