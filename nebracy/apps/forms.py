@@ -60,5 +60,5 @@ class DoughCalculatorForm(FlaskForm):
     salt = DecimalField('Salt %', description='Ingredient', validators=[InputRequired(), NumberRange(0, 4)])
     olive_oil = DecimalField('Olive Oil %', description='Ingredient', validators=[NumberRange(0, 8)])
     sugar = DecimalField('Sugar %', description='Ingredient', validators=[NumberRange(0, 4)])
-    opt = FieldList(FormField(OptionalForm), min_entries=3, max_entries=3)
+    opt = FieldList(FormField(OptionalForm), min_entries=5, max_entries=5, validators=[Optional()])
     calculate = SubmitField('Calculate')
