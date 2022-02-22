@@ -47,13 +47,13 @@ def pizza():
 
 
 @apps.get('/pizza/add-ingredient')
-def add_ingredient():
+@apps.get('/pizza/add-ingredient/<int:opt_entry>')
+def add_ingredient(opt_entry=0):
     if 'HX_request' not in request.headers:
         abort(400)
 
     form = DoughCalculatorForm()
     try:
-        opt_entry = int(request.args.get('opt_entry', 0))
         opt = form.opt.entries.pop(opt_entry)
     except (ValueError, IndexError):
         abort(400, "Not a valid entry number.")

@@ -66,7 +66,7 @@
                     {{ app_field(form.salt, class='form-control', value=1.5, step=0.05) }}
                     {{ app_field(form.olive_oil, class='form-control', value=3, step=0.05) }}
                     {{ app_field(form.sugar, class='form-control', value=1.5, step=0.05) }}
-                    <div class="col-sm-4 d-inline-flex" hx-target="this" hx-swap="outerHTML" hx-vals='{"opt_entry": "0"}'>
+                    <div class="col-sm-4 d-inline-flex" hx-target="this" hx-swap="outerHTML">
                         <button id="hx-add" class="btn btn-sm btn-outline-secondary col-auto my-1"
                                 hx-get="{{ url_for('apps.add_ingredient', _external=True, _scheme='https') }}"
                                 hx-trigger="click">Add Ingredient
