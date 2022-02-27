@@ -106,6 +106,7 @@ a.btn, button#print {
 button#hx-add {
     font-weight: 500;
     text-shadow: none;
+    border-color: #ced4da;
 }
 
 label.oz-g {
