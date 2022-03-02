@@ -451,6 +451,10 @@ h2 {
   border-bottom: 1px solid var(--green);
 }
 
+.projects__content {
+  margin: 30px 0;
+}
+
 .projects__card {
   border: 2px solid #24756A;
   border-radius: 7px;
