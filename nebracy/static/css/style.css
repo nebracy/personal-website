@@ -405,12 +405,7 @@ h2 {
 .about {
   padding: 30px 15px 60px 15px;
   justify-content: center;
-  background-image: url(../img/python.svg);
-  background-size: 45%;
-  background-repeat: no-repeat;
-  background-position: left -15% bottom 140%;
   border-top: 1px solid var(--green);
-  border-bottom: 1px solid var(--green);
 }
 
 .about__wrap {
@@ -444,6 +439,16 @@ h2 {
   .about__content {
     flex-direction: row;
   }
+}
+
+.projects {
+  padding: 30px 15px 60px 15px;
+  justify-content: center;
+  background-image: url(../img/python.svg);
+  background-size: 45%;
+  background-repeat: no-repeat;
+  background-position: left -15% bottom 140%;
+  border-bottom: 1px solid var(--green);
 }
 
 h4 {
