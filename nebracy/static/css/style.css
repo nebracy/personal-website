@@ -1,5 +1,6 @@
 :root {
   --header-font: 'Bungee Shade', cursive;
+  --header3-font: 'Thasadith', sans-serif;
   --subheader-font: 'Give You Glory', cursive;
   --body-font: 'Open Sans', sans-serif;
   --min-height: 100vh;
@@ -296,7 +297,7 @@ nav, b.boldcolor {
 }
 
 h3 {
-  font-family: var(--header-font);
+  font-family: var(--header3-font);
   font-size: 5.3rem;
   font-weight: 400;
   margin: 10px 0;
