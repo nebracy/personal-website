@@ -34,7 +34,9 @@
                     <div class="projects__card card">
                         <div class="card__img"></div>
                         <div class="card__text">
-                            <h4>Pizza Dough Calculator</h4>
+                            <a class="card__link" href="{{ url_for('apps.pizza', _external=True, _scheme='https') }}">
+                                <h4>Pizza Dough Calculator</h4>
+                            </a>
                             <p>A calculator to help make the perfect dough for a homemade New York-Style pizza.</p>
                             <div class="card__tags">
                                 <span class="tag python">Python</span>
