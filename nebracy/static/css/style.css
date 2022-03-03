@@ -471,6 +471,15 @@ h4 {
   text-align: center;
 }
 
+.card__tags p {
+  font-size: 1.2rem;
+  border-radius: 3px;
+}
+
+.card__tags .python {background-color: #24756A;}
+.card__tags .html {background-color: #D1A246;}
+.card__tags .css {background-color: #1FB6D8;}
+
 .about__github {
   text-align: left;
   width: 100%;
