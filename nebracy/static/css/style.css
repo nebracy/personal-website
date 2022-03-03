@@ -461,10 +461,18 @@ h2 {
   border-radius: 7px;
   box-shadow: 3px 4px 4px #171321;
   background-color: #171321;
+  overflow: hidden;
 }
 
 .card__img {
+  flex-basis: 43%;
+  background-image: url(../img/doughball.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
+.card__text {
+  padding: 2rem;
 }
 
 h4 {
