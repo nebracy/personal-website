@@ -472,7 +472,7 @@ h2 {
 }
 
 .card__text {
-  padding: 2rem;
+  padding: 2rem 3rem;
 }
 
 a.card__link:hover {color: var(--green)}
