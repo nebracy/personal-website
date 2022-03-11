@@ -494,6 +494,12 @@ h4 {
 .card__tags .html {background-color: #D1A246;}
 .card__tags .css {background-color: #1FB6D8;}
 
+@media screen and (max-width: 600px) {
+  .card__img {
+    display: none;
+  }
+}
+
 h5 {
   font-family: var(--subheader-font);
   font-size: 2.9rem;
