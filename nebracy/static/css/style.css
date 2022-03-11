@@ -459,7 +459,7 @@ h2 {
   display: flex;
   border: 2px solid #24756A;
   border-radius: 7px;
-  box-shadow: 3px 4px 4px #171321;
+  box-shadow: 3px 4px 4px #000000;
   background-color: #171321;
   overflow: hidden;
 }
