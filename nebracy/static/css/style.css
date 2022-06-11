@@ -444,10 +444,10 @@ h2 {
 .projects {
   padding: 30px 15px 60px 15px;
   justify-content: center;
-  background-image: url(../img/python.svg);
-  background-size: 45%;
+  background-image: url(../img/python.webp);
+  background-size: 750px;
   background-repeat: no-repeat;
-  background-position: left -15% bottom 140%;
+  background-position: right -10em bottom -5em;
   border-bottom: 1px solid var(--green);
 }
 
