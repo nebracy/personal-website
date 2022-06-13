@@ -33,11 +33,13 @@
                     </div>
                     <div class="projects__content">
                         <div class="projects__card card">
-                            <div class="card__img"></div>
-                            <div class="card__text">
-                                <a class="card__link" href="{{ url_for('apps.pizza', _external=True, _scheme='https') }}">
-                                    <h4>Pizza Dough Calculator</h4>
+                            <div class="card__img">
+                                <a href="{{ url_for('apps.pizza', _external=True, _scheme='https') }}">
+                                    <span class="card__link"></span>
                                 </a>
+                            </div>
+                            <div class="card__text">
+                                <h4>Pizza Dough Calculator</h4>
                                 <p>A calculator to help make the perfect dough for a homemade New York-Style pizza.</p>
                                 <div class="card__tags">
                                     <span class="tag python">Python</span>
