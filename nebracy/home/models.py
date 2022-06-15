@@ -48,7 +48,7 @@ class GithubCommits:
             commits = repo.get_commits()[:self.commit_num]
             for c in commits:
                 if c.commit.committer.date > num_months_ago:
-                    self.list.append({'commit_id': c.commit.sha, 'name': repo.full_name, 'url': repo.html_url,
+                    self.list.append({'commit_id': c.commit.sha, 'name': repo.name, 'url': repo.html_url,
                                       'date': self.convert_tz(c.commit.committer.date), 'msg': c.commit.message})
 
     def sort_list(self) -> None:
