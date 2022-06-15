@@ -408,8 +408,12 @@ h2 {
   border-top: 1px solid var(--green);
 }
 
+.about__img {
+
+}
+
 .about__wrap {
-  margin-left: 200px;
+    margin-left: 25px;
 }
 
 @media screen and (max-width: 1200px) {
