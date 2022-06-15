@@ -419,6 +419,7 @@ h2 {
 
 .about__wrap {
     margin-left: 25px;
+    padding-right: 50px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -427,6 +428,7 @@ h2 {
   }
   .about__wrap {
     margin-left: 0;
+    padding-right: 0;
   }
 }
 
