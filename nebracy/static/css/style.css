@@ -422,6 +422,9 @@ h2 {
 }
 
 @media screen and (max-width: 1200px) {
+  .about__imagewrap {
+    display: none;
+  }
   .about__wrap {
     margin-left: 0;
   }
