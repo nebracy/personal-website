@@ -481,6 +481,10 @@ h2 {
   }
 }
 
+.projects__wrap {
+    align-items: stretch;
+}
+
 .projects__content {
   margin: 30px 0;
 }
