@@ -1,8 +1,5 @@
-venv/
 instance/
 local/
-__pycache__/
-.idea/
 .hypothesis/
 
 *.css.map
