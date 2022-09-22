@@ -449,6 +449,15 @@ h2 {
   align-self: stretch;
 }
 
+a.about__django {
+    color: var(--green);
+    font-weight: 600;
+}
+
+a.about__django:hover {
+  color: var(--white);
+}
+
 @media screen and (min-width: 650px) {
   .about__content {
     flex-direction: row;
