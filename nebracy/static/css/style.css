@@ -313,6 +313,9 @@ h3 {
     line-height: 135%;
     margin-bottom: 40px;
   }
+  .projects__header h3 {
+    margin-bottom: 15px;
+  }
 }
 
 .home {
@@ -403,7 +406,7 @@ h2 {
 }
 
 .about {
-  padding: 30px 25px 60px;
+  padding: 30px 25px 40px;
   justify-content: center;
   border-top: 1px solid var(--green);
 }
@@ -465,7 +468,7 @@ a.about__django:hover {
 }
 
 .projects {
-  padding: 30px 25px 60px;
+  padding: 8px 25px 60px;
   justify-content: center;
   background-image: url(../img/python.webp);
   background-size: 750px;
