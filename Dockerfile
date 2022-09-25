@@ -1,4 +1,4 @@
-FROM public.ecr.aws/starcat/python:latest
+FROM public.ecr.aws/docker/library/python:3.10-slim-bullseye
 
 WORKDIR /app
 
