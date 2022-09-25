@@ -8,7 +8,7 @@ apps = Blueprint('apps', __name__, subdomain='app')
 
 
 @apps.route('/', methods=['GET', 'POST'])
-@apps.route('/pizza', methods=['GET', 'POST'])
+@apps.route('/pizza-dough-calculator', methods=['GET', 'POST'])
 def pizza():
     form = DoughCalculatorForm(flour=100)
     if form.validate_on_submit():
@@ -46,8 +46,8 @@ def pizza():
     return render_template('apps/pizza.html', form=form, dough=dough, total=total)
 
 
-@apps.get('/pizza/add-ingredient')
-@apps.get('/pizza/add-ingredient/<int:opt_entry>')
+@apps.get('/pizza-dough-calculator/add-ingredient')
+@apps.get('/pizza-dough-calculator/add-ingredient/<int:opt_entry>')
 def add_ingredient(opt_entry=0):
     if 'HX_request' not in request.headers:
         abort(400)
