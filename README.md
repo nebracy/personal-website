@@ -1,7 +1,6 @@
-# My Website
-Welcome, this is the old Flask version of my personal website. Currently, I am learning Django.
+# Flask Personal Website
+This was the first interation of my personal website.
 
-This was the initial version of my website that I used to start learning about web development and host some simple Python projects.
-It is basic, using just HTML/CSS and some Javascript. Flask is the web framework. I am using docker containers and for now, this version it is still hosted on AWS.
+It was built using HTML/CSS, Javascript, and Flask as the web framework. I used it to start learning about web development, DevOps, and AWS services like EC2 and ECS.
 
-View it here at https://nicolebracy.com
+You can check out the repo of my current personal website [here](https://github.com/nebracy/django-portfolio-website), it uses Django as the web framework instead.
